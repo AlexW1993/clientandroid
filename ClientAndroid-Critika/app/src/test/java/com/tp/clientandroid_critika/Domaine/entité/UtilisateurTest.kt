@@ -5,7 +5,7 @@ import org.junit.Test
 class UtilisateurTest {
 
     @Test
-    fun `étant donné une utilisateur, lorsque je crée mon perfil utilisateur en utilisant le constructeur, j'obtien le resulta id = 1 nom =  Will, mot de passe = "1234", codeAvatar = "1", type = utiisateur et droit à ecrire = false`(){
+    fun `étant donné une utilisateur, lorsque je crée mon perfil utilisateur en utilisant le constructeur, j'obtien le resulta id = 1 nom =  Will, mot de passe = "1234", codeAvatar = "1" et type = utiisateur`(){
 
         //Mise en place
         var id = "1"
@@ -13,11 +13,10 @@ class UtilisateurTest {
         var motPasse = "1234"
         var codeAvatar = "1"
         var type = "utilisateur"
-        var droitEcrire = false
 
 
         //Exécution
-        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur", false)
+        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur")
 
         //Vérification
         Assert.assertEquals(id, cobaye.id)
@@ -25,14 +24,13 @@ class UtilisateurTest {
         Assert.assertEquals(motPasse, cobaye.motPasse)
         Assert.assertEquals(codeAvatar, cobaye.codeAvatar)
         Assert.assertEquals(type, cobaye.type)
-        Assert.assertEquals(droitEcrire, cobaye.droitEcrire)
     }
 
     @Test
-    fun `étant donné une utilisateur, lorsque je fais une modification dans mon compte, j'obtien le resulta id = 2 nom =  Alex, mot de passe = "0000", codeAvatar = "2", type = administrateur et droit à ecrire = true`(){
+    fun `étant donné une utilisateur, lorsque je fais une modification dans mon compte, j'obtien le resulta id = 2 nom =  Alex, mot de passe = "0000", codeAvatar = "2" et type = administrateur`(){
 
         //Mise en place
-        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur", false)
+        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur")
 
 
         //Exécution
@@ -41,7 +39,6 @@ class UtilisateurTest {
         cobaye.motPasse = "0000"
         cobaye.codeAvatar = "2"
         cobaye.type = "administrateur"
-        cobaye.droitEcrire = true
 
         //Vérification
         Assert.assertEquals("2", cobaye.id)
@@ -49,15 +46,14 @@ class UtilisateurTest {
         Assert.assertEquals("0000", cobaye.motPasse)
         Assert.assertEquals("2", cobaye.codeAvatar)
         Assert.assertEquals("administrateur", cobaye.type)
-        Assert.assertEquals(true, cobaye.droitEcrire)
     }
 
     @Test
-    fun `étant donné une utilisateur, lorsque je veux afficher les information de mon profil, j'obtien le resulta "Utilisateur(id='1', nom='Will', motPasse='1234', codeAvatar='1', type='utilisateur', droitEcrire=false)"`(){
+    fun `étant donné une utilisateur, lorsque je veux afficher les information de mon profil, j'obtien le resulta "Utilisateur(id='1', nom='Will', motPasse='1234', codeAvatar='1', type='utilisateur')"`(){
 
         //Mise en place
-        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur", false)
-        var resultatAttandu = "Utilisateur(id='1', nom='Will', motPasse='1234', codeAvatar='1', type='utilisateur', droitEcrire=false)"
+        var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur")
+        var resultatAttandu = "Utilisateur(id='1', nom='Will', motPasse='1234', codeAvatar='1', type='utilisateur')"
 
 
         //Exécution
