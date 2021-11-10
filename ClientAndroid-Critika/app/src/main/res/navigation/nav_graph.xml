@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pageInitiale">
+
+    <fragment
+        android:id="@+id/pageConnexion"
+        android:name="com.tp.clientandroid_critika.PageConnexion"
+        android:label="fragment_page_connexion"
+        tools:layout="@layout/fragment_page_connexion" />
+    <fragment
+        android:id="@+id/pageInscription"
+        android:name="com.tp.clientandroid_critika.PageInscription"
+        android:label="fragment_page_inscription"
+        tools:layout="@layout/fragment_page_inscription" />
+    <fragment
+        android:id="@+id/pageInitiale"
+        android:name="com.tp.clientandroid_critika.PageInitiale"
+        android:label="fragment_page_initiale"
+        tools:layout="@layout/fragment_page_initiale" />
+    <fragment
+        android:id="@+id/menuPrincipale"
+        android:name="com.tp.clientandroid_critika.MenuPrincipale"
+        android:label="fragment_menu_principale"
+        tools:layout="@layout/fragment_menu_principale" />
+    <fragment
+        android:id="@+id/pageJeu"
+        android:name="com.tp.clientandroid_critika.PageJeu"
+        android:label="fragment_page_jeu"
+        tools:layout="@layout/fragment_page_jeu" />
+    <fragment
+        android:id="@+id/pageRecherche"
+        android:name="com.tp.clientandroid_critika.PageRecherche"
+        android:label="fragment_page_recherche"
+        tools:layout="@layout/fragment_page_recherche" />
+    <fragment
+        android:id="@+id/pageResultatRecherche"
+        android:name="com.tp.clientandroid_critika.PageResultatRecherche"
+        android:label="fragment_page_resultat_recherche"
+        tools:layout="@layout/fragment_page_resultat_recherche" />
+    <fragment
+        android:id="@+id/menuCompte"
+        android:name="com.tp.clientandroid_critika.MenuCompte"
+        android:label="fragment_menu_compte"
+        tools:layout="@layout/fragment_menu_compte" />
+    <fragment
+        android:id="@+id/changementAvatar"
+        android:name="com.tp.clientandroid_critika.ChangementAvatar"
+        android:label="fragment_changement_avatar"
+        tools:layout="@layout/fragment_changement_avatar" />
+    <fragment
+        android:id="@+id/changementSurnom"
+        android:name="com.tp.clientandroid_critika.ChangementSurnom"
+        android:label="fragment_changement_surnom"
+        tools:layout="@layout/fragment_changement_surnom" />
+    <fragment
+        android:id="@+id/changementMotPasse"
+        android:name="com.tp.clientandroid_critika.ChangementMotPasse"
+        android:label="fragment_changement_mot_passe"
+        tools:layout="@layout/fragment_changement_mot_passe" />
+</navigation>
