@@ -9,55 +9,192 @@
         android:id="@+id/pageConnexion"
         android:name="com.tp.clientandroid_critika.PageConnexion"
         android:label="fragment_page_connexion"
-        tools:layout="@layout/fragment_page_connexion" />
+        tools:layout="@layout/fragment_page_connexion" >
+        <action
+            android:id="@+id/action_pageConnexion_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_pageConnexion_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+    </fragment>
     <fragment
         android:id="@+id/pageInscription"
         android:name="com.tp.clientandroid_critika.PageInscription"
         android:label="fragment_page_inscription"
-        tools:layout="@layout/fragment_page_inscription" />
+        tools:layout="@layout/fragment_page_inscription" >
+        <action
+            android:id="@+id/action_pageInscription_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_pageInscription_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+    </fragment>
     <fragment
         android:id="@+id/pageInitiale"
         android:name="com.tp.clientandroid_critika.PageInitiale"
         android:label="fragment_page_initiale"
-        tools:layout="@layout/fragment_page_initiale" />
+        tools:layout="@layout/fragment_page_initiale" >
+        <action
+            android:id="@+id/action_pageInitiale_to_pageConnexion"
+            app:destination="@id/pageConnexion" />
+        <action
+            android:id="@+id/action_pageInitiale_to_pageInscription"
+            app:destination="@id/pageInscription" />
+    </fragment>
     <fragment
         android:id="@+id/menuPrincipale"
         android:name="com.tp.clientandroid_critika.MenuPrincipale"
         android:label="fragment_menu_principale"
-        tools:layout="@layout/fragment_menu_principale" />
+        tools:layout="@layout/fragment_menu_principale" >
+        <action
+            android:id="@+id/action_menuPrincipale_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+        <action
+            android:id="@+id/action_menuPrincipale_to_pageJeu"
+            app:destination="@id/pageJeu" />
+        <action
+            android:id="@+id/action_menuPrincipale_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_menuPrincipale_to_menuCompte"
+            app:destination="@id/menuCompte" />
+    </fragment>
     <fragment
         android:id="@+id/pageJeu"
         android:name="com.tp.clientandroid_critika.PageJeu"
         android:label="fragment_page_jeu"
-        tools:layout="@layout/fragment_page_jeu" />
+        tools:layout="@layout/fragment_page_jeu" >
+        <action
+            android:id="@+id/action_pageJeu_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+        <action
+            android:id="@+id/action_pageJeu_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_pageJeu_to_menuCompte"
+            app:destination="@id/menuCompte" />
+        <action
+            android:id="@+id/action_pageJeu_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+    </fragment>
     <fragment
         android:id="@+id/pageRecherche"
         android:name="com.tp.clientandroid_critika.PageRecherche"
         android:label="fragment_page_recherche"
-        tools:layout="@layout/fragment_page_recherche" />
+        tools:layout="@layout/fragment_page_recherche" >
+        <action
+            android:id="@+id/action_pageRecherche_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+        <action
+            android:id="@+id/action_pageRecherche_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_pageRecherche_to_menuPrincipale2"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_pageRecherche_to_pageResultatRecherche"
+            app:destination="@id/pageResultatRecherche" />
+        <action
+            android:id="@+id/action_pageRecherche_to_menuCompte"
+            app:destination="@id/menuCompte" />
+    </fragment>
     <fragment
         android:id="@+id/pageResultatRecherche"
         android:name="com.tp.clientandroid_critika.PageResultatRecherche"
         android:label="fragment_page_resultat_recherche"
-        tools:layout="@layout/fragment_page_resultat_recherche" />
+        tools:layout="@layout/fragment_page_resultat_recherche" >
+        <action
+            android:id="@+id/action_pageResultatRecherche_to_pageJeu"
+            app:destination="@id/pageJeu" />
+        <action
+            android:id="@+id/action_pageResultatRecherche_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_pageResultatRecherche_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_pageResultatRecherche_to_menuCompte"
+            app:destination="@id/menuCompte" />
+        <action
+            android:id="@+id/action_pageResultatRecherche_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+    </fragment>
     <fragment
         android:id="@+id/menuCompte"
         android:name="com.tp.clientandroid_critika.MenuCompte"
         android:label="fragment_menu_compte"
-        tools:layout="@layout/fragment_menu_compte" />
+        tools:layout="@layout/fragment_menu_compte" >
+        <action
+            android:id="@+id/action_menuCompte_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_menuCompte_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_menuCompte_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+        <action
+            android:id="@+id/action_menuCompte_to_changementAvatar"
+            app:destination="@id/changementAvatar" />
+        <action
+            android:id="@+id/action_menuCompte_to_changementSurnom"
+            app:destination="@id/changementSurnom" />
+        <action
+            android:id="@+id/action_menuCompte_to_changementMotPasse"
+            app:destination="@id/changementMotPasse" />
+    </fragment>
     <fragment
         android:id="@+id/changementAvatar"
         android:name="com.tp.clientandroid_critika.ChangementAvatar"
         android:label="fragment_changement_avatar"
-        tools:layout="@layout/fragment_changement_avatar" />
+        tools:layout="@layout/fragment_changement_avatar" >
+        <action
+            android:id="@+id/action_changementAvatar_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_changementAvatar_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_changementAvatar_to_menuCompte"
+            app:destination="@id/menuCompte" />
+        <action
+            android:id="@+id/action_changementAvatar_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+    </fragment>
     <fragment
         android:id="@+id/changementSurnom"
         android:name="com.tp.clientandroid_critika.ChangementSurnom"
         android:label="fragment_changement_surnom"
-        tools:layout="@layout/fragment_changement_surnom" />
+        tools:layout="@layout/fragment_changement_surnom" >
+        <action
+            android:id="@+id/action_changementSurnom_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+        <action
+            android:id="@+id/action_changementSurnom_to_menuCompte"
+            app:destination="@id/menuCompte" />
+        <action
+            android:id="@+id/action_changementSurnom_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_changementSurnom_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+    </fragment>
     <fragment
         android:id="@+id/changementMotPasse"
         android:name="com.tp.clientandroid_critika.ChangementMotPasse"
         android:label="fragment_changement_mot_passe"
-        tools:layout="@layout/fragment_changement_mot_passe" />
+        tools:layout="@layout/fragment_changement_mot_passe" >
+        <action
+            android:id="@+id/action_changementMotPasse_to_menuCompte"
+            app:destination="@id/menuCompte" />
+        <action
+            android:id="@+id/action_changementMotPasse_to_pageRecherche"
+            app:destination="@id/pageRecherche" />
+        <action
+            android:id="@+id/action_changementMotPasse_to_menuPrincipale"
+            app:destination="@id/menuPrincipale" />
+        <action
+            android:id="@+id/action_changementMotPasse_to_pageInitiale"
+            app:destination="@id/pageInitiale" />
+    </fragment>
 </navigation>
