@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/activity_main.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_changement_avatar.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_changement_mot_passe.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_changement_surnom.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_menu_compte.xml" value="0.1585144927536232" />
+        <entry key="..\:/Users/Admin/Desktop/Cegep/2021 session automne/Projet Final/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_resultat_recherche.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_connexion.xml" value="0.20989583333333334" />
       </map>
     </option>
