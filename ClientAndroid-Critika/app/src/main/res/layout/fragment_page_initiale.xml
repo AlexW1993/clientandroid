@@ -103,20 +103,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/ombre_bouton_blanc"
+            android:id="@+id/ombre_texte"
             android:layout_width="279dp"
             android:layout_height="86dp"
             android:layout_marginTop="60dp"
             android:src="@drawable/ombre_bouton"
-            app:layout_constraintBottom_toBottomOf="@+id/bouton_blanc"
-            app:layout_constraintEnd_toEndOf="@+id/bouton_blanc"
+            app:layout_constraintBottom_toBottomOf="@+id/zone_texte"
+            app:layout_constraintEnd_toEndOf="@+id/zone_texte"
             app:layout_constraintHorizontal_bias="0.835"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
         <ImageView
-            android:id="@+id/bouton_blanc"
+            android:id="@+id/zone_texte"
             android:layout_width="279dp"
             android:layout_height="86dp"
             android:layout_marginTop="70dp"
@@ -130,7 +130,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/texte_bouton_blanc"
+            android:id="@+id/texte"
             android:layout_width="258dp"
             android:layout_height="44dp"
             android:fontFamily="sans-serif-thin"
@@ -138,10 +138,10 @@
             android:textAlignment="center"
             android:textColor="#431212"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/bouton_blanc"
-            app:layout_constraintEnd_toEndOf="@+id/bouton_blanc"
-            app:layout_constraintStart_toStartOf="@+id/bouton_blanc"
-            app:layout_constraintTop_toTopOf="@+id/bouton_blanc" />
+            app:layout_constraintBottom_toBottomOf="@+id/zone_texte"
+            app:layout_constraintEnd_toEndOf="@+id/zone_texte"
+            app:layout_constraintStart_toStartOf="@+id/zone_texte"
+            app:layout_constraintTop_toTopOf="@+id/zone_texte" />
 
         <TextView
             android:id="@+id/texte_bouton_rouge"
