@@ -90,6 +90,7 @@
         app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_menu"
         android:layout_width="409dp"
         android:layout_height="437dp"
         android:layout_marginStart="1dp"
