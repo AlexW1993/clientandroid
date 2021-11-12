@@ -80,26 +80,6 @@ app:layout_constraintStart_toStartOf="parent" />
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageView
-            android:id="@+id/ombre_bouton_rouge"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ombre_bouton"
-            app:layout_constraintBottom_toBottomOf="@+id/bouton_rouge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/bouton_rouge"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginBottom="70dp"
-            android:src="@drawable/bouton_rouge"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
 
 
         <ImageView
@@ -188,6 +168,28 @@ app:layout_constraintStart_toStartOf="parent" />
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <ImageView
+            android:id="@+id/ombre_bouton_rouge"
+            android:layout_width="279dp"
+            android:layout_height="86dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ombre_bouton"
+            app:layout_constraintBottom_toBottomOf="@+id/bouton_rouge"
+            app:layout_constraintEnd_toEndOf="@+id/bouton_rouge"
+            app:layout_constraintHorizontal_bias="0.852"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/bouton_rouge"
+            android:layout_width="279dp"
+            android:layout_height="86dp"
+            android:layout_marginBottom="70dp"
+            android:src="@drawable/bouton_rouge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/texte_bouton_rouge"
             android:layout_width="258dp"
@@ -201,7 +203,6 @@ app:layout_constraintStart_toStartOf="parent" />
             app:layout_constraintEnd_toEndOf="@+id/bouton_rouge"
             app:layout_constraintStart_toStartOf="@+id/bouton_rouge"
             app:layout_constraintTop_toTopOf="@+id/bouton_rouge" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
