@@ -1,14 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout_inscription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PageInscription">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/fond_gris_inscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_noir_2_"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/fond_rouge_inscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_rouge_2_"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/contenant_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_inscription" />
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="128dp"
+        android:layout_height="107dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="@+id/contenant_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/contenant_avatar"
+        app:layout_constraintStart_toStartOf="@+id/contenant_avatar"
+        app:layout_constraintTop_toTopOf="@+id/contenant_avatar" />
+
+    <ImageView
+        android:id="@+id/saisie_mdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/surnom_3_"
+        app:layout_constraintBottom_toTopOf="@+id/bouton_inscription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/saisie_mdp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/surnom_3_"
+        app:layout_constraintBottom_toTopOf="@+id/saisie_mdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/saisie_surnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/surnom_3_"
+        app:layout_constraintBottom_toTopOf="@+id/saisie_mdp1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contenant_avatar" />
+
+    <EditText
+        android:id="@+id/zone_texte_mot_passe_2"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:src="@drawable/bouton_blanc"
+        android:textAlignment="center"
+        android:textColor="#431212"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/saisie_mdp"
+        app:layout_constraintEnd_toEndOf="@+id/saisie_mdp"
+        app:layout_constraintStart_toStartOf="@+id/saisie_mdp"
+        app:layout_constraintTop_toTopOf="@+id/saisie_mdp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/zone_texte_surnom"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Surnom"
+        android:src="@drawable/bouton_blanc"
+        android:textAlignment="center"
+        android:textColor="#431212"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/saisie_surnom"
+        app:layout_constraintEnd_toEndOf="@+id/saisie_surnom"
+        app:layout_constraintStart_toStartOf="@+id/saisie_surnom"
+        app:layout_constraintTop_toTopOf="@+id/saisie_surnom"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/zone_texte_mot_passe_1"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        android:src="@drawable/bouton_blanc"
+        android:textAlignment="center"
+        android:textColor="#431212"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/saisie_mdp1"
+        app:layout_constraintEnd_toEndOf="@+id/saisie_mdp1"
+        app:layout_constraintStart_toStartOf="@+id/saisie_mdp1"
+        app:layout_constraintTop_toTopOf="@+id/saisie_mdp1"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/bouton_logo_retour_inscription"
+        android:layout_width="79dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logocriti"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris_inscription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bouton_avatar_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/bouton_image"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/bouton_avatar_camera"
+        app:layout_constraintStart_toEndOf="@+id/contenant_avatar"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_inscription" />
+
+    <ImageButton
+        android:id="@+id/bouton_avatar_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/bouton_camere"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_inscription" />
+
+    <ImageButton
+        android:id="@+id/bouton_inscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/bouton_s_inscrire"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
