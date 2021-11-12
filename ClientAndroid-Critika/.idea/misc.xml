@@ -10,6 +10,9 @@
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/bouton_avatar_image.xml" value="0.2703125" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/bouton_blanc.xml" value="0.2703125" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/bouton_rouge.xml" value="0.2703125" />
+        <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/bouton_s_inscrire.xml" value="0.2703125" />
+        <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/boutou_se_connecter.xml" value="0.2703125" />
+        <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/fond_gris_initial.xml" value="0.2703125" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/home.xml" value="0.2703125" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/image.xml" value="0.734375" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/logo.xml" value="0.24895833333333334" />
@@ -20,7 +23,7 @@
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/drawable/shadow.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/activity_main.xml" value="0.2296875" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_changement_mot_passe.xml" value="0.264" />
-        <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_connexion.xml" value="0.4" />
+        <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_connexion.xml" value="0.264" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_initiale.xml" value="0.19649122807017544" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/layout/fragment_page_inscription.xml" value="0.264" />
         <entry key="..\:/Users/F_Des/OneDrive/Bureau/clientandroid/ClientAndroid-Critika/app/src/main/res/mipmap-anydpi-v26/logo_critika.xml" value="0.14635416666666667" />

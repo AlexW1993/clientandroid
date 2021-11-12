@@ -2,161 +2,59 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/frameLayout_initial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PageInitiale">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fond_blanc"
-        android:layout_width="412dp"
-        android:layout_height="283dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerCrop"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logocriti"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".40"
-        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="0dp"
-            android:layout_height="190dp"
-            android:src="@drawable/logo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/ombre_fond_gris"
-        android:src="@drawable/ombre_fond"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="-5dp"
-        android:layout_marginEnd="-5dp"
-        app:layout_constraintBottom_toTopOf="@+id/fond_rouge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent" />
-    />
-
-    <ImageView
-        android:id="@+id/barre_grise"
-        android:layout_width="0dp"
-        android:layout_height="113dp"
-        android:src="@drawable/barre_grise"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fond_blanc" />
-
-    <ImageView
-        android:id="@+id/ombre_fond_rouge"
-        android:layout_width="0dp"
-        android:layout_height="8dp"
-        android:layout_marginStart="-10dp"
-        android:layout_marginEnd="-10dp"
-        android:src="@drawable/shadow"
-        app:layout_constraintBottom_toTopOf="@+id/fond_rouge"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/fond_gris"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_noir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
         android:id="@+id/fond_rouge"
-        android:layout_width="0dp"
-        android:layout_height="382dp"
-        android:background="#8E1616"
-        android:elevation="2dp"
-        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_rouge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".40"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/ombre_bouton_rouge"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginBottom="8dp"
-            android:src="@drawable/ombre_bouton"
-            app:layout_constraintBottom_toBottomOf="@+id/bouton_rouge"
-            app:layout_constraintEnd_toEndOf="@+id/bouton_rouge"
-            app:layout_constraintHorizontal_bias="0.835"
-            app:layout_constraintStart_toStartOf="parent" />
+    <ImageButton
+        android:id="@+id/bouton_Se_connecter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/bouton_connection"
+        app:layout_constraintBottom_toTopOf="@+id/bouton_s_inscrire_initial"
+        app:layout_constraintEnd_toEndOf="@+id/fond_rouge"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge" />
 
-        <ImageView
-            android:id="@+id/bouton_rouge"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginBottom="70dp"
-            android:src="@drawable/bouton_rouge"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/ombre_texte"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/ombre_bouton"
-            app:layout_constraintBottom_toBottomOf="@+id/zone_texte"
-            app:layout_constraintEnd_toEndOf="@+id/zone_texte"
-            app:layout_constraintHorizontal_bias="0.835"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
-
-        <ImageView
-            android:id="@+id/zone_texte"
-            android:layout_width="279dp"
-            android:layout_height="86dp"
-            android:layout_marginTop="70dp"
-            android:clickable="true"
-            android:soundEffectsEnabled="true"
-            android:src="@drawable/bouton_blanc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/texte"
-            android:layout_width="258dp"
-            android:layout_height="44dp"
-            android:fontFamily="sans-serif-thin"
-            android:text="Se Connecter"
-            android:textAlignment="center"
-            android:textColor="#431212"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/zone_texte"
-            app:layout_constraintEnd_toEndOf="@+id/zone_texte"
-            app:layout_constraintStart_toStartOf="@+id/zone_texte"
-            app:layout_constraintTop_toTopOf="@+id/zone_texte" />
-
-        <TextView
-            android:id="@+id/texte_bouton_rouge"
-            android:layout_width="258dp"
-            android:layout_height="44dp"
-            android:fontFamily="sans-serif-thin"
-            android:text="S'inscrire"
-            android:textAlignment="center"
-            android:textColor="#431212"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="@+id/bouton_rouge"
-            app:layout_constraintEnd_toEndOf="@+id/bouton_rouge"
-            app:layout_constraintStart_toStartOf="@+id/bouton_rouge"
-            app:layout_constraintTop_toTopOf="@+id/bouton_rouge" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <ImageButton
+        android:id="@+id/bouton_s_inscrire_initial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/bouton_s_inscrire"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
