@@ -8,7 +8,7 @@
     tools:context=".MenuCompte" >
 
     <ImageButton
-        android:id="@+id/bouton_retour_menu_compte"
+        android:id="@+id/bouton_retour_menu_surnom"
         android:layout_width="123dp"
         android:layout_height="115dp"
         android:layout_marginStart="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/bouton_deconnection_menu_compte"
+        android:id="@+id/bouton_deconnection_menu_surnom"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/fond_gris_menu_compte"
+        android:id="@+id/fond_gris_menu_surnom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/rectangle_noir_3_"
@@ -42,17 +42,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/fond_rouge_menu_compte"
+        android:id="@+id/fond_rouge_menu_surnom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/rectangle_rouge_3_"
-        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_compte"
+        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_surnom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/bouton_menu_menu_compte"
+        android:id="@+id/bouton_menu_menu_surnom"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:layout_width="wrap_content"
@@ -61,23 +61,23 @@
         android:src="@drawable/home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_compte" />
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
 
     <ImageButton
-        android:id="@+id/bouton_recherche_menu_compte"
+        android:id="@+id/bouton_recherche_menu_surnom"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_compte"
-        app:layout_constraintEnd_toStartOf="@+id/bouton_compte_menu_compte"
-        app:layout_constraintStart_toEndOf="@+id/bouton_menu_menu_compte"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_compte" />
+        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_surnom"
+        app:layout_constraintEnd_toStartOf="@+id/bouton_compte_menu_surnom"
+        app:layout_constraintStart_toEndOf="@+id/bouton_menu_menu_surnom"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
 
     <ImageButton
-        android:id="@+id/bouton_compte_menu_compte"
+        android:id="@+id/bouton_compte_menu_surnom"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:layout_width="93dp"
@@ -86,8 +86,8 @@
         android:layout_marginEnd="30dp"
         android:src="@drawable/user_menu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/fond_rouge_menu_compte"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_compte" />
+        app:layout_constraintEnd_toEndOf="@+id/fond_rouge_menu_surnom"
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -97,7 +97,7 @@
         android:layout_marginTop="32dp"
         android:src="@drawable/avatar_1_"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bouton_retour_menu_compte" />
+        app:layout_constraintTop_toBottomOf="@+id/bouton_retour_menu_surnom" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -121,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/bouton_deconnection_menu_compte" />
+        app:layout_constraintTop_toBottomOf="@+id/bouton_deconnection_menu_surnom" />
 
     <ImageButton
         android:id="@+id/bouton_modification_surnom"
@@ -144,7 +144,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:src="@drawable/pencil_create"
-        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_compte"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_surnom"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -168,7 +168,7 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_compte"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_surnom"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -194,7 +194,7 @@
         android:text="Ton mot de passe"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_compte"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_surnom"
         app:layout_constraintEnd_toStartOf="@+id/bouton_modification_mot_passe"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
