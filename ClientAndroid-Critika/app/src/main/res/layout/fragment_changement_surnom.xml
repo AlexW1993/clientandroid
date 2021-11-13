@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout_changement_surnom"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangementSurnom">
+    tools:context=".ChangementSurnom" >
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageButton
+    android:id="@+id/bouton_retour_menu_surnom"
+    android:layout_width="123dp"
+    android:layout_height="115dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:background="?selectableItemBackgroundBorderless"
+    android:scaleType="fitXY"
+    android:src="@drawable/logocriti"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+    android:id="@+id/bouton_deconnection_menu_surnom"
+    android:background="?selectableItemBackgroundBorderless"
+    android:scaleType="fitXY"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="48dp"
+    android:layout_marginEnd="16dp"
+    android:src="@drawable/bouton_deconnection"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fond_gris_menu_surnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle_noir_3_"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+    android:id="@+id/fond_rouge_menu_surnom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/rectangle_rouge_3_"
+    app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_surnom"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+    android:id="@+id/bouton_menu_menu_surnom"
+    android:background="?selectableItemBackgroundBorderless"
+    android:scaleType="fitXY"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="30dp"
+    android:src="@drawable/home"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
+
+    <ImageButton
+    android:id="@+id/bouton_recherche_menu_surnom"
+    android:background="?selectableItemBackgroundBorderless"
+    android:scaleType="fitXY"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:src="@drawable/search"
+    app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_surnom"
+    app:layout_constraintEnd_toStartOf="@+id/bouton_compte_menu_surnom"
+    app:layout_constraintStart_toEndOf="@+id/bouton_menu_menu_surnom"
+    app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
+
+    <ImageButton
+    android:id="@+id/bouton_compte_menu_surnom"
+    android:background="?selectableItemBackgroundBorderless"
+    android:scaleType="fitXY"
+    android:layout_width="93dp"
+    android:layout_height="90dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="30dp"
+    android:src="@drawable/user_menu"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/fond_rouge_menu_surnom"
+    app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_surnom" />
+
+    <ImageButton
+        android:id="@+id/bouton_sauvegarde_surnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/bouton_inscription__rouge"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_surnom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/conteneur_surnom"
+        android:layout_width="285dp"
+        android:layout_height="99dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/surnom_3_"
+        app:layout_constraintBottom_toTopOf="@+id/bouton_sauvegarde_surnom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView3"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="Changez votre surnom"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/conteneur_surnom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/saisie_nouveau_surnom"
+        android:layout_width="242dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="nouveau surnom"
+        app:layout_constraintBottom_toBottomOf="@+id/conteneur_surnom"
+        app:layout_constraintEnd_toEndOf="@+id/conteneur_surnom"
+        app:layout_constraintStart_toStartOf="@+id/conteneur_surnom"
+        app:layout_constraintTop_toTopOf="@+id/conteneur_surnom" />
+</androidx.constraintlayout.widget.ConstraintLayout>
