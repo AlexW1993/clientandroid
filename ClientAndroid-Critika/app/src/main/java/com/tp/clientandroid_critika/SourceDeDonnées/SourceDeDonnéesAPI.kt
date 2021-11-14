@@ -2,23 +2,22 @@ package com.tp.clientandroid_critika.SourceDeDonnées
 import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.RequestFuture
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.*
 import com.google.gson.Gson
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
-import java.net.URL
+import org.json.JSONObject
 import java.util.concurrent.ExecutionException
 
-class SourceDeDonnéesAPI (var url : URL, var ctx : Context) : SourceDeDonnées{
+abstract class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
 
     var gson : Gson = Gson()
 
     override fun chercherUtilisateurs() : Array<Utilisateur?>? {
         var queue : RequestQueue = Volley.newRequestQueue(ctx)
         var future : RequestFuture<String> = RequestFuture.newFuture()
-        var request = StringRequest(Request.Method.GET, url.toString(),future,future)
+        var url = "https://localhost:44305/api/Utilisateur"
+        var request = StringRequest(Request.Method.GET, url,future,future)
         queue.add(request)
         try {
             var reponse = future.get()
@@ -32,4 +31,32 @@ class SourceDeDonnéesAPI (var url : URL, var ctx : Context) : SourceDeDonnées{
         return null
     }
 
+    override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean?{
+        /*var queue : RequestQueue = Volley.newRequestQueue(ctx)
+        var json : String = gson.toJson(utilisateur)
+        var future : RequestFuture<JSONObject> = RequestFuture.newFuture()
+        var request = JsonObjectRequest(Request.Method.POST, url, json,future,future)
+        queue.add(request)
+        try {
+            var reponse = future.get()
+            var confirmation : Boolean = gson.fromJson(reponse, Boolean::class.java)
+            return confirmation
+        }catch (e : InterruptedException){
+            e.printStackTrace()
+        } catch (e : ExecutionException){
+            e.printStackTrace()
+        }*/
+        return null
+    }
+
+    abstract fun JsonObjectRequest(
+        post: Int,
+        url: String,
+        json: String,
+        future: RequestFuture<JSONObject>,
+        future1: RequestFuture<JSONObject>
+    ): JsonObjectRequest
+
 }
+
+
