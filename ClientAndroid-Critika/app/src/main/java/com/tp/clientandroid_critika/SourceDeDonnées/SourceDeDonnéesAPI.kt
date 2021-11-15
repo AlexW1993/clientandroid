@@ -9,7 +9,7 @@ import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 import org.json.JSONObject
 import java.util.concurrent.ExecutionException
 
-abstract class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
+class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
 
     var gson : Gson = Gson()
 
@@ -49,13 +49,7 @@ abstract class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
         return null
     }
 
-    abstract fun JsonObjectRequest(
-        post: Int,
-        url: String,
-        json: String,
-        future: RequestFuture<JSONObject>,
-        future1: RequestFuture<JSONObject>
-    ): JsonObjectRequest
+
 
 }
 

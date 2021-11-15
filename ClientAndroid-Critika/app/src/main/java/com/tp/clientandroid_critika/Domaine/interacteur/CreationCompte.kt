@@ -1,6 +1,7 @@
 package com.tp.clientandroid_critika.Domaine.interacteur
 
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
+import com.tp.clientandroid_critika.SourceDeDonnées.SourceDeDonnéesAPI
 
 class CreationCompte (var _source : SourceDeDonnées) {
 
@@ -11,5 +12,6 @@ class CreationCompte (var _source : SourceDeDonnées) {
         } else {
             return confirmation
         }
+        var source : SourceDeDonnées
     }
 }

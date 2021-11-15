@@ -11,8 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var modèle = Modèle.getInstance()
-        modèle.sorce = SourceDeDonnéesAPI(this)
-        modèle.source = SourceDeDonnéesAPI(this)
+        modèle.creationSourceDeDonnées(SourceDeDonnéesAPI(this))
         setContentView(R.layout.activity_main)
     }
 }

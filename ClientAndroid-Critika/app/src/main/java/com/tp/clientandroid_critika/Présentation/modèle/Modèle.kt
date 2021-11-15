@@ -1,21 +1,23 @@
 package com.tp.clientandroid_critika.Présentation.modèle
-
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 
-class Modèle(var sorce : SourceDeDonnées) {
+
+class Modèle() {
+
+    private var sourceAPI : SourceDeDonnées? = null
 
     companion object {
-        lateinit var modèle : Modèle
+        var modèle : Modèle? = null
         fun getInstance() : Modèle{
             if (modèle == null){
                 modèle = Modèle()
             }
-            return modèle
+            return modèle as Modèle
         }
     }
 
-    fun setSource(source : SourceDeDonnées) {
-        _source = source
+    fun creationSourceDeDonnées(source : SourceDeDonnées) {
+        sourceAPI  = source
     }
 
 }

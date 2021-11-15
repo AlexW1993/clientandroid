@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_menu_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuPrincipale" >
+    tools:context=".Présentation.vue.VueMenuPrincipale" >
 
     <ImageButton
         android:id="@+id/bouton_retour_menu"

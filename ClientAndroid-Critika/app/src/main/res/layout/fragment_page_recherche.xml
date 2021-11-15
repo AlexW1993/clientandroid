@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_recherche"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageRecherche">
+    tools:context=".Présentation.vue.VuePageRecherche">
 
 
     <ImageButton

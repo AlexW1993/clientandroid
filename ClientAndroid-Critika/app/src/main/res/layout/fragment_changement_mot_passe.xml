@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_changement_mot_passe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangementMotPasse" >
+    tools:context=".Présentation.vue.VueChangementMotPasse" >
 
     <ImageButton
         android:id="@+id/bouton_retour_menu_mot_passe"

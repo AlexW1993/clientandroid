@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageJeu">
+    tools:context=".Présentation.vue.VuePageJeu">
 
     <ImageButton
         android:id="@+id/bouton_retour_jeu"
