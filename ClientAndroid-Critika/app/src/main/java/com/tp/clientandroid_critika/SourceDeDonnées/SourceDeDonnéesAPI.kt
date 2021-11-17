@@ -21,11 +21,10 @@ class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
         queue.add(request)
         try {
             var reponse = future.get()
-            var utilisateurs : Utilisateur? = gson.fromJson(reponse, Utilisateur::class.java)
-            return utilisateurs
-        }catch (e : InterruptedException){
+            return gson.fromJson(reponse, Utilisateur::class.java)
+        } catch (e: InterruptedException) {
             e.printStackTrace()
-        } catch (e : ExecutionException){
+        } catch (e: ExecutionException) {
             e.printStackTrace()
         }
         return null
@@ -33,18 +32,17 @@ class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
 
     override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean?{
         var queue : RequestQueue = Volley.newRequestQueue(ctx)
-        var json : String = gson.toJson(utilisateur)
-        var future : RequestFuture<JSONObject> = RequestFuture.newFuture()
+        var json : JSONObject? = JSONObject().put("utilisateur",utilisateur)
+        var future : RequestFuture<JSONObject?>? = RequestFuture.newFuture()
         var url = "https://localhost:44305/api/Utilisateur"
         var request = JsonObjectRequest(Request.Method.POST, url, json,future,future)
         queue.add(request)
         try {
-            var reponse = future.get()
-            var confirmation : Boolean = gson.fromJson(reponse, Boolean::class.java)
-            return confirmation
-        }catch (e : InterruptedException){
+            var reponse = future?.get().toString()
+            return gson.fromJson(reponse, Boolean::class.java)
+        } catch (e: InterruptedException) {
             e.printStackTrace()
-        } catch (e : ExecutionException){
+        } catch (e: ExecutionException) {
             e.printStackTrace()
         }
         return true
@@ -53,6 +51,7 @@ class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
 
 
 }
+
 
 
 

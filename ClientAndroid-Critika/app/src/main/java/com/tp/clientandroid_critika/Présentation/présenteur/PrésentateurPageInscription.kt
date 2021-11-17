@@ -19,19 +19,23 @@ class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscriptio
         if( surNom != ""){
             if(motPasse1 != "" && motPasse2 != "" ){
                 if(motPasse1 == motPasse2){
-                    //filEsclave = Thread {
-                        var utilisateur = Utilisateur(null,surNom,motPasse1,null,null)
-                        confirmation  = _modèle?.creationUtilisateur(utilisateur)
-                        if(confirmation == true){
+                    filEsclave = Thread {
+                            var utilisateur = Utilisateur(null,surNom,motPasse1,null,null)
+                            confirmation  = _modèle?.creationUtilisateur(utilisateur)
+                        }
+                        filEsclave!!.start()
+                    when (confirmation) {
+                        true -> {
                             _vue?.confirmationInscription()
-                        } else if (confirmation == false) {
+                        }
+                        false -> {
                             _vue?.afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
                                     "ecrivez vous une autre surnom")
-                        } else if (confirmation == null){
+                        }
+                        null -> {
                             _vue?.afficherMessage("Désolé, nous avons des problèmes de connexion")
                         }
-                    //}
-                   // filEsclave!!.start()
+                    }
                 } else {
                     _vue?.afficherMessage("Les mots de passés ne sont pas identiques")
                 }
