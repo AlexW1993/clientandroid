@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageInscription
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageInscription
 import com.tp.clientandroid_critika.R
@@ -20,6 +23,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     private var _surNom : EditText? = null
     private var _motPasse1 : EditText? = null
     private var _motPasse2 : EditText? = null
+    private var nav : NavController? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,13 +47,25 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         _surNom = view.findViewById(R.id.zone_texte_surnom)
         _motPasse1 = view.findViewById(R.id.zone_texte_mot_passe_1)
         _motPasse2 = view.findViewById(R.id.zone_texte_mot_passe_2)
+        nav = Navigation.findNavController(view)
+        _btnInscription?.setOnClickListener { view ->
+            _présenateur!!.verificationInscrption(_motPasse1!!.text.toString(),_motPasse2!!.text.toString(), _surNom!!.text.toString() )
+        }
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             VuePageInscription().apply {
             }
     }
+
+    override fun confirmationInscription() {
+        nav!!.navigate(R.id.vueMenuPrincipale)
+    }
+
+    override fun afficherMessage(message: String) {
+        Toast.makeText(activity,message,Toast.LENGTH_LONG).show()
+    }
+
 }
