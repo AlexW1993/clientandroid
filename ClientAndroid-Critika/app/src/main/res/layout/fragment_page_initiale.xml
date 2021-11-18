@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_initial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageInitiale">
+    tools:context=".Présentation.vue.VuePageInitiale">
 
     <ImageView
         android:id="@+id/logo"
@@ -44,7 +44,8 @@
         app:layout_constraintEnd_toEndOf="@+id/fond_rouge"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge" />
+        app:layout_constraintTop_toTopOf="@+id/fond_rouge"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/bouton_s_inscrire_initial"
@@ -56,5 +57,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

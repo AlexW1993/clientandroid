@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_compte"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuCompte" >
+    tools:context=".Présentation.vue.VueMenuCompte" >
 
     <ImageButton
         android:id="@+id/bouton_retour_menu_avatar"

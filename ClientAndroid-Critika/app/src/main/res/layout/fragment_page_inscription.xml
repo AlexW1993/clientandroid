@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_inscription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageInscription">
+    tools:context=".Présentation.vue.VuePageInscription">
 
 
     <ImageView
@@ -166,9 +166,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:src="@drawable/bouton_s_inscrire"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
+        android:src="@drawable/bouton_s_inscrire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

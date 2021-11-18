@@ -9,7 +9,6 @@ import com.tp.clientandroid_critika.R
 
 class VueMenuPrincipale : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

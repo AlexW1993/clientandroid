@@ -4,6 +4,6 @@ import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 
 interface SourceDeDonnées {
 
-    fun chercherUtilisateurs() : Array<Utilisateur?>?;
-    fun ajouterUtilisateur() ;
+    fun chercherUtilisateur(surNom : String, motPasse : String) : Utilisateur?
+    fun ajouterUtilisateur(utilisateur : Utilisateur) : Boolean?
 }

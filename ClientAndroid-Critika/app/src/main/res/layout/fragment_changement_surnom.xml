@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_changement_surnom"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangementSurnom" >
+    tools:context=".Présentation.vue.VueChangementSurnom" >
 
     <ImageButton
     android:id="@+id/bouton_retour_menu_surnom"

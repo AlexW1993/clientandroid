@@ -2,34 +2,56 @@ package com.tp.clientandroid_critika.SourceDeDonnées
 import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.RequestFuture
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.*
 import com.google.gson.Gson
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
-import java.net.URL
+import org.json.JSONObject
 import java.util.concurrent.ExecutionException
 
-class SourceDeDonnéesAPI (var url : URL, var ctx : Context) : SourceDeDonnées{
+class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
 
     var gson : Gson = Gson()
 
-    override fun chercherUtilisateurs() : Array<Utilisateur?>? {
+    override fun chercherUtilisateur(surNom : String, motPasse : String) : Utilisateur? {
         var queue : RequestQueue = Volley.newRequestQueue(ctx)
         var future : RequestFuture<String> = RequestFuture.newFuture()
-        var request = StringRequest(Request.Method.GET, url.toString(),future,future)
+        var url = "https://localhost:44305/api/Utilisateur/$surNom"
+        var request = StringRequest(Request.Method.GET, url,future,future)
         queue.add(request)
         try {
             var reponse = future.get()
-            var utilisateurs : Array<Utilisateur?> = gson.fromJson(reponse, Array<Utilisateur?>::class.java)
-            return utilisateurs
-        }catch (e : InterruptedException){
+            return gson.fromJson(reponse, Utilisateur::class.java)
+        } catch (e: InterruptedException) {
             e.printStackTrace()
-        } catch (e : ExecutionException){
+        } catch (e: ExecutionException) {
             e.printStackTrace()
         }
         return null
     }
 
+    override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean?{
+        var queue : RequestQueue = Volley.newRequestQueue(ctx)
+        var json : JSONObject? = JSONObject().put("utilisateur",utilisateur)
+        var future : RequestFuture<JSONObject?>? = RequestFuture.newFuture()
+        var url = "https://localhost:44305/api/Utilisateur"
+        var request = JsonObjectRequest(Request.Method.POST, url, json,future,future)
+        queue.add(request)
+        try {
+            var reponse = future?.get().toString()
+            return gson.fromJson(reponse, Boolean::class.java)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
+            e.printStackTrace()
+        }
+        return true
+    }
+
+
+
 }
+
+
+
+

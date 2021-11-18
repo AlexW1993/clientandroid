@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout_changement_avatar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChangementAvatar" >
+    tools:context=".Présentation.vue.VueChangementAvatar" >
 
 
     <ImageButton

@@ -19,7 +19,7 @@ class UtilisateurTest {
         var cobaye = Utilisateur("1","Will","1234", "1", "utilisateur")
 
         //Vérification
-        Assert.assertEquals(id, cobaye.id)
+        Assert.assertEquals(id, cobaye.utilisateurId)
         Assert.assertEquals(nom, cobaye.nom)
         Assert.assertEquals(motPasse, cobaye.motPasse)
         Assert.assertEquals(codeAvatar, cobaye.codeAvatar)
@@ -34,14 +34,14 @@ class UtilisateurTest {
 
 
         //Exécution
-        cobaye.id = "2"
+        cobaye.utilisateurId = "2"
         cobaye.nom = "Alex"
         cobaye.motPasse = "0000"
         cobaye.codeAvatar = "2"
         cobaye.type = "administrateur"
 
         //Vérification
-        Assert.assertEquals("2", cobaye.id)
+        Assert.assertEquals("2", cobaye.utilisateurId)
         Assert.assertEquals("Alex", cobaye.nom)
         Assert.assertEquals("0000", cobaye.motPasse)
         Assert.assertEquals("2", cobaye.codeAvatar)
