@@ -2,102 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout_changement_mot_passe"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Présentation.vue.VueChangementMotPasse" >
+    tools:context=".Présentation.vue.VuePageJeu">
 
-    <ImageButton
-        android:id="@+id/bouton_retour_menu_mot_passe"
-        android:layout_width="123dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:src="@drawable/logocriti"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/bouton_deconnection_menu_mot_passe"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/bouton_deconnection"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <include
+            android:id="@+id/toolbar_haut"
+            layout="@layout/barre_menu_haut" />
 
-    <ImageView
-        android:id="@+id/fond_gris_menu_mot_passe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rectangle_noir_3_"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/fond_rouge_menu_mot_passe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rectangle_rouge_3_"
-        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_mot_passe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/bouton_menu_mot_passe"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:src="@drawable/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_mot_passe" />
-
-    <ImageButton
-        android:id="@+id/bouton_recherche_menu_mot_passe"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/search"
-        app:layout_constraintBottom_toBottomOf="@+id/fond_gris_menu_mot_passe"
-        app:layout_constraintEnd_toStartOf="@+id/bouton_compte_mot_passe"
-        app:layout_constraintStart_toEndOf="@+id/bouton_menu_mot_passe"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_mot_passe" />
-
-    <ImageButton
-        android:id="@+id/bouton_compte_mot_passe"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:layout_width="93dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:src="@drawable/user_menu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/fond_rouge_menu_mot_passe"
-        app:layout_constraintTop_toTopOf="@+id/fond_rouge_menu_mot_passe" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageButton
         android:id="@+id/boutou_sauvegarde_mot_passe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
         android:src="@drawable/bouton_inscription__rouge"
-        app:layout_constraintBottom_toTopOf="@+id/fond_gris_menu_mot_passe"
+        app:layout_constraintBottom_toTopOf="@+id/appBarLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -159,5 +91,18 @@
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="@+id/conteneur_changement_Mot_Passe_2"
         app:layout_constraintTop_toTopOf="@+id/conteneur_changement_Mot_Passe_2" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <include
+            android:id="@+id/toolbar_bas"
+            layout="@layout/barre_menu_bas" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
