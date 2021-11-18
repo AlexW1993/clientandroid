@@ -20,10 +20,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     private var _btnInscription : ImageButton? = null
     private var _btnAvatatImage : ImageButton? = null
     private var _btnAvatarCamera : ImageButton? = null
-    private var _surNom : EditText? = null
+    private var _surnom : EditText? = null
     private var _motPasse1 : EditText? = null
     private var _motPasse2 : EditText? = null
-    private var nav : NavController? = null
+    private var _nav : NavController? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,12 +44,12 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         _btnInscription = view.findViewById(R.id.bouton_inscription)
         _btnAvatatImage = view.findViewById(R.id.bouton_avatar_image)
         _btnAvatarCamera = view.findViewById(R.id.bouton_avatar_camera)
-        _surNom = view.findViewById(R.id.zone_texte_surnom)
+        _surnom = view.findViewById(R.id.zone_texte_surnom)
         _motPasse1 = view.findViewById(R.id.zone_texte_mot_passe_1)
         _motPasse2 = view.findViewById(R.id.zone_texte_mot_passe_2)
-        nav = Navigation.findNavController(view)
+        _nav = Navigation.findNavController(view)
         _btnInscription?.setOnClickListener { view ->
-            _présenateur!!.verificationInscrption(_motPasse1!!.text.toString(),_motPasse2!!.text.toString(), _surNom!!.text.toString() )
+            _présenateur!!.verificationInscrption(_motPasse1!!.text.toString(),_motPasse2!!.text.toString(), _surnom!!.text.toString() )
         }
     }
 
@@ -61,7 +61,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     }
 
     override fun confirmationInscription() {
-        nav!!.navigate(R.id.vueMenuPrincipale)
+        _nav!!.navigate(R.id.vueMenuPrincipale)
     }
 
     override fun afficherMessage(message: String) {
