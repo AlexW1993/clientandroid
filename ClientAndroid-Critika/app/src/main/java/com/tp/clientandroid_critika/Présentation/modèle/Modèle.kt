@@ -1,4 +1,5 @@
 package com.tp.clientandroid_critika.Présentation.modèle
+
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.AuthentificationUtilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.CreationCompte

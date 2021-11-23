@@ -23,11 +23,11 @@
         android:label="fragment_page_inscription"
         tools:layout="@layout/fragment_page_inscription" >
         <action
-            android:id="@+id/action_pageInscription_to_menuPrincipale"
-            app:destination="@id/vueMenuPrincipale" />
-        <action
             android:id="@+id/action_pageInscription_to_pageInitiale"
             app:destination="@id/vuePageInitiale" />
+        <action
+            android:id="@+id/action_vuePageInscription_to_vuePageConnexion"
+            app:destination="@id/vuePageConnexion" />
     </fragment>
     <fragment
         android:id="@+id/vuePageInitiale"

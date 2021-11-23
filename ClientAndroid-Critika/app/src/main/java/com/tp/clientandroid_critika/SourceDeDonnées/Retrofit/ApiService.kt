@@ -1,10 +1,9 @@
 package com.tp.clientandroid_critika.SourceDeDonnées.Retrofit
 
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface ApiService {
@@ -14,5 +13,5 @@ interface ApiService {
     fun PostAuthentificationUtilisateur(@Body utilisateur : Utilisateur) : Call<Utilisateur>
 
     @POST("Utilisateur")
-    fun PostCreationUtilisateur(@Body utilisateur: Utilisateur) : Call<Utilisateur>
+    fun PostCreationUtilisateur(@Body utilisateur: Utilisateur) : Call<ResponseBody>
 }

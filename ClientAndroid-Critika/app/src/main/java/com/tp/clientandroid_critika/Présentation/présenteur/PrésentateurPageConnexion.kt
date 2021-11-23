@@ -28,7 +28,7 @@ class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVu
                 if (msg.what == _confirmation) {
                     _vue?.confirmationUtilisateur()
                 } else if (msg.what == _erreur) {
-                    _vue?.afficherMessage("Votre information est invalide")
+                    _vue?.afficherMessage("Surnom et/ou mot de passe incorrectes")
                 }
             }
         }
@@ -49,7 +49,7 @@ class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVu
                     }
                     _filEsclave!!.start()
                 } else {
-                    _vue?.afficherMessage("S'il vous plait, rempliez la boite des mot des passe")
+                    _vue?.afficherMessage("S'il vous plait, rempliez la boite de mot des passe")
                 }
             } else {
                 _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")

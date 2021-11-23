@@ -14,7 +14,6 @@ class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscriptio
     private var _handlerRéponse : Handler
     private var _confirmation = 0
     private var _utilisateruExistant = 1
-    private var _erreur = 2
     init {
         _vue = vue
         _modèle = Modèle.getInstance()
@@ -28,8 +27,6 @@ class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscriptio
                 } else if(msg.what == _utilisateruExistant){
                     _vue?.afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
                             "ecrivez vous une autre surnom")
-                } else if (msg.what == _erreur) {
-                    _vue?.afficherMessage("Désolé, nous avons des problèmes de connexion")
                 }
             }
         }
@@ -41,19 +38,13 @@ class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscriptio
                 if(motPasse1 == motPasse2){
                     _filEsclave = Thread {
                         var msg: Message?
-                            var utilisateur = Utilisateur(null,surNom,motPasse1,null,null)
-                            var confirmation  = _modèle?.creationUtilisateur(utilisateur)
-                            when (confirmation) {
-                                true -> {
-                                    msg = _handlerRéponse.obtainMessage(_confirmation)
-                                }
-                                false -> {
-                                    msg = _handlerRéponse.obtainMessage(_utilisateruExistant)
-                                }
-                                null -> {
-                                    msg = _handlerRéponse.obtainMessage(_erreur)
-                                }
-                            }
+                        var utilisateur = Utilisateur(null,surNom,motPasse1,null,null)
+                        var confirmation  = _modèle?.creationUtilisateur(utilisateur)
+                        msg = if(confirmation == true){
+                            _handlerRéponse.obtainMessage(_confirmation)
+                        } else {
+                            _handlerRéponse.obtainMessage(_utilisateruExistant)
+                        }
                         _handlerRéponse.sendMessage(msg!!)
                         }
                         _filEsclave!!.start()
