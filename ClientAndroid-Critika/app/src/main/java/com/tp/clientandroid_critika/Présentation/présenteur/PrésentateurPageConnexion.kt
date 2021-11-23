@@ -16,11 +16,9 @@ class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVu
     private var _confirmation = 0
     private var _erreur = 1
 
-
     init {
         _vue = vue
         _modèle = Modèle.getInstance()
-        _vue = vue
         _handlerRéponse = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)

@@ -1,5 +1,6 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
 
+import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 
@@ -10,5 +11,9 @@ class SourceDeDonnéesBidon : SourceDeDonnées{
 
     override fun ajouterUtilisateur(utilisateur: Utilisateur): Boolean? {
        return true
+    }
+
+    override fun chercherToutJeux(): List<JeuVideo>? {
+        TODO("Not yet implemented")
     }
 }
