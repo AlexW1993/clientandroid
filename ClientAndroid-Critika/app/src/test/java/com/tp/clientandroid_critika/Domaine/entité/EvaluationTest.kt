@@ -19,7 +19,7 @@ class EvaluationTest {
 
         //Vérification
         assertEquals( id, cobaye.id )
-        assertEquals( idJeu, cobaye.idJeu )
+        assertEquals( idJeu, cobaye.jeuVideoId )
         assertEquals( idUtilisateur, cobaye.idUtilisateur )
         assertEquals( note, cobaye.note )
     }
@@ -33,13 +33,13 @@ class EvaluationTest {
 
         //Exécution
         cobaye.id = "4321"
-        cobaye.idJeu = "1234"
+        cobaye.jeuVideoId = "1234"
         cobaye.idUtilisateur = "2222"
         cobaye.note = 1
 
         //Vérification
         assertEquals( "4321", cobaye.id )
-        assertEquals( "1234", cobaye.idJeu )
+        assertEquals( "1234", cobaye.jeuVideoId )
         assertEquals( "2222", cobaye.idUtilisateur )
         assertEquals( 1, cobaye.note )
     }

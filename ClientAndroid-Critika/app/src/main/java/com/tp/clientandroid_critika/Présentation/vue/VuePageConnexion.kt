@@ -42,7 +42,7 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
         _btnSeConnecter = view.findViewById(R.id.bouton_Se_connecter_Connection)
         _nav = Navigation.findNavController(view)
         _btnSeConnecter?.setOnClickListener { view ->
-            _présenateur!!.verificationUtilisateur(_surnom!!.text.toString(), _motPasse!!.text.toString(), )
+            _présenateur!!.verificationUtilisateur(_surnom!!.text.toString(), _motPasse!!.text.toString())
         }
     }
 
@@ -59,6 +59,6 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
     }
 
     override fun afficherMessage(message: String) {
-        Toast.makeText(activity,message, Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 }

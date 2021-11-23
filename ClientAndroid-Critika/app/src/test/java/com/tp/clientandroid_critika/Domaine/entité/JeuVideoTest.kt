@@ -1,9 +1,7 @@
 package com.tp.clientandroid_critika.Domaine.entité
 import org.junit.Assert
 import org.junit.Test
-import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.LocalTime
 
 class JeuVideoTest {
 
@@ -19,13 +17,13 @@ class JeuVideoTest {
         var modeJeu = "1 - 4 player"
         var anneSortie = 2021
         var listeCommentaire : MutableList<Commentaire> = ArrayList()
-        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario"))
+        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario",null))
         var listeEvaluation : MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1","1","1",5))
 
         //Exécution
         var listeCommentaire2 : MutableList<Commentaire> = ArrayList()
-        listeCommentaire2.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario"))
+        listeCommentaire2.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario",null))
         var listeEvaluation2 : MutableList<Evaluation> = ArrayList()
         listeEvaluation2.add(Evaluation("1","1","1",5))
         var cobaye = JeuVideo("1","Mario Kart", "Mario avec des voitures", "Nintendo Switch",
@@ -39,8 +37,8 @@ class JeuVideoTest {
         Assert.assertEquals(genre, cobaye.genre)
         Assert.assertEquals(modeJeu, cobaye.modeJeu)
         Assert.assertEquals(anneSortie, cobaye.anneSortie)
-        Assert.assertEquals(listeCommentaire[0].id, cobaye.listeCommentaire?.get(0)?.id)
-        Assert.assertEquals(listeEvaluation[0].id, cobaye.listeEvaluation?.get(0)?.id)
+        Assert.assertEquals(listeCommentaire[0].id, cobaye.listeCommentaires?.get(0)?.id)
+        Assert.assertEquals(listeEvaluation[0].id, cobaye.listeEvaluations?.get(0)?.id)
     }
 
     @Test
@@ -48,7 +46,7 @@ class JeuVideoTest {
 
         //Mise en place
         var listeCommentaire : MutableList<Commentaire> = ArrayList()
-        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario"))
+        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario",null))
         var listeEvaluation : MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1","1","1",5))
         var cobaye = JeuVideo("1","Mario Kart", "Mario avec des voitures", "Nintendo Switch",
@@ -63,8 +61,8 @@ class JeuVideoTest {
         cobaye.genre = "Aventure"
         cobaye.modeJeu = "Solo"
         cobaye.anneSortie = 2020
-        cobaye.listeCommentaire?.get(0)?.id = "2"
-        cobaye.listeEvaluation?.get(0)?.id = "2"
+        cobaye.listeCommentaires?.get(0)?.id = "2"
+        cobaye.listeEvaluations?.get(0)?.id = "2"
 
 
         //Vérification
@@ -75,8 +73,8 @@ class JeuVideoTest {
         Assert.assertEquals("Aventure", cobaye.genre)
         Assert.assertEquals("Solo", cobaye.modeJeu)
         Assert.assertEquals(2020, cobaye.anneSortie)
-        Assert.assertEquals("2", cobaye.listeCommentaire?.get(0)?.id)
-        Assert.assertEquals("2", cobaye.listeEvaluation?.get(0)?.id)
+        Assert.assertEquals("2", cobaye.listeCommentaires?.get(0)?.id)
+        Assert.assertEquals("2", cobaye.listeEvaluations?.get(0)?.id)
     }
 
     @Test
@@ -84,7 +82,7 @@ class JeuVideoTest {
 
         //Mise en place
         var listeCommentaire : MutableList<Commentaire> = ArrayList()
-        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario"))
+        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario",null))
         var listeEvaluation : MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1","1","1",5))
         var cobaye = JeuVideo("1","Mario Kart", "Mario avec des voitures", "Nintendo Switch",
@@ -103,7 +101,7 @@ class JeuVideoTest {
 
         //Mise en place
         var listeCommentaire : MutableList<Commentaire> = ArrayList()
-        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario"))
+        listeCommentaire.add(Commentaire("1","1","1", LocalDateTime.of(1,1,1,2,2,2),"Mario",null))
         var listeEvaluation : MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1","1","1",5))
         listeEvaluation.add(Evaluation("2","1","2",3))

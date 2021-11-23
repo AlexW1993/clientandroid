@@ -1,40 +1,58 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageConnexion
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
+
 
 class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVuePageConnexion) : IContratPrésentateurVuePageConnexion.IPrésentateurPageConnexion {
 
     private var _modèle : Modèle? = null
     private var _vue : IContratPrésentateurVuePageConnexion.IVuePageConnexion? = null
-    private var filEsclave : Thread? = null
+    private var _filEsclave : Thread? = null
+    private var _handlerRéponse : Handler
+    private var _confirmation = 0
+    private var _erreur = 1
+
+
     init {
         _vue = vue
         _modèle = Modèle.getInstance()
         _vue = vue
+        _handlerRéponse = object : Handler(Looper.getMainLooper()) {
+            override fun handleMessage(msg: Message) {
+                super.handleMessage(msg)
+                _filEsclave = null
+                if (msg.what == _confirmation) {
+                    _vue?.confirmationUtilisateur()
+                } else if (msg.what == _erreur) {
+                    _vue?.afficherMessage("Votre information est invalide")
+                }
+            }
+        }
     }
 
     override fun verificationUtilisateur(surnom : String, motPasse : String) {
-        var confirmation : Boolean? = null
-        if(surnom != ""){
-            if(motPasse != ""){
-                filEsclave = Thread {
-                    confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
-                }
-                filEsclave!!.start()
-                when (confirmation) {
-                    true -> {
-                        _vue?.confirmationUtilisateur()
+            if(surnom != ""){
+                if(motPasse != ""){
+                    _filEsclave = Thread {
+                        var msg: Message?
+                        val confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
+                        if(confirmation == true){
+                            msg = _handlerRéponse.obtainMessage(_confirmation)
+                        } else {
+                            msg = _handlerRéponse.obtainMessage(_erreur)
+                        }
+                    _handlerRéponse.sendMessage(msg!!)
                     }
-                    null -> {
-                        _vue?.afficherMessage("Votre information est invalide")
-                    }
+                    _filEsclave!!.start()
+                } else {
+                    _vue?.afficherMessage("S'il vous plait, rempliez la boite des mot des passe")
                 }
             } else {
-                _vue?.afficherMessage("S'il vous plait, rempliez la boite des mot des passe")
+                _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")
             }
-        } else {
-            _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")
         }
-    }
 }

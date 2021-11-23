@@ -1,51 +1,31 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
-import android.content.Context
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.*
-import com.google.gson.Gson
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
-import org.json.JSONObject
-import java.util.concurrent.ExecutionException
+import com.tp.clientandroid_critika.SourceDeDonnées.Retrofit.ApiClient
+import retrofit2.Call
 
-class SourceDeDonnéesAPI (var ctx : Context) : SourceDeDonnées{
+class SourceDeDonnéesAPI : SourceDeDonnées{
 
-    var gson : Gson = Gson()
+    override fun chercherUtilisateur(utilisateur : Utilisateur) : Utilisateur? {
+        val retro = ApiClient.SERVICE
+        val call : Call<Utilisateur> = retro.PostAuthentificationUtilisateur(utilisateur)
+        var res = call.execute()
+        var reponse = res.body()
 
-    override fun chercherUtilisateur(surNom : String, motPasse : String) : Utilisateur? {
-        var queue : RequestQueue = Volley.newRequestQueue(ctx)
-        var future : RequestFuture<String> = RequestFuture.newFuture()
-        var url = "https://localhost:44305/api/Utilisateur/$surNom"
-        var request = StringRequest(Request.Method.GET, url,future,future)
-        queue.add(request)
-        try {
-            var reponse = future.get()
-            return gson.fromJson(reponse, Utilisateur::class.java)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        } catch (e: ExecutionException) {
-            e.printStackTrace()
-        }
-        return null
+        println(reponse.toString())
+
+        return reponse
     }
 
     override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean?{
-        var queue : RequestQueue = Volley.newRequestQueue(ctx)
-        var json : JSONObject? = JSONObject().put("utilisateur",utilisateur)
-        var future : RequestFuture<JSONObject?>? = RequestFuture.newFuture()
-        var url = "https://localhost:44305/api/Utilisateur"
-        var request = JsonObjectRequest(Request.Method.POST, url, json,future,future)
-        queue.add(request)
-        try {
-            var reponse = future?.get().toString()
-            return gson.fromJson(reponse, Boolean::class.java)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
-        } catch (e: ExecutionException) {
-            e.printStackTrace()
-        }
-        return true
+        val retro = ApiClient.SERVICE
+        val call : Call<Utilisateur> = retro.PostCreationUtilisateur(utilisateur)
+        var res = call.execute()
+        var reponse = res.code()
+
+        println(reponse.toString())
+
+        return reponse == 201
     }
 
 
