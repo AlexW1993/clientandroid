@@ -25,7 +25,11 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
     }
 
     override fun récupererJeuDétails(id: String): JeuVideo? {
-        TODO("Not yet implemented")
+        val retro = ApiClient.SERVICE
+        val call : Call<JeuVideo> = retro.GetJeuVideoParId(id)
+        var res = call.execute()
+        var reponse = res.body()
+        return reponse
     }
 
 
