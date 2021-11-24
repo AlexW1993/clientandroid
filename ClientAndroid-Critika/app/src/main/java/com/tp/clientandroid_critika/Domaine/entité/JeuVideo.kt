@@ -1,8 +1,20 @@
 package com.tp.clientandroid_critika.Domaine.entité
 
-class JeuVideo(var id : String, var nom : String, var description : String?, var plateforme : String?,
-               var genre : String?, var modeJeu : String?, var anneSortie : Int?,
-               var listeCommentaires : List<Commentaire>?, var listeEvaluations : List<Evaluation>?){
+class JeuVideo(
+    var id : String,
+    var nom : String,
+    var description : String,
+    var plateforme : String,
+    var genre : String,
+    var modeJeu : String,
+    var anneSortie : Int,
+    var listeCommentaires : List<Commentaire>?,
+    var listeEvaluations : List<Evaluation>?
+    ){
+
+    constructor() : this("","","","","","",0,null,null)
+
+
 
     fun calculerMoyenneEvaluation(): Double{
         var totalEvaluation = 0
