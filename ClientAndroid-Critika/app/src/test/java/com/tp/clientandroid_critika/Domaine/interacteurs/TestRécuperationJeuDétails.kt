@@ -22,7 +22,7 @@ class TestRécuperationJeuDétails {
 
             override fun récupererJeuDétails(id: String): JeuVideo? {
                 val jeu =  JeuVideo()
-                jeu.id = "3"
+                jeu.id = "1"
 
                 return jeu
             }
@@ -33,9 +33,9 @@ class TestRécuperationJeuDétails {
             val jeuVideo = interacteur.obtenirDetailsJeuVideo("1")
             Assert.assertNotNull(jeuVideo)
             Assert.assertEquals("1",jeuVideo!!.id)
+            Assert.assertTrue(jeuVideo === interacteur.jeuVideo)
         } catch (e: Exception) {
             Assert.fail(e.message)
         }
-
     }
 }
