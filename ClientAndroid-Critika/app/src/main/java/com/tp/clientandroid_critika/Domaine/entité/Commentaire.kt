@@ -20,7 +20,7 @@ class Commentaire(
      * Constructeur secondaire pour la classe commentaire avec les valeurs par defaut
      */
     constructor() : this("","","",null,"",null)
-    
+
     override fun toString(): String {
         return "Commentaire(id='$id', jeuVideoId='$jeuVideoId', utilisateurId='$utilisateurId', dateHeure=$dateHeure, contenue='$contenue', utilisateur=$utilisateur)"
     }
