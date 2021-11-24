@@ -1,4 +1,5 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
+import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 import com.tp.clientandroid_critika.SourceDeDonnées.Retrofit.ApiClient
@@ -23,6 +24,13 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse == 200
     }
 
+    override fun récupererJeuDétails(id: String): JeuVideo? {
+        val retro = ApiClient.SERVICE
+        val call : Call<JeuVideo> = retro.GetJeuVideoParId(id)
+        var res = call.execute()
+        var reponse = res.body()
+        return reponse
+    }
 
 
 }
