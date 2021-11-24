@@ -1,26 +1,33 @@
 package com.tp.clientandroid_critika.Présentation.vue
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueMenuPrincipale
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuPrincipale
 import com.tp.clientandroid_critika.R
+import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 
 class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVueMenuPrincipale {
 
     private var _présentateur : PrésentateurMenuPrincipale? = null
     private var _nav : NavController? = null
     private var _btnDéconnection : ImageButton? = null
-    private var _btnLogo : ImageButton? = null
     private var _btnMenuPrincipale : ImageButton? = null
     private var _btnRecherche : ImageButton? = null
     private var _btnCompte : ImageButton? = null
+    private var _adapter : AdapterMenuPrincipal? = null
+    private var _listeJeux : RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,16 +46,13 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
         _présentateur = PrésentateurMenuPrincipale(this)
         _nav = Navigation.findNavController(view)
         _btnDéconnection = view.findViewById(R.id.bouton_deconnection)
-        _btnLogo = view.findViewById(R.id.bouton_retour)
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
         _btnRecherche = view.findViewById(R.id.bouton_recherche)
         _btnCompte = view.findViewById(R.id.bouton_compte)
+        _listeJeux = view.findViewById(R.id.recycler_view_menu)
 
         _btnDéconnection?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vuePageInitiale)
-        }
-        _btnLogo?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuPrincipale)
         }
         _btnMenuPrincipale?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vueMenuPrincipale)
@@ -71,7 +75,13 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
             }
     }
 
-    override fun afficherJeuxVideo() {
-        TODO("Not yet implemented")
+    override fun afficherJeuxVideo(ctx: Context?, liste: List<JeuVideo?>?) {
+        _listeJeux?.layoutManager = LinearLayoutManager(ctx)
+        _adapter = AdapterMenuPrincipal(liste)
+        _listeJeux?.adapter = _adapter
+    }
+
+    override fun afficherMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 }

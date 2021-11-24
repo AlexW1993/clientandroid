@@ -9,6 +9,5 @@ interface IContratPrésentateurVuePageConnexion {
     interface IVuePageConnexion{
         fun confirmationUtilisateur()
         fun afficherMessage(message : String)
-
     }
 }
