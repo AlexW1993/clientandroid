@@ -54,7 +54,7 @@ class Modèle() {
         if (liste == null) {
             return false
         } else {
-            ChercherTop10Jeux().chercherTop10(liste)
+            _listeTop10 = ChercherTop10Jeux().chercherTop10(liste)
             return true
         }
     }

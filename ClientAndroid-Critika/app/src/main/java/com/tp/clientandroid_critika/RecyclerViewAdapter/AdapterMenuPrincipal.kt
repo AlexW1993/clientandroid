@@ -27,11 +27,12 @@ class AdapterMenuPrincipal(var liste: List<JeuVideo?>?) : RecyclerView.Adapter<A
     class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         var palmares : TextView = itemView.findViewById(R.id.palmares_jeu)
         var image : ImageView = itemView.findViewById(R.id.image_jeu_menu)
-        var description : TextView = itemView.findViewById(R.id.description_jeu_menu)
+        var nom : TextView = itemView.findViewById(R.id.nom_jeu_menu)
         var moyenne : TextView = itemView.findViewById(R.id.moyenne_jeu_menu)
         fun viewHolder(jeuVideo : JeuVideo, position: Int){
-            description.text = jeuVideo.description
+            nom.text = jeuVideo.nom
             palmares.text = (position + 1).toString()
+            moyenne.text = jeuVideo.calculerMoyenneEvaluation().toString()
         }
 
     }
