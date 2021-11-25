@@ -18,7 +18,7 @@ class AdapterMenuPrincipal(var liste: List<JeuVideo?>?) : RecyclerView.Adapter<A
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        liste?.get(position)?.let { holder.viewHolder(it) }
+        liste?.get(position)?.let { holder.viewHolder(it,position) }
     }
 
     override fun getItemCount(): Int = liste!!.size
@@ -29,8 +29,9 @@ class AdapterMenuPrincipal(var liste: List<JeuVideo?>?) : RecyclerView.Adapter<A
         var image : ImageView = itemView.findViewById(R.id.image_jeu_menu)
         var description : TextView = itemView.findViewById(R.id.description_jeu_menu)
         var moyenne : TextView = itemView.findViewById(R.id.moyenne_jeu_menu)
-        fun viewHolder(jeuVideo : JeuVideo){
-           description.text = jeuVideo.description
+        fun viewHolder(jeuVideo : JeuVideo, position: Int){
+            description.text = jeuVideo.description
+            palmares.text = (position + 1).toString()
         }
 
     }
