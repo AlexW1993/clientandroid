@@ -114,6 +114,5 @@ class JeuVideoTest {
 
         //Vérification
         Assert.assertEquals(resultatAttandu, resultatObservé,0.0)
-
     }
 }

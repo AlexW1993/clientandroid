@@ -14,10 +14,10 @@ class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscriptio
     private var _handlerRéponse : Handler
     private var _confirmation = 0
     private var _utilisateruExistant = 1
+
     init {
         _vue = vue
         _modèle = Modèle.getInstance()
-        _vue = vue
         _handlerRéponse = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)

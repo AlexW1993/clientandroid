@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tp.clientandroid_critika.R
 
-
 class VuePageJeu : Fragment() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

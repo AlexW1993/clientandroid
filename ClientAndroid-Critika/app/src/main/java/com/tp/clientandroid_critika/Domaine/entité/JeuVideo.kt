@@ -9,6 +9,7 @@ class JeuVideo(var id : String, var nom : String, var description : String?, var
         var resultat = 0.0
         for (liste in listeEvaluations!!){
             totalEvaluation += liste.note
+            println(totalEvaluation)
         }
         resultat = (totalEvaluation / listeEvaluations!!.size).toDouble()
         return resultat
