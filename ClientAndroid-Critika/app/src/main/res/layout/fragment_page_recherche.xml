@@ -30,8 +30,9 @@
         android:scaleType="fitXY"
         android:src="@drawable/vector"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/saisie_recherche" />
 
     <ImageButton
         android:id="@+id/bouton_ps"
@@ -56,6 +57,31 @@
         app:layout_constraintBottom_toTopOf="@+id/appBarLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/saisie_recherche"
+        android:layout_width="309dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+
+    <ImageButton
+        android:id="@+id/bouton_saisie_recherche"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/search_rouge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/saisie_recherche"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
         android:layout_width="match_parent"
