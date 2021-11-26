@@ -4,7 +4,6 @@ import org.junit.Assert.*
 import org.junit.Test
 import java.time.LocalDateTime
 
-
 class CommentaireTest {
 
     @Test
@@ -28,7 +27,6 @@ class CommentaireTest {
         assertEquals( idUtilisateur, cobaye.utilisateurId )
         assertEquals( dateHeure, cobaye.dateHeure )
         assertEquals( contenue, cobaye.contenue )
-
     }
 
     @Test
@@ -66,7 +64,6 @@ class CommentaireTest {
 
         //Vérification
         assertEquals( resultatAttandu, resultatObservé )
-
     }
 
 }

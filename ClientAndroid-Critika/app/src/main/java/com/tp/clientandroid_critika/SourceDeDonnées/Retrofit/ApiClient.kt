@@ -17,7 +17,7 @@ import javax.net.ssl.X509TrustManager
 
 object ApiClient {
 
-    private const val url : String = "https://192.168.89.1:45455/api/"
+    private const val url : String = "https://10.8.17.226:45455/api/"
 
     private val gson : Gson by lazy {
         GsonBuilder().setLenient().create()

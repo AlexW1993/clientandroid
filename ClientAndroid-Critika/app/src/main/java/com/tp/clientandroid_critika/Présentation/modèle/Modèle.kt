@@ -5,13 +5,13 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.*
 
-
 class Modèle() {
 
-    private var _sourceAPI : SourceDeDonnées? = null
+    var sourceDeDonnées : SourceDeDonnées? = null
     private var _utilisateur : Utilisateur? = null
-    private var _listeTop10 : List<JeuVideo>? = null
-    private var _ctx : Context? = null
+    private var _listeJeux : List<JeuVideo>? = null
+    var ctx : Context? = null
+    var jeuSelectionné : JeuVideo? = null
 
     companion object {
         var modèle : Modèle? = null
@@ -23,24 +23,12 @@ class Modèle() {
         }
     }
 
-    fun creationSourceDeDonnées(source : SourceDeDonnées) {
-        _sourceAPI  = source
-    }
-
-    fun récuperationContext(ctx : Context){
-        _ctx = ctx
-    }
-
-    fun chercherContext() : Context?{
-        return  _ctx
-    }
-
     fun creationUtilisateur(utilisateur: Utilisateur) : Boolean?{
-        return CreationCompte(_sourceAPI).creationCompte(utilisateur)
+        return CreationCompte(sourceDeDonnées).creationCompte(utilisateur)
     }
 
     fun verifierUtilisateur(surnom : String, motPasse : String) : Boolean{
-        var utilisateur : Utilisateur? = AuthentificationUtilisateur(_sourceAPI).verification(surnom,motPasse)
+        var utilisateur : Utilisateur? = AuthentificationUtilisateur(sourceDeDonnées).verification(surnom,motPasse)
         if (utilisateur != null){
             _utilisateur = utilisateur
             return true
@@ -50,17 +38,16 @@ class Modèle() {
     }
 
     fun chercherJeux() : Boolean {
-        var liste = ChercherJeuxVideo(_sourceAPI).chercherMeilleurJeuxVideo()
+        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherMeilleurJeuxVideo()
         if (liste == null) {
             return false
         } else {
-            _listeTop10 = ChercherTop10Jeux().chercherTop10(liste)
+            _listeJeux = ChercherTop10Jeux().chercherTop10(liste)
             return true
         }
     }
 
     fun getListeTop10() : List<JeuVideo?>? {
-        return _listeTop10
+        return _listeJeux
     }
-
 }

@@ -61,6 +61,5 @@ class UtilisateurTest {
 
         //Vérification
         Assert.assertEquals(resultatAttandu, resultatObservé)
-
     }
 }

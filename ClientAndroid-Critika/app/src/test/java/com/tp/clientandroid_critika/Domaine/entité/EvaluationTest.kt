@@ -57,7 +57,6 @@ class EvaluationTest {
 
         //Vérification
         assertEquals( resultatAttandu, resultatObservé )
-
     }
 
 }

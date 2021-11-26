@@ -10,7 +10,6 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-
     @POST("Utilisateur/Authentification")
     fun PostAuthentificationUtilisateur(@Body utilisateur : Utilisateur) : Call<Utilisateur>
 

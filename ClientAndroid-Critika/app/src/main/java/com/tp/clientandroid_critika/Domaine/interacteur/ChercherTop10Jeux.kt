@@ -5,8 +5,9 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 class ChercherTop10Jeux{
 
     fun chercherTop10(liste : List<JeuVideo>?) : List<JeuVideo>{
-        var listeMeilleursNotes : List<JeuVideo>? = null
+        var listeMeilleursNotes : List<JeuVideo>?
         var listeMoyenne : MutableList<Moyenne> = ArrayList()
+        var listeTop10 : MutableList<JeuVideo> = ArrayList()
         if (liste != null) {
             for (l in liste){
                 if(l.listeEvaluations?.size != 0){
@@ -18,7 +19,6 @@ class ChercherTop10Jeux{
         listeMoyenne?.sortBy { it.moyenne}
         var listeInverse = listeMoyenne.reversed()
         var listeMoyenneOrdre : MutableList<JeuVideo> = ArrayList()
-
         for (m in listeInverse) {
             if (liste != null) {
                 for(j in liste){
@@ -28,19 +28,14 @@ class ChercherTop10Jeux{
                 }
             }
         }
-
-        var listeTop10 : MutableList<JeuVideo> = ArrayList()
         for(i in 0 until 10){
             listeTop10.add(listeMoyenneOrdre[i])
         }
-
         listeMeilleursNotes = listeTop10
         return listeMeilleursNotes
     }
 
-    class Moyenne(var idJeu : String, var moyenne : Double){
-
-    }
+    private class Moyenne(var idJeu : String, var moyenne : Double)
 }
 
 

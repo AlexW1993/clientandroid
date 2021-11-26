@@ -4,6 +4,7 @@ package com.tp.clientandroid_critika.Présentation.présenteur
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueMenuPrincipale
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 
@@ -24,7 +25,7 @@ class PrésentateurMenuPrincipale (vue : IContratPrésentateurVueMenuPrincipale.
                 super.handleMessage(msg)
                 _filEsclave = null
                 if (msg.what == _confirmation) {
-                    _vue?.afficherJeuxVideo(_modèle!!.chercherContext(), _modèle!!.getListeTop10())
+                    _vue?.afficherJeuxVideo(_modèle!!.getListeTop10())
                 } else if (msg.what == _erreur){
                     _vue?.afficherMessage("La liste des jeux n'est pas disponible")
                 }
@@ -44,5 +45,10 @@ class PrésentateurMenuPrincipale (vue : IContratPrésentateurVueMenuPrincipale.
             _handlerRéponse.sendMessage(msg!!)
         }
         _filEsclave!!.start()
+    }
+
+    override fun jeuSelectionné(jeuVideo: JeuVideo) {
+        _modèle?.jeuSelectionné = null
+        _modèle?.jeuSelectionné = jeuVideo
     }
 }

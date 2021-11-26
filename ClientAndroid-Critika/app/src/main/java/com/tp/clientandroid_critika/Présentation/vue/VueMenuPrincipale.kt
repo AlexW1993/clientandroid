@@ -1,6 +1,5 @@
 package com.tp.clientandroid_critika.Présentation.vue
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,7 +62,6 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
         _btnCompte?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vueMenuCompte)
         }
-
         _présentateur!!.chercherJeuxVideo()
     }
 
@@ -75,9 +73,9 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
             }
     }
 
-    override fun afficherJeuxVideo(ctx: Context?, liste: List<JeuVideo?>?) {
-        _listeJeux?.layoutManager = LinearLayoutManager(ctx)
-        _adapter = AdapterMenuPrincipal(liste)
+    override fun afficherJeuxVideo(liste: List<JeuVideo?>?) {
+        _listeJeux?.layoutManager = LinearLayoutManager(parentFragment?.context)
+        _adapter = _présentateur?.let { AdapterMenuPrincipal(liste, it) }
         _listeJeux?.adapter = _adapter
     }
 

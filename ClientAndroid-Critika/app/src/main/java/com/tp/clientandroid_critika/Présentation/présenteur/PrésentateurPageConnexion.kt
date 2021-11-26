@@ -6,7 +6,6 @@ import android.os.Message
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageConnexion
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 
-
 class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVuePageConnexion) : IContratPrésentateurVuePageConnexion.IPrésentateurPageConnexion {
 
     private var _modèle : Modèle? = null
@@ -33,24 +32,24 @@ class PrésentateurPageConnexion(vue : IContratPrésentateurVuePageConnexion.IVu
     }
 
     override fun verificationUtilisateur(surnom : String, motPasse : String) {
-            if(surnom != ""){
-                if(motPasse != ""){
-                    _filEsclave = Thread {
-                        var msg: Message?
-                        val confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
-                        if(confirmation == true){
-                            msg = _handlerRéponse.obtainMessage(_confirmation)
-                        } else {
-                            msg = _handlerRéponse.obtainMessage(_erreur)
-                        }
-                    _handlerRéponse.sendMessage(msg!!)
+        if(surnom != ""){
+            if(motPasse != ""){
+                _filEsclave = Thread {
+                    var msg: Message?
+                    val confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
+                    if(confirmation == true){
+                        msg = _handlerRéponse.obtainMessage(_confirmation)
+                    } else {
+                        msg = _handlerRéponse.obtainMessage(_erreur)
                     }
-                    _filEsclave!!.start()
-                } else {
-                    _vue?.afficherMessage("S'il vous plait, rempliez la boite de mot des passe")
+                    _handlerRéponse.sendMessage(msg!!)
                 }
+                _filEsclave!!.start()
             } else {
-                _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")
+                _vue?.afficherMessage("S'il vous plait, rempliez la boite de mot des passe")
             }
+        } else {
+            _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")
         }
+    }
 }
