@@ -6,17 +6,16 @@ import android.os.Message
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageInscription
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
+import com.tp.clientandroid_critika.Présentation.vue.VuePageInscription
 
-class PrésentateurPageInscription (vue : IContratPrésentateurVuePageInscription.IVuePageInscription) : IContratPrésentateurVuePageInscription.IPrésentateurPageInscription {
+class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPrésentateurVuePageInscription.IPrésentateurPageInscription {
     private var _modèle : Modèle? = null
-    private var _vue : IContratPrésentateurVuePageInscription.IVuePageInscription? = null
     private var _filEsclave : Thread? = null
     private var _handlerRéponse : Handler
     private var _confirmation = 0
     private var _utilisateruExistant = 1
 
     init {
-        _vue = vue
         _modèle = Modèle.getInstance()
         _handlerRéponse = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {

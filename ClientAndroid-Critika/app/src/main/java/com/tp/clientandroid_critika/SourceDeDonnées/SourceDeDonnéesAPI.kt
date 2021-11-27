@@ -31,8 +31,6 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         var reponse = res.body()
         return reponse
     }
-
-
 }
 
 
