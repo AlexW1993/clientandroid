@@ -2,11 +2,11 @@ package com.tp.clientandroid_critika.Présentation.contrat
 
 interface IContratPrésentateurVuePageRecherche {
 
-    interface IContratPrésentateurPageRecherche{
+    interface IPrésentateurPageRecherche{
         fun chercherJeuxParConsole(console : String)
     }
 
-    interface IContratVuePageRecherche{
+    interface IVuePageRecherche{
         fun afficherPageResultatRecherche()
     }
 }

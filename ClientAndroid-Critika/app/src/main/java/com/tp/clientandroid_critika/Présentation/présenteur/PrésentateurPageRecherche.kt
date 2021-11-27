@@ -4,16 +4,20 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageRecherche
 
-class PrésentateurPageRecherche(var vue : VuePageRecherche) : IContratPrésentateurVuePageRecherche.IContratPrésentateurPageRecherche {
+class PrésentateurPageRecherche(var _vue : VuePageRecherche) : IContratPrésentateurVuePageRecherche.IPrésentateurPageRecherche {
 
     private var _modèle : Modèle? = null
     private var _filEsclave : Thread? = null
+
+    init {
+        _modèle = Modèle.getInstance()
+    }
 
     override fun chercherJeuxParConsole(plateforme: String) {
         _filEsclave = Thread {
             _modèle?.chercherJeuxParConsole(plateforme)
         }
         _filEsclave!!.start()
-        vue.afficherPageResultatRecherche()
+        _vue.afficherPageResultatRecherche()
     }
 }

@@ -13,7 +13,7 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageRecherche
 import com.tp.clientandroid_critika.R
 
-class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IContratVuePageRecherche{
+class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVuePageRecherche{
 
     private var _présentateur : PrésentateurPageRecherche? = null
     private var _nav : NavController? = null
