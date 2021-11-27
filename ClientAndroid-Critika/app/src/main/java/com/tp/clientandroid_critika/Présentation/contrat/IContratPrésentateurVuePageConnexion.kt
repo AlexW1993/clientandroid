@@ -7,7 +7,7 @@ interface IContratPrésentateurVuePageConnexion {
     }
 
     interface IVuePageConnexion{
-        fun confirmationUtilisateur()
+        fun afficherPageMenuPrincipal()
         fun afficherMessage(message : String)
     }
 }

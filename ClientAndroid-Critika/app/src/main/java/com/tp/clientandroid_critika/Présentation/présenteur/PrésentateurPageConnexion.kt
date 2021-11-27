@@ -22,7 +22,7 @@ class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésent
                 super.handleMessage(msg)
                 _filEsclave = null
                 if (msg.what == _confirmation) {
-                    _vue?.confirmationUtilisateur()
+                    _vue?.afficherPageMenuPrincipal()
                 } else if (msg.what == _erreur) {
                     _vue?.afficherMessage("Surnom et/ou mot de passe incorrectes")
                 }

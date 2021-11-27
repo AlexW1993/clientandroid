@@ -73,7 +73,7 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
             }
     }
 
-    override fun afficherJeuxVideo(liste: List<JeuVideo?>?) {
+    override fun afficherListeJeuxVideo(liste: List<JeuVideo?>?) {
         _listeJeux?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = _présentateur?.let { AdapterMenuPrincipal(liste, it) }
         _listeJeux?.adapter = _adapter

@@ -54,7 +54,7 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
             }
     }
 
-    override fun confirmationUtilisateur() {
+    override fun afficherPageMenuPrincipal() {
         _nav!!.navigate(R.id.vueMenuPrincipale)
     }
 

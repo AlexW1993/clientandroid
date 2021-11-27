@@ -10,7 +10,7 @@ interface IContratPrésentateurVueMenuPrincipale {
     }
 
     interface IVueMenuPrincipale{
-        fun afficherJeuxVideo(liste: List<JeuVideo?>?)
+        fun afficherListeJeuxVideo(liste: List<JeuVideo?>?)
         fun afficherMessage(message : String)
     }
 }

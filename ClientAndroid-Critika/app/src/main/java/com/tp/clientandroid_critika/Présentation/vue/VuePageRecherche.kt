@@ -65,6 +65,15 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.ICont
         _btnCompte?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vueMenuCompte)
         }
+        _btnXbox?.setOnClickListener {
+            _présentateur?.chercherJeuxParConsole("Xbox One")
+        }
+        _btnPlaystation?.setOnClickListener {
+            _présentateur?.chercherJeuxParConsole("PlayStation 4")
+        }
+        _btnSwitch?.setOnClickListener {
+            _présentateur?.chercherJeuxParConsole("Nintendo Switch")
+        }
     }
 
     companion object {
@@ -73,5 +82,9 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.ICont
         fun newInstance(param1: String, param2: String) =
             VuePageRecherche().apply {
             }
+    }
+
+    override fun afficherPageResultatRecherche() {
+        _nav!!.navigate(R.id.vuePageResultatRecherche)
     }
 }

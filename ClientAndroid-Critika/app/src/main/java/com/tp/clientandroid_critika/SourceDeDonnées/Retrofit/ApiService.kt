@@ -7,6 +7,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -18,4 +19,7 @@ interface ApiService {
 
     @GET("JeuVideo")
     fun GetToutJeuVideo() : Call<List<JeuVideo>>
+
+    @GET("JeuVideo/rechercheParPlateforme/{plateforme}")
+    fun GetJeuVideoParPlateforme(@Path("plateforme") plateforme : String) : Call<List<JeuVideo>>
 }

@@ -7,7 +7,7 @@ interface IContratPrésentateurVuePageInscription {
     }
 
     interface IVuePageInscription{
-        fun confirmationInscription()
+        fun afficherPageInscription()
         fun afficherMessage(message : String)
     }
 }

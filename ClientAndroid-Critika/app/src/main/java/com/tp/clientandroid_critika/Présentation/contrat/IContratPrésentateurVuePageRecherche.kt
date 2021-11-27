@@ -7,6 +7,6 @@ interface IContratPrésentateurVuePageRecherche {
     }
 
     interface IContratVuePageRecherche{
-
+        fun afficherPageResultatRecherche()
     }
 }

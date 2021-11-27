@@ -38,12 +38,16 @@ class Modèle() {
     }
 
     fun chercherJeux() : Boolean {
-        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherMeilleurJeuxVideo()
+        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
         if (liste == null) {
             return false
         } else {
             _listeJeux = ChercherTop10Jeux().chercherTop10(liste)
             return true
         }
+    }
+
+    fun chercherJeuxParConsole(plateforme : String) {
+        _listeJeux = ChercherJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole(plateforme)
     }
 }

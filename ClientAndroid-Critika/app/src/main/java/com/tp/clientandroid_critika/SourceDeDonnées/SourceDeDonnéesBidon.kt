@@ -13,7 +13,11 @@ class SourceDeDonnéesBidon : SourceDeDonnées{
        return true
     }
 
-    override fun chercherToutJeux(): List<JeuVideo>? {
+    override fun chercherTousJeux(): List<JeuVideo>? {
+        TODO("Not yet implemented")
+    }
+
+    override fun chercherTousJeuxParPlateforme(plateforme: String): List<JeuVideo>? {
         TODO("Not yet implemented")
     }
 }

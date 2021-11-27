@@ -22,7 +22,7 @@ class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPr�
                 super.handleMessage(msg)
                 _filEsclave = null
                 if (msg.what == _confirmation) {
-                    _vue?.confirmationInscription()
+                    _vue?.afficherPageInscription()
                 } else if(msg.what == _utilisateruExistant){
                     _vue?.afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
                             "ecrivez vous une autre surnom")
