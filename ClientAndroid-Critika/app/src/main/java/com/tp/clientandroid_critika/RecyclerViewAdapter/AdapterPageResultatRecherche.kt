@@ -15,11 +15,10 @@ import com.tp.clientandroid_critika.R
 class AdapterPageResultatRecherche(var liste: List<JeuVideo?>?, var présentateur : PrésentateurPageResultatRecherche) : RecyclerView.Adapter<AdapterPageResultatRecherche.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPageResultatRecherche.ViewHolder {
         val _mInflater = LayoutInflater.from(parent.context)
-        return AdapterPageResultatRecherche.ViewHolder(_mInflater.inflate(R.layout.rangee_jeu_recherche, parent,false)
-        )
+        return ViewHolder(_mInflater.inflate(R.layout.rangee_jeu_recherche, parent,false))
     }
 
-    override fun onBindViewHolder(holder: AdapterPageResultatRecherche.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         liste?.get(position)?.let { holder.viewHolder(it,position,présentateur) }
     }
 

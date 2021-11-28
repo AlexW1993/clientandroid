@@ -7,7 +7,7 @@ class JeuVideo(
     var plateforme : String? = "",
     var genre : String? = "",
     var modeJeu : String? = "",
-    var anneSortie : Int? = 0,
+    var anneSortie : Int = 1999,
     var listeCommentaires : MutableList<Commentaire>? = null,
     var listeEvaluations : MutableList<Evaluation>? = null){
 
