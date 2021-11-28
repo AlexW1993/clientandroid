@@ -60,7 +60,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
             }
     }
 
-    override fun confirmationInscription() {
+    override fun afficherPageInscription() {
         Toast.makeText(activity,"Votre compte à été créé correctement",Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageConnexion)
     }

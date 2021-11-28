@@ -24,7 +24,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse == 200
     }
 
-    override fun chercherToutJeux(): List<JeuVideo>? {
+    override fun chercherTousJeux(): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
         val call : Call<List<JeuVideo>> = retro.GetToutJeuVideo()
         var res = call.execute()
@@ -32,7 +32,13 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse
     }
 
-
+    override fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>? {
+        val retro = ApiClient.SERVICE
+        val call : Call<List<JeuVideo>> = retro.GetJeuVideoParPlateforme(/*plateforme*/)
+        var res = call.execute()
+        var reponse = res.body()
+        return reponse
+    }
 }
 
 

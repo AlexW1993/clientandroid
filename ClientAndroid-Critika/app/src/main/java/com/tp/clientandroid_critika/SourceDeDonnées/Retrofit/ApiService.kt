@@ -4,9 +4,7 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -18,4 +16,7 @@ interface ApiService {
 
     @GET("JeuVideo")
     fun GetToutJeuVideo() : Call<List<JeuVideo>>
+
+    @GET("JeuVideo/recherchePlateforme/nintendo")
+    fun GetJeuVideoParPlateforme(/*@Path("plateforme") plateforme : String*/) : Call<List<JeuVideo>>
 }

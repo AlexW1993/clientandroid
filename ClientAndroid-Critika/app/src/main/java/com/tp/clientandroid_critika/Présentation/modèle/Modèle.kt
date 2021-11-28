@@ -8,10 +8,10 @@ import com.tp.clientandroid_critika.Domaine.interacteur.*
 class Modèle() {
 
     var sourceDeDonnées : SourceDeDonnées? = null
-    private var _utilisateur : Utilisateur? = null
-    private var _listeJeux : List<JeuVideo>? = null
     var ctx : Context? = null
     var jeuSelectionné : JeuVideo? = null
+    var _utilisateur : Utilisateur? = null
+    var _listeJeux : List<JeuVideo>? = null
 
     companion object {
         var modèle : Modèle? = null
@@ -38,7 +38,7 @@ class Modèle() {
     }
 
     fun chercherJeux() : Boolean {
-        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherMeilleurJeuxVideo()
+        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
         if (liste == null) {
             return false
         } else {
@@ -47,7 +47,7 @@ class Modèle() {
         }
     }
 
-    fun getListeTop10() : List<JeuVideo?>? {
-        return _listeJeux
+    fun chercherJeuxParConsole(plateforme : String) {
+        _listeJeux = ChercherJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole(plateforme)
     }
 }
