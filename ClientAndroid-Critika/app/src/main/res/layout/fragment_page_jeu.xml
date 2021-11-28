@@ -109,6 +109,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/description_jeu" />
 
+            <EditText
+                android:id="@+id/saisie_commentaire"
+                android:layout_width="381dp"
+                android:layout_height="123dp"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commentaires_jeu" />
+
+            <ImageButton
+                android:id="@+id/bouton_envoie_commentaire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView><com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
