@@ -14,9 +14,13 @@ interface ApiService {
     @POST("Utilisateur")
     fun PostCreationUtilisateur(@Body utilisateur: Utilisateur) : Call<ResponseBody>
 
+
     @GET("JeuVideo")
     fun GetToutJeuVideo() : Call<List<JeuVideo>>
 
     @GET("JeuVideo/recherchePlateforme/nintendo")
     fun GetJeuVideoParPlateforme(/*@Path("plateforme") plateforme : String*/) : Call<List<JeuVideo>>
+
+    @GET("JeuVideo/{id}")
+    fun GetJeuVideoParId(@Path("id") id:String):Call<JeuVideo>
 }

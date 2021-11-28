@@ -4,7 +4,7 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 
-class SourceDeDonnéesBidon : SourceDeDonnées{
+abstract class SourceDeDonnéesBidon : SourceDeDonnées{
     override fun chercherUtilisateur(u: Utilisateur): Utilisateur? {
         return u
     }

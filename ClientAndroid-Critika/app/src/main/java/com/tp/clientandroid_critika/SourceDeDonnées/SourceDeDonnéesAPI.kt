@@ -24,6 +24,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse == 200
     }
 
+
     override fun chercherTousJeux(): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
         val call : Call<List<JeuVideo>> = retro.GetToutJeuVideo()

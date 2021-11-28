@@ -9,4 +9,5 @@ interface SourceDeDonnées {
     fun ajouterUtilisateur(utilisateur : Utilisateur) : Boolean?
     fun chercherTousJeux() : List<JeuVideo>?
     fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>?
+
 }

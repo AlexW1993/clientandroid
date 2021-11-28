@@ -41,6 +41,22 @@ class JeuVideoTest {
     }
 
     @Test
+    fun `étant donné un utilisateur, lorsque je crée un objet jeu sans les attributs, j'obtien un objet jeuVideo avec les valeurs par defaut`(){
+        var jeuCobaye = JeuVideo()
+
+        Assert.assertNotNull(jeuCobaye)
+        Assert.assertEquals("", jeuCobaye.id)
+        Assert.assertEquals("", jeuCobaye.nom)
+        Assert.assertEquals("", jeuCobaye.description)
+        Assert.assertEquals("", jeuCobaye.plateforme)
+        Assert.assertEquals("", jeuCobaye.genre)
+        Assert.assertEquals("", jeuCobaye.modeJeu)
+        Assert.assertEquals("", jeuCobaye.anneSortie)
+        Assert.assertNull(jeuCobaye.listeCommentaires)
+        Assert.assertNull(jeuCobaye.listeEvaluations)
+    }
+
+    @Test
     fun `étant donné une utilisateur, lorsque je fais une modification dans les information d'un jeu, j'obtien le resulta id = 2 nom =  Alex, mot de passe = "0000", codeAvatar = "2", type = administrateur et droit à ecrire = true`(){
 
         //Mise en place
