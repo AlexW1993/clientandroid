@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageResultatRecherche
-import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuPrincipale
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageResultatRecherche
 import com.tp.clientandroid_critika.R
-import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterPageResultatRecherche
 
 class VuePageResultatRecherche : Fragment(), IContratPrésentateurVuePageResultatRecherche.IVuePageResultatRecherche {

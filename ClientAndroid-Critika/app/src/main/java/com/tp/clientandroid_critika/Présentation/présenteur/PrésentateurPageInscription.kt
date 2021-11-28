@@ -37,7 +37,7 @@ class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPr�
                 if(motPasse1 == motPasse2){
                     _filEsclave = Thread {
                         var msg: Message?
-                        var utilisateur = Utilisateur(null,surNom,motPasse1,null,null)
+                        var utilisateur = Utilisateur(nom = surNom, motPasse = motPasse1)
                         var confirmation  = _modèle?.creationUtilisateur(utilisateur)
                         msg = if(confirmation == true){
                             _handlerRéponse.obtainMessage(_confirmation)

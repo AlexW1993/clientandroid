@@ -1,16 +1,15 @@
 package com.tp.clientandroid_critika.Domaine.entité
 
-
-class JeuVideo(var id : String, var nom : String, var description : String?, var plateforme : String?,
-               var genre : String?, var modeJeu : String?, var anneSortie : Int?,
-               var listeCommentaires : MutableList<Commentaire>?, var listeEvaluations : MutableList<Evaluation>?){
-
-
-    /**
-     * Constructeur secondaire avec les valeurs par defaut
-     */
-    constructor() : this("","","","","","",0,null,null)
-
+class JeuVideo(
+    var id : String = "",
+    var nom : String = "",
+    var description : String? = "",
+    var plateforme : String? = "",
+    var genre : String? = "",
+    var modeJeu : String? = "",
+    var anneSortie : Int? = 0,
+    var listeCommentaires : MutableList<Commentaire>? = null,
+    var listeEvaluations : MutableList<Evaluation>? = null){
 
     /**
      * Méthode calculer la moyenne
