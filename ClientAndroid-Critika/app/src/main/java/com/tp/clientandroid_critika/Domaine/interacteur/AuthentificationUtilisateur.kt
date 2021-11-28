@@ -5,7 +5,7 @@ import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 class AuthentificationUtilisateur(var _source: SourceDeDonnées?) {
 
     fun verification(surnom : String, motPasse : String) : Utilisateur?{
-        var u = Utilisateur(null,surnom,motPasse,null,null)
+        var u = Utilisateur(nom = surnom, motPasse = motPasse)
         var utilisateur : Utilisateur? = _source?.chercherUtilisateur(u)
         return utilisateur
     }
