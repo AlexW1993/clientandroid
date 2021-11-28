@@ -10,17 +10,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageJeu
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageJeu
-
 import com.tp.clientandroid_critika.R
+import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
+import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterPageJeu
+
+
+
 
 class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
 
     private var _présentateur : PrésentateurPageJeu? = null
     private var _nav : NavController? = null
+    private var _adapter : AdapterPageJeu? = null
     private var _btnDéconnection : ImageButton? = null
     private var _btnMenuPrincipale : ImageButton? = null
     private var _btnRecherche : ImageButton? = null
@@ -88,6 +94,10 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()
         _imageJeu = null
         _descriptionJeu?.text = jeu?.description
+        _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
+        _adapter = AdapterPageJeu(jeu?.listeCommentaires)
+        _listeCommentaires?.adapter = _adapter
+
     }
 
 }
