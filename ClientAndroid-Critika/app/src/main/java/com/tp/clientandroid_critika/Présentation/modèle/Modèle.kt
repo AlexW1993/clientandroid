@@ -30,7 +30,7 @@ class Modèle() {
     }
 
     fun verifierUtilisateur(surnom : String, motPasse : String) : Boolean{
-        var utilisateur : Utilisateur? = GestionCompte(sourceDeDonnées).verification(surnom,motPasse)
+        var utilisateur : Utilisateur? = GestionCompte(sourceDeDonnées).verificationCompte(surnom,motPasse)
         if (utilisateur != null){
             this.utilisateur = utilisateur
             return true
