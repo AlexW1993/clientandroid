@@ -28,8 +28,14 @@ class ChercherTop10Jeux{
                 }
             }
         }
-        for(i in 0 until 10){
-            listeTop10.add(listeMoyenneOrdre[i])
+        if(listeMoyenneOrdre.size > 10){
+            for(i in 0 until 10){
+                listeTop10.add(listeMoyenneOrdre[i])
+            }
+        } else {
+            for(i in 0 until listeMoyenneOrdre.size){
+                listeTop10.add(listeMoyenneOrdre[i])
+            }
         }
         listeMeilleursNotes = listeTop10
         return listeMeilleursNotes
