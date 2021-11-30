@@ -88,8 +88,8 @@
 
             <TextView
                 android:id="@+id/description_jeu"
-                android:layout_width="376dp"
-                android:layout_height="147dp"
+                android:layout_width="386dp"
+                android:layout_height="71dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -111,25 +111,27 @@
 
             <EditText
                 android:id="@+id/saisie_commentaire"
-                android:layout_width="381dp"
-                android:layout_height="123dp"
+                android:layout_width="318dp"
+                android:layout_height="108dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/commentaires_jeu" />
 
             <ImageButton
                 android:id="@+id/bouton_envoie_commentaire"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/send"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
+                android:layout_width="51dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/sends"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/saisie_commentaire"
+                app:layout_constraintTop_toBottomOf="@+id/commentaires_jeu" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView><com.google.android.material.appbar.AppBarLayout
