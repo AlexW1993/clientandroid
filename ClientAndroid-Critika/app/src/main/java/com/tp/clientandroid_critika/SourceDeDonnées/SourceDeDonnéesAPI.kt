@@ -14,8 +14,11 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         val retro = ApiClient.SERVICE
         val call : Call<Utilisateur> = retro.PostAuthentificationUtilisateur(utilisateur)
         var res = call.execute()
-        var reponse = res.body()
-        return reponse
+        if(res.code() == 200){
+            return res.body()
+        } else{
+            return null
+        }
     }
 
     override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean{
@@ -30,16 +33,23 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         val retro = ApiClient.SERVICE
         val call : Call<List<JeuVideo>> = retro.GetToutJeuVideo()
         var res = call.execute()
-        var reponse = res.body()
-        return reponse
+        if(res.code() == 200){
+            return res.body()
+        } else{
+            return null
+        }
     }
 
     override fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
         val call : Call<List<JeuVideo>> = retro.GetJeuVideoParPlateforme(plateforme)
         var res = call.execute()
-        var reponse = res.body()
-        return reponse
+        if(res.code() == 200){
+            return res.body()
+        } else{
+            return null
+        }
+
     }
 
     override fun ajouterCommentaire(commentaire: Commentaire): Boolean {
