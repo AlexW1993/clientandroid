@@ -16,11 +16,7 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageJeu
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageJeu
 import com.tp.clientandroid_critika.R
-import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterPageJeu
-
-
-
 
 class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
 
@@ -97,7 +93,5 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = AdapterPageJeu(jeu?.listeCommentaires)
         _listeCommentaires?.adapter = _adapter
-
     }
-
 }

@@ -14,7 +14,6 @@ import com.tp.clientandroid_critika.R
 
 class AdapterMenuPrincipal(var liste: List<JeuVideo?>?, var présentateur : PrésentateurMenuPrincipale) : RecyclerView.Adapter<AdapterMenuPrincipal.ViewHolder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val _mInflater = LayoutInflater.from(parent.context)
         return ViewHolder(_mInflater.inflate(R.layout.rangee_jeu_menu,parent,false))

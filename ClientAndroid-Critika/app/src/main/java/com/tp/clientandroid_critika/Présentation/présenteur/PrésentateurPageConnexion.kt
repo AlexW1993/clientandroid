@@ -12,8 +12,8 @@ class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésent
     private var _modèle : Modèle? = null
     private var _filEsclave : Thread? = null
     private var _handlerRéponse : Handler
-    private var _confirmation = 0
-    private var _erreur = 1
+    private var _messageConfirmation = 0
+    private var _messageErreur = 1
 
     init {
         _modèle = Modèle.getInstance()
@@ -21,9 +21,9 @@ class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésent
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 _filEsclave = null
-                if (msg.what == _confirmation) {
+                if (msg.what == _messageConfirmation) {
                     _vue?.afficherPageMenuPrincipal()
-                } else if (msg.what == _erreur) {
+                } else if (msg.what == _messageErreur) {
                     _vue?.afficherMessage("Surnom et/ou mot de passe incorrectes")
                 }
             }
@@ -37,9 +37,9 @@ class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésent
                     var msg: Message?
                     val confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
                     if(confirmation == true){
-                        msg = _handlerRéponse.obtainMessage(_confirmation)
+                        msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                     } else {
-                        msg = _handlerRéponse.obtainMessage(_erreur)
+                        msg = _handlerRéponse.obtainMessage(_messageErreur)
                     }
                     _handlerRéponse.sendMessage(msg!!)
                 }

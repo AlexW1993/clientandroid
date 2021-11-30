@@ -17,7 +17,7 @@ interface ApiService {
     @GET("JeuVideo")
     fun GetToutJeuVideo() : Call<List<JeuVideo>>
 
-    @GET("JeuVideo/recherchePlateforme/nintendo")
-    fun GetJeuVideoParPlateforme(/*@Path("plateforme") plateforme : String*/) : Call<List<JeuVideo>>
+    @GET("JeuVideo/recherchePlateforme/{plateforme}")
+    fun GetJeuVideoParPlateforme(@Path("plateforme") plateforme : String) : Call<List<JeuVideo>>
 
 }

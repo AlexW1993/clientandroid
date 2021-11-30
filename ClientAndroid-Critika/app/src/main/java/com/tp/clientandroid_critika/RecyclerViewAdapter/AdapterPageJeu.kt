@@ -17,7 +17,7 @@ class AdapterPageJeu(var liste: List<Commentaire?>?) : RecyclerView.Adapter<Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        liste?.get(position)?.let { holder.viewHolder(it,position) }
+        liste?.get(position)?.let { holder.viewHolder(it) }
     }
 
     override fun getItemCount(): Int = liste!!.size
@@ -27,7 +27,7 @@ class AdapterPageJeu(var liste: List<Commentaire?>?) : RecyclerView.Adapter<Adap
         var contenu : TextView = itemView.findViewById(R.id.commentaire_contenu)
         var dateHeure : TextView = itemView.findViewById(R.id.date_heure_commentaire)
         var avatar : ImageView = itemView.findViewById(R.id.image_avatar)
-        fun viewHolder(commentaire: Commentaire, position: Int){
+        fun viewHolder(commentaire: Commentaire){
             nomUtilisateur.text = commentaire.utilisateur?.nom
             contenu.text = commentaire.contenue
             dateHeure.text = commentaire.dateHeure

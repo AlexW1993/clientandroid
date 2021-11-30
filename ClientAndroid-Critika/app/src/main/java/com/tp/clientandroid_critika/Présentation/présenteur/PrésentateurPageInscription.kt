@@ -12,8 +12,8 @@ class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPr�
     private var _modèle : Modèle? = null
     private var _filEsclave : Thread? = null
     private var _handlerRéponse : Handler
-    private var _confirmation = 0
-    private var _utilisateruExistant = 1
+    private var _messageConfirmation = 0
+    private var _messageUtilisateruExistant = 1
 
     init {
         _modèle = Modèle.getInstance()
@@ -21,9 +21,9 @@ class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPr�
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 _filEsclave = null
-                if (msg.what == _confirmation) {
+                if (msg.what == _messageConfirmation) {
                     _vue?.afficherPageInscription()
-                } else if(msg.what == _utilisateruExistant){
+                } else if(msg.what == _messageUtilisateruExistant){
                     _vue?.afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
                             "ecrivez vous une autre surnom")
                 }
@@ -40,9 +40,9 @@ class PrésentateurPageInscription (var _vue : VuePageInscription) : IContratPr�
                         var utilisateur = Utilisateur(nom = surNom, motPasse = motPasse1)
                         var confirmation  = _modèle?.creationUtilisateur(utilisateur)
                         msg = if(confirmation == true){
-                            _handlerRéponse.obtainMessage(_confirmation)
+                            _handlerRéponse.obtainMessage(_messageConfirmation)
                         } else {
-                            _handlerRéponse.obtainMessage(_utilisateruExistant)
+                            _handlerRéponse.obtainMessage(_messageUtilisateruExistant)
                         }
                         _handlerRéponse.sendMessage(msg!!)
                         }
