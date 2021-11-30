@@ -14,7 +14,7 @@ class PrésentateurPageResultatRecherche(var _vue : VuePageResultatRecherche) : 
     }
 
     override fun chercherJeuxVideo() {
-        _vue?.afficherListeJeuxVideo(_modèle?._listeJeux)
+        _vue?.afficherListeJeuxVideo(_modèle?.listeJeux)
     }
 
     override fun jeuSelectionné(jeuVideo: JeuVideo) {

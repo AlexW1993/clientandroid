@@ -6,7 +6,7 @@ package com.tp.clientandroid_critika.Domaine.entité
  * représent l'utilisateur de l'application
  */
 class Utilisateur(
-    var id : String? = "",
+    var id : String = "",
     var nom : String = "",
     var motPasse : String = "",
     var codeAvatar : String? = "",

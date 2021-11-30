@@ -1,5 +1,6 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
 
+import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
@@ -17,7 +18,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse
     }
 
-    override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean?{
+    override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean{
         val retro = ApiClient.SERVICE
         val call : Call<ResponseBody> = retro.PostCreationUtilisateur(utilisateur)
         var res = call.execute()
@@ -39,6 +40,14 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         var res = call.execute()
         var reponse = res.body()
         return reponse
+    }
+
+    override fun ajouterCommentaire(commentaire: Commentaire): Boolean {
+        val retro = ApiClient.SERVICE
+        val call : Call<ResponseBody> = retro.PostAjouterCommentaire(commentaire)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 201
     }
 }
 

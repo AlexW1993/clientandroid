@@ -9,7 +9,7 @@ abstract class SourceDeDonnéesBidon : SourceDeDonnées{
         return u
     }
 
-    override fun ajouterUtilisateur(utilisateur: Utilisateur): Boolean? {
+    override fun ajouterUtilisateur(utilisateur: Utilisateur): Boolean {
        return true
     }
 

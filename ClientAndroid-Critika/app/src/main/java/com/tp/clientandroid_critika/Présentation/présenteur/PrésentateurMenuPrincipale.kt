@@ -23,7 +23,7 @@ class PrésentateurMenuPrincipale (var _vue : VueMenuPrincipale) : IContratPrés
                 super.handleMessage(msg)
                 _filEsclave = null
                 if (msg.what == _messageConfirmation) {
-                    _vue?.afficherListeJeuxVideo(_modèle?._listeJeux)
+                    _vue?.afficherListeJeuxVideo(_modèle?.listeJeux)
                 } else if (msg.what == _messageErreur){
                     _vue?.afficherMessage("La liste des jeux n'est pas disponible")
                 }
