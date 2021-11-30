@@ -26,11 +26,11 @@ class Modèle() {
     }
 
     fun creationUtilisateur(utilisateur: Utilisateur) : Boolean?{
-        return CreationCompte(sourceDeDonnées).creationCompte(utilisateur)
+        return GestionCompte(sourceDeDonnées).creationCompte(utilisateur)
     }
 
     fun verifierUtilisateur(surnom : String, motPasse : String) : Boolean{
-        var utilisateur : Utilisateur? = AuthentificationUtilisateur(sourceDeDonnées).verification(surnom,motPasse)
+        var utilisateur : Utilisateur? = GestionCompte(sourceDeDonnées).verification(surnom,motPasse)
         if (utilisateur != null){
             this.utilisateur = utilisateur
             return true
