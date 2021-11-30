@@ -5,6 +5,7 @@ import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 
 abstract class SourceDeDonnéesBidon : SourceDeDonnées{
+
     override fun chercherUtilisateur(u: Utilisateur): Utilisateur? {
         return u
     }

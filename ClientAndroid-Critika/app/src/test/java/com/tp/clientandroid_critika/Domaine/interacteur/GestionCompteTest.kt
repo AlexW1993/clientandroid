@@ -1,13 +1,11 @@
 package com.tp.clientandroid_critika.Domaine.interacteur
 
-import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.SourceDeDonnées.SourceDeDonnéesBidon
 import org.junit.Assert
 import org.junit.Test
-import java.time.LocalDateTime
 
-class CreationCompteTest {
+class GestionCompteTest {
 
     @Test
     fun `étant donné un utilisateur, lorsque je veux utiliser me connecter à application, j'obtien le resultat connection=true`(){
@@ -19,7 +17,7 @@ class CreationCompteTest {
 
 
         //Exécution
-        connection = CreationCompte(sourceDeDonnéesBidon).creationCompte(cobaye)!!
+        connection = GestionCompte(sourceDeDonnéesBidon).creationCompte(cobaye)!!
 
         //Vérification
 
