@@ -40,7 +40,7 @@ class Modèle() {
     }
 
     fun chercherJeux() : Boolean {
-        var liste = ChercherJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+        var liste = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
         if (liste == null) {
             return false
         } else {
@@ -50,7 +50,7 @@ class Modèle() {
     }
 
     fun chercherJeuxParConsole(plateforme : String) {
-        listeJeux = ChercherJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole(plateforme)
+        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole(plateforme)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -58,7 +58,7 @@ class Modèle() {
         var commentaire = Commentaire("",jeuSelectionné!!.id,utilisateur!!.id,LocalDateTime.now().toString(),contenueCommentaire,utilisateur)
         var confirmationAjouter = GestionCommentaire(sourceDeDonnées).ajouterCommentaire(commentaire)
         if(confirmationAjouter == true){
-            listeJeux = ChercherJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
             for(l in listeJeux!!){
                if(l.id == jeuSelectionné?.id){
                    jeuSelectionné = l
