@@ -1,13 +1,13 @@
 package com.tp.clientandroid_critika.Présentation.vue
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +33,8 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     private var _imageJeu : ImageView? = null
     private var _descriptionJeu : TextView? = null
     private var _listeCommentaires : RecyclerView? = null
+    private var _commentaire : EditText? = null
+    private var _btnEnvoyer : ImageButton? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         return inflater.inflate(R.layout.fragment_page_jeu, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _présentateur = PrésentateurPageJeu(this)
@@ -61,6 +64,8 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _imageJeu = view.findViewById(R.id.image_jeu)
         _descriptionJeu = view.findViewById(R.id.description_jeu)
         _listeCommentaires = view.findViewById(R.id.commentaires_jeu)
+        _commentaire = view.findViewById(R.id.saisie_commentaire)
+        _btnEnvoyer = view.findViewById(R.id.bouton_envoie_commentaire)
         _btnDéconnection?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vuePageInitiale)
         }
@@ -74,6 +79,9 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
                 view -> _nav!!.navigate(R.id.vueMenuCompte)
         }
         _présentateur?.chercherInformationJeuSelectionné()
+        _btnEnvoyer?.setOnClickListener{
+            _présentateur?.ajouterCommenataire(_commentaire!!.text.toString())
+        }
     }
 
     companion object {
@@ -93,5 +101,14 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = AdapterPageJeu(jeu?.listeCommentaires)
         _listeCommentaires?.adapter = _adapter
+    }
+
+    override fun afficherMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun afficherPageJeu() {
+        Toast.makeText(activity, "Commentaire ajouté correctement", Toast.LENGTH_LONG).show()
+        _nav!!.navigate(R.id.vuePageJeu)
     }
 }

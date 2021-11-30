@@ -1,5 +1,6 @@
 package com.tp.clientandroid_critika.SourceDeDonnées.Retrofit
 
+import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import okhttp3.ResponseBody
@@ -19,5 +20,8 @@ interface ApiService {
 
     @GET("JeuVideo/recherchePlateforme/{plateforme}")
     fun GetJeuVideoParPlateforme(@Path("plateforme") plateforme : String) : Call<List<JeuVideo>>
+
+    @POST("Commentaire")
+    fun PostAjouterCommentaire(@Body commentaire: Commentaire) : Call<ResponseBody>
 
 }
