@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var modèle = Modèle.getInstance()
         modèle.sourceDeDonnées = SourceDeDonnéesAPI()
-        modèle.ctx = this
         //modèle.creationSourceDeDonnées(SourceDeDonnéesBidon())
         setContentView(R.layout.activity_main)
     }
