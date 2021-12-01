@@ -71,10 +71,10 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun modifierEvaluation(evaluation: Evaluation): Boolean {
         val retro = ApiClient.SERVICE
-        val call : Call<ResponseBody> = retro.PostAjouterEvaluation(evaluation)
+        val call : Call<ResponseBody> = retro.PutModifierEvaluation(evaluation)
         var res = call.execute()
         var reponse = res.code()
-        return reponse == 200
+        return reponse == 204
     }
 
 

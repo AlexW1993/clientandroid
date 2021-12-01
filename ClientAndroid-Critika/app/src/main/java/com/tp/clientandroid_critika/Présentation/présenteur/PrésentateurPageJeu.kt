@@ -9,11 +9,11 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageJeu
 
-class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePageJeu.IPrésentateurPageJeu{
+class PrésentateurPageJeu(var _vue: VuePageJeu) : IContratPrésentateurVuePageJeu.IPrésentateurPageJeu {
 
-    private var _modèle : Modèle? = null
-    private var _filEsclave : Thread? = null
-    private var _handlerRéponse : Handler
+    private var _modèle: Modèle? = null
+    private var _filEsclave: Thread? = null
+    private var _handlerRéponse: Handler
     private var _messageConfirmation = 0
     private var _messageErreurCommentaire = 1
     private var _messageErreurEvaluation = 2
@@ -27,11 +27,10 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
                 _filEsclave = null
                 if (msg.what == _messageConfirmation) {
                     _vue?.afficherPageJeu()
-                } else if (msg.what == _messageErreurCommentaire){
-                    _vue?.afficherMessage("Il y a une problème pour ajouter votre commentaire")
-                }else if (msg.what == _messageErreurEvaluation){
-                    _vue?.afficherMessage("Il y a une problème pour ajouter votre evaluation")
-
+                } else if (msg.what == _messageErreurCommentaire) {
+                    _vue?.afficherMessage("Il y a une problème pour votre commentaire")
+                } else if (msg.what == _messageErreurEvaluation) {
+                    _vue?.afficherMessage("Il y a une problème pour votre evaluation")
                 }
             }
         }
@@ -43,9 +42,9 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun ajouterCommenataire(contenueCommentaire: String) {
-        if(contenueCommentaire != ""){
+        if (contenueCommentaire != "") {
             _filEsclave = Thread {
-                var msg : Message?
+                var msg: Message?
                 var confirmation = _modèle?.ajouterCommentaire(contenueCommentaire)
                 if(confirmation == true){
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
@@ -60,24 +59,30 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
         }
     }
 
-    override fun ajouterEvaluation(note : Int) {
-        var confirmation = _modèle?.chercherEvaluationUtilisateur()
-        if(confirmation == false){
-            _filEsclave = Thread{
-                var msg : Message?
+    override fun ajouterEvaluation(note: Int) {
+        _filEsclave = Thread {
+            var confirmation = _modèle?.chercherEvaluationUtilisateur()
+            if (confirmation == false) {
+                var msg: Message?
                 var confirmation = _modèle?.ajouterEvaluation(note)
-                if(confirmation == true){
+                if (confirmation == true) {
+                    msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+                } else {
+                    msg = _handlerRéponse.obtainMessage(_messageErreurEvaluation)
+                }
+                _handlerRéponse.sendMessage(msg!!)
+            } else {
+                var msg: Message?
+                var confirmation = _modèle?.modifierEvaluation(note)
+                if (confirmation == true) {
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
                     msg = _handlerRéponse.obtainMessage(_messageErreurEvaluation)
                 }
                 _handlerRéponse.sendMessage(msg!!)
             }
-            _filEsclave!!.start()
-
-        } else {
-            _vue?.afficherMessage("Vous avez deja fait un note de cet jeu")
         }
+            _filEsclave!!.start()
     }
 
 }
