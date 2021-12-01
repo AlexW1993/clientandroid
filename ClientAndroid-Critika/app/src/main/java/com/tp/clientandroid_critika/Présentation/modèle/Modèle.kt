@@ -81,9 +81,21 @@ class Modèle() {
         return confirmation
     }
 
-    fun ajouterEvaluation(note : Int){
+    fun ajouterEvaluation(note : Int) : Boolean{
+        var evaluation = Evaluation("",jeuSelectionné?.id,utilisateur?.id,note)
+        var confirmationAjouter = GestionEvaluation(sourceDeDonnées).ajouterEvaluation(evaluation)
+        if(confirmationAjouter == true){
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for(l in listeJeux!!){
+                if(l.id == jeuSelectionné?.id){
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
 
-        var evaluation = Evaluation("",jeuSelectionné?.id,utilisateur?.id,note * 2)
 
     }
 
