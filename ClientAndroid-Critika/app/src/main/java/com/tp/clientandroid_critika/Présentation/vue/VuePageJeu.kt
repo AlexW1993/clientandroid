@@ -85,7 +85,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
             _présentateur?.ajouterCommenataire(_commentaire!!.text.toString())
         }
         _ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            _présentateur?.ajouterEvaluation(_ratingBar!!.numStars)
+            _présentateur?.ajouterEvaluation(rating.toInt())
         }
 
     }
@@ -114,7 +114,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     }
 
     override fun afficherPageJeu() {
-        Toast.makeText(activity, "Commentaire ajouté correctement", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "Operation effectué correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageJeu)
     }
 }
