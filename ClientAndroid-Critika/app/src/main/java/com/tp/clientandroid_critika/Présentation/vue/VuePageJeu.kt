@@ -35,6 +35,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     private var _listeCommentaires : RecyclerView? = null
     private var _commentaire : EditText? = null
     private var _btnEnvoyer : ImageButton? = null
+    private var _ratingBar : RatingBar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +67,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires = view.findViewById(R.id.commentaires_jeu)
         _commentaire = view.findViewById(R.id.saisie_commentaire)
         _btnEnvoyer = view.findViewById(R.id.bouton_envoie_commentaire)
+        _ratingBar = view.findViewById(R.id.ratingBar_jeu)
         _btnDéconnection?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vuePageInitiale)
         }
@@ -82,6 +84,10 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _btnEnvoyer?.setOnClickListener{
             _présentateur?.ajouterCommenataire(_commentaire!!.text.toString())
         }
+        _ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            _présentateur?.ajouterEvaluation(rating.toInt())
+        }
+
     }
 
     companion object {
@@ -108,7 +114,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     }
 
     override fun afficherPageJeu() {
-        Toast.makeText(activity, "Commentaire ajouté correctement", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "Operation effectué correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageJeu)
     }
 }

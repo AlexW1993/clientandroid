@@ -7,8 +7,8 @@ package com.tp.clientandroid_critika.Domaine.entité
  */
 class Evaluation(
     var id : String = "",
-    var jeuVideoId : String = "",
-    var idUtilisateur : String = "",
+    var jeuVideoId : String? = "",
+    var idUtilisateur : String? = "",
     var note : Int = 0){
 
     override fun toString(): String {
