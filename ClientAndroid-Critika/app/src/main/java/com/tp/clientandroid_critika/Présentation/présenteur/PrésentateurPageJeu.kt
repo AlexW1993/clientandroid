@@ -15,7 +15,9 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
     private var _filEsclave : Thread? = null
     private var _handlerRéponse : Handler
     private var _messageConfirmation = 0
-    private var _messageErreur = 1
+    private var _messageErreurCommentaire = 1
+    private var _messageErreurEvaluation = 2
+
 
     init {
         _modèle = Modèle.getInstance()
@@ -25,8 +27,11 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
                 _filEsclave = null
                 if (msg.what == _messageConfirmation) {
                     _vue?.afficherPageJeu()
-                } else if (msg.what == _messageErreur){
+                } else if (msg.what == _messageErreurCommentaire){
                     _vue?.afficherMessage("Il y a une problème pour ajouter votre commentaire")
+                }else if (msg.what == _messageErreurEvaluation){
+                    _vue?.afficherMessage("Il y a une problème pour ajouter votre evaluation")
+
                 }
             }
         }
@@ -45,7 +50,7 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
                 if(confirmation == true){
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
-                    msg = _handlerRéponse.obtainMessage(_messageErreur)
+                    msg = _handlerRéponse.obtainMessage(_messageErreurCommentaire)
                 }
                 _handlerRéponse.sendMessage(msg!!)
             }
@@ -54,4 +59,25 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
             _vue?.afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, rempliez la boite de commentaire")
         }
     }
+
+    override fun ajouterEvaluation(note : Int) {
+        var confirmation = _modèle?.chercherEvaluationUtilisateur()
+        if(confirmation == false){
+            _filEsclave = Thread{
+                var msg : Message?
+                var confirmation = _modèle?.ajouterEvaluation(note)
+                if(confirmation == true){
+                    msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+                } else {
+                    msg = _handlerRéponse.obtainMessage(_messageErreurEvaluation)
+                }
+                _handlerRéponse.sendMessage(msg!!)
+            }
+            _filEsclave!!.start()
+
+        } else {
+            _vue?.afficherMessage("Vous avez deja fait un note de cet jeu")
+        }
+    }
+
 }

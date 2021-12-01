@@ -1,6 +1,7 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
 
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
+import com.tp.clientandroid_critika.Domaine.entité.Evaluation
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
@@ -59,6 +60,15 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         var reponse = res.code()
         return reponse == 201
     }
+
+    override fun ajouterEvaluation(evaluation: Evaluation): Boolean {
+        val retro = ApiClient.SERVICE
+        val call : Call<ResponseBody> = retro.PostAjouterEvaluation(evaluation)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 201
+    }
+
 }
 
 

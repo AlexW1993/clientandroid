@@ -1,6 +1,7 @@
 package com.tp.clientandroid_critika.Domaine.interacteur
 
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
+import com.tp.clientandroid_critika.Domaine.entité.Evaluation
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 
@@ -11,5 +12,6 @@ interface SourceDeDonnées {
     fun chercherTousJeux() : List<JeuVideo>?
     fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>?
     fun ajouterCommentaire(commentaire: Commentaire) : Boolean
+    fun ajouterEvaluation(evaluation: Evaluation) : Boolean
 
 }

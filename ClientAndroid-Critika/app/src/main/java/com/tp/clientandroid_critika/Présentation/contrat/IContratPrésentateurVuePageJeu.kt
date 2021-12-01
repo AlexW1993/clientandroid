@@ -7,6 +7,7 @@ interface IContratPrésentateurVuePageJeu {
     interface IPrésentateurPageJeu{
         fun chercherInformationJeuSelectionné()
         fun ajouterCommenataire(contenueCommentaire : String)
+        fun ajouterEvaluation(note : Int)
     }
 
     interface IVuePageJeu{

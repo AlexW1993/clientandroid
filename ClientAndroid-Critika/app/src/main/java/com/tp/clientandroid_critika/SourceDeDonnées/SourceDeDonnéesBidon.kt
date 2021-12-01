@@ -1,6 +1,7 @@
 package com.tp.clientandroid_critika.SourceDeDonnées
 
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
+import com.tp.clientandroid_critika.Domaine.entité.Evaluation
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
@@ -26,4 +27,9 @@ class SourceDeDonnéesBidon : SourceDeDonnées{
     override fun ajouterCommentaire(commentaire: Commentaire): Boolean {
         TODO("Not yet implemented")
     }
+
+    override fun ajouterEvaluation(evaluation: Evaluation): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }
