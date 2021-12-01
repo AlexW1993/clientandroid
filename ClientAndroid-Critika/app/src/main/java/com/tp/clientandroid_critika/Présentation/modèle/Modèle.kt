@@ -102,7 +102,21 @@ class Modèle() {
     fun modifierEvaluation(note : Int) : Boolean{
         evalautionSelectionné?.note = note
 
-        return true
+        var confirmationModification = evalautionSelectionné?.let {
+            GestionEvaluation(sourceDeDonnées).modifierEvaluation(
+                it
+            )
+        }
+        if(confirmationModification == true){
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for(l in listeJeux!!){
+                if(l.id == jeuSelectionné?.id){
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
     }
-
 }

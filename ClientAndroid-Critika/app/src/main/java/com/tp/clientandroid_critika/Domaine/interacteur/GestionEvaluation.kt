@@ -8,8 +8,9 @@ class GestionEvaluation (var _source: SourceDeDonnées?){
         return _source?.ajouterEvaluation(evaluation)
     }
 
-    fun modifierEvaluation(evaluation: Evaluation) : Boolean{
-        return
+    fun modifierEvaluation(evaluation: Evaluation) : Boolean?{
+        return _source?.modifierEvaluation(evaluation)
+
     }
 
 }
