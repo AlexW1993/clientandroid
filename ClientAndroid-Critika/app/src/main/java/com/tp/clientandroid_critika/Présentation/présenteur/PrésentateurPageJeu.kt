@@ -54,4 +54,14 @@ class PrésentateurPageJeu(var _vue : VuePageJeu) : IContratPrésentateurVuePage
             _vue?.afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, rempliez la boite de commentaire")
         }
     }
+
+    override fun ajouterEvaluation(note : Int) {
+        var confirmation = _modèle?.chercherEvaluationUtilisateur()
+        if(confirmation == true){
+            _modèle?.ajouterEvaluation(note)
+        } else {
+            _vue?.afficherMessage("Vous avez deja fait un note de cet jeu")
+        }
+    }
+
 }
