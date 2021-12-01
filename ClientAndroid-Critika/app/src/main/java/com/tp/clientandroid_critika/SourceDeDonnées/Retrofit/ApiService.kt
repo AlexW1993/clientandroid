@@ -28,5 +28,7 @@ interface ApiService {
     @POST("Evaluation")
     fun PostAjouterEvaluation(@Body evaluation: Evaluation) : Call<ResponseBody>
 
+    @PUT("Evaluation")
+    fun PutModifierEvaluation(@Body evaluation: Evaluation) : Call<ResponseBody>
 
 }

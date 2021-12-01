@@ -15,6 +15,7 @@ class Modèle() {
     var jeuSelectionné : JeuVideo? = null
     var utilisateur : Utilisateur? = null
     var listeJeux : List<JeuVideo>? = null
+    var evalautionSelectionné : Evaluation? = null
 
     companion object {
         var modèle : Modèle? = null
@@ -75,6 +76,7 @@ class Modèle() {
         var confirmation = false
         for(l in jeuSelectionné?.listeEvaluations!!){
             if(l.idUtilisateur == utilisateur?.id){
+                evalautionSelectionné = l
                 confirmation = true
             }
         }
@@ -95,8 +97,12 @@ class Modèle() {
         } else {
             return false
         }
+    }
 
+    fun modifierEvaluation(note : Int) : Boolean{
+        evalautionSelectionné?.note = note
 
+        return true
     }
 
 }
