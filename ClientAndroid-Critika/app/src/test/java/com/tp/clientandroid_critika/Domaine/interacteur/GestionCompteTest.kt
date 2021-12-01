@@ -12,12 +12,12 @@ class GestionCompteTest {
 
         //Mise en place
         var connection : Boolean? = null
-        var sourceDeDonnéesBidon = SourceDeDonnéesBidon()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
         var cobaye = Utilisateur("111","utilisateurTest","mdp","test","testeur")
 
 
         //Exécution
-        connection = GestionCompte(sourceDeDonnéesBidon).creationCompte(cobaye)!!
+        connection = GestionCompte(sourceDeDonnées).creationCompte(cobaye)!!
 
         //Vérification
 
