@@ -11,29 +11,28 @@ class GestionCompteTest {
     fun `étant donné un utilisateur, lorsque je veux me connecter à application, j'obtien comme resultat une object utilisateur qui a mes information`() {
 
         //Mise en place
-        var utilisateur: Utilisateur?
+        var cobaye: Utilisateur?
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var cobaye = Utilisateur("111", "utilisateurTest", "mdp", "test", "testeur")
 
         //Exécution
-        utilisateur = GestionCompte(sourceDeDonnées).verificationCompte("utilisateruTest", "mdp")
+        cobaye = GestionCompte(sourceDeDonnées).verificationCompte("utilisateruTest", "mdp")
 
         //Vérification
-        Assert.assertNotNull(utilisateur)
+        Assert.assertNotNull(cobaye)
     }
 
     @Test
     fun `étant donné un utilisateur, lorsque je veux créer mon compte, j'obtien le resultat true pour confirmer mon inscription`() {
 
         //Mise en place
-        var confirmation: Boolean?
+        var cobaye: Boolean?
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var cobaye = Utilisateur("", "utilisateurTest", "mdp", "", "t")
+        var u = Utilisateur("", "utilisateurTest", "mdp", "test", "testeur")
 
         //Exécution
-        confirmation = GestionCompte(sourceDeDonnées).creationCompte(cobaye)!!
+        cobaye = GestionCompte(sourceDeDonnées).creationCompte(u)!!
 
         //Vérification
-        Assert.assertTrue(confirmation)
+        Assert.assertTrue(cobaye)
     }
 }

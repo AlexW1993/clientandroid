@@ -103,16 +103,16 @@ class JeuVideoTest {
         listeCommentaire.add(Commentaire("1", "1", "1", "2021-11-05T01:01:01", "Mario", null))
         var listeEvaluation: MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1", "1", "1", 5))
-        var cobaye = JeuVideo(
+        var jeuTest = JeuVideo(
             "1", "Mario Kart", "Mario avec des voitures", "Nintendo Switch",
             "Kart", "1 - 4 player", 2021, listeCommentaire, listeEvaluation
         )
 
         //Exécution
-        var resultatObservé = cobaye.toString()
+        var cobaye = jeuTest.toString()
 
         //Vérification
-        Assert.assertNotNull(resultatObservé)
+        Assert.assertNotNull(cobaye)
     }
 
     @Test
@@ -124,16 +124,15 @@ class JeuVideoTest {
         var listeEvaluation: MutableList<Evaluation> = ArrayList()
         listeEvaluation.add(Evaluation("1", "1", "1", 5))
         listeEvaluation.add(Evaluation("2", "1", "2", 3))
-        var cobaye = JeuVideo(
+        var jeuTest = JeuVideo(
             "1", "Mario Kart", "Mario avec des voitures", "Nintendo Switch",
             "Kart", "1 - 4 player", 2021, listeCommentaire, listeEvaluation
         )
 
         //Exécution
-        var resultatAttandu = 4.0
-        var resultatObservé = cobaye.calculerMoyenneEvaluation()
+        var cobaye = jeuTest.calculerMoyenneEvaluation()
 
         //Vérification
-        Assert.assertEquals(resultatAttandu, resultatObservé, 0.0)
+        Assert.assertEquals(4.0, cobaye, 0.0)
     }
 }

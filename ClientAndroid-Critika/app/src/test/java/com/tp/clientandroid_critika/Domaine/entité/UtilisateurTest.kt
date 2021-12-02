@@ -45,7 +45,6 @@ class UtilisateurTest {
         //Mise en place
         var cobaye = Utilisateur("1", "Will", "1234", "1", "utilisateur")
 
-
         //Exécution
         cobaye.id = "2"
         cobaye.nom = "Alex"
