@@ -29,11 +29,11 @@ class SourceDeDonnéesBidon : SourceDeDonnées{
     }
 
     override fun ajouterEvaluation(evaluation: Evaluation): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun modifierEvaluation(evaluation: Evaluation): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
 
