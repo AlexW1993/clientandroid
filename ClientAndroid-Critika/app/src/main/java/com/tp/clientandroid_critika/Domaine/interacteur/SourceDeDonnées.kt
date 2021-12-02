@@ -13,5 +13,6 @@ interface SourceDeDonnées {
     fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>?
     fun ajouterCommentaire(commentaire: Commentaire) : Boolean
     fun ajouterEvaluation(evaluation: Evaluation) : Boolean
+    fun modifierEvaluation(evaluation: Evaluation) : Boolean
 
 }
