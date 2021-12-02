@@ -8,7 +8,7 @@ import org.junit.Test
 class ChercherTop10JeuxTest {
 
     @Test
-    fun `étant donné un application, lorsque il veut chercher la liste de meilleur notes des jeux vidéos', j'obtien comme resultat 2 jeux qui ont des notes`() {
+    fun `étant donné un application, lorsque il vas chercher la liste de meilleur notes des jeux vidéos', j'obtien comme resultat 2 jeux qui ont des notes`() {
 
         //Mise en place
         var listeJeux: MutableList<JeuVideo> = ArrayList()
