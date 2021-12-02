@@ -10,7 +10,7 @@ class ChercherTop10Jeux{
         var listeTop10 : MutableList<JeuVideo> = ArrayList()
         if (liste != null) {
             for (l in liste){
-                if(l.listeEvaluations?.size != 0){
+                if(l.listeEvaluations?.size != null){
                     var moyenne = Moyenne(l.id,l.calculerMoyenneEvaluation())
                     listeMoyenne.add(moyenne)
                 }
