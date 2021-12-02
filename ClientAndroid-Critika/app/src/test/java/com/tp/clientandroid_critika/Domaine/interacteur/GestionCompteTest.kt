@@ -8,19 +8,32 @@ import org.junit.Test
 class GestionCompteTest {
 
     @Test
-    fun `étant donné un utilisateur, lorsque je veux utiliser me connecter à application, j'obtien le resultat connection=true`(){
+    fun `étant donné un utilisateur, lorsque je veux me connecter à application, j'obtien comme resultat une object utilisateur qui a mes information`() {
 
         //Mise en place
-        var connection : Boolean? = null
+        var utilisateur: Utilisateur?
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var cobaye = Utilisateur("111","utilisateurTest","mdp","test","testeur")
-
+        var cobaye = Utilisateur("111", "utilisateurTest", "mdp", "test", "testeur")
 
         //Exécution
-        connection = GestionCompte(sourceDeDonnées).creationCompte(cobaye)!!
+        utilisateur = GestionCompte(sourceDeDonnées).verificationCompte("utilisateruTest", "mdp")
 
         //Vérification
+        Assert.assertNotNull(utilisateur)
+    }
 
-        Assert.assertTrue(connection)
+    @Test
+    fun `étant donné un utilisateur, lorsque je veux créer mon compte, j'obtien le resultat true pour confirmer mon inscription`() {
+
+        //Mise en place
+        var confirmation: Boolean?
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var cobaye = Utilisateur("", "utilisateurTest", "mdp", "", "t")
+
+        //Exécution
+        confirmation = GestionCompte(sourceDeDonnées).creationCompte(cobaye)!!
+
+        //Vérification
+        Assert.assertTrue(confirmation)
     }
 }

@@ -7,12 +7,11 @@ import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 
 interface SourceDeDonnées {
 
-    fun chercherUtilisateur(u : Utilisateur) : Utilisateur?
-    fun ajouterUtilisateur(utilisateur : Utilisateur) : Boolean
-    fun chercherTousJeux() : List<JeuVideo>?
-    fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>?
-    fun ajouterCommentaire(commentaire: Commentaire) : Boolean
-    fun ajouterEvaluation(evaluation: Evaluation) : Boolean
-    fun modifierEvaluation(evaluation: Evaluation) : Boolean
-
+    fun chercherUtilisateur(u: Utilisateur): Utilisateur?
+    fun ajouterUtilisateur(utilisateur: Utilisateur): Boolean
+    fun chercherTousJeux(): List<JeuVideo>?
+    fun chercherTousJeuxParPlateforme(plateforme: String): List<JeuVideo>?
+    fun ajouterCommentaire(commentaire: Commentaire): Boolean
+    fun ajouterEvaluation(evaluation: Evaluation): Boolean
+    fun modifierEvaluation(evaluation: Evaluation): Boolean
 }
