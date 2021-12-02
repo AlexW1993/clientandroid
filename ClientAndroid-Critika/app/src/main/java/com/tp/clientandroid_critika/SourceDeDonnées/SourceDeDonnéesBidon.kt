@@ -25,7 +25,7 @@ class SourceDeDonnéesBidon : SourceDeDonnées{
     }
 
     override fun ajouterCommentaire(commentaire: Commentaire): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 
     override fun ajouterEvaluation(evaluation: Evaluation): Boolean {
