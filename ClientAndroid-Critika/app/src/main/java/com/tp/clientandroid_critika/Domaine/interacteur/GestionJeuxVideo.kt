@@ -2,13 +2,25 @@ package com.tp.clientandroid_critika.Domaine.interacteur
 
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 
-class GestionJeuxVideo(var _source : SourceDeDonnées?) {
+class GestionJeuxVideo(var _source: SourceDeDonnées?) {
 
-    fun chercherTousJeuxVideo() : List<JeuVideo>?{
+    /**
+     * La méthode permet de chercher une liste de jeux vidéos
+     *
+     * @return (List<JeuVideo>?) La liste de jeux vidéos
+     */
+    fun chercherTousJeuxVideo(): List<JeuVideo>? {
         return _source?.chercherTousJeux()
     }
 
-    fun chercherJuexVideoParConsole(plateforme : String) : List<JeuVideo>?{
+    /**
+     * La méthode permet de chercher une liste de jeux vidéos d'un plateforme
+     *
+     * @param (plateforme : String), La plateforme des jeux de la liste
+     *
+     * @return (List<JeuVideo>?) La liste de jeux vidéos par plateforme
+     */
+    fun chercherJuexVideoParConsole(plateforme: String): List<JeuVideo>? {
         return _source?.chercherTousJeuxParPlateforme(plateforme)
     }
 }

@@ -14,10 +14,9 @@ class ChercherTop10JeuxTest {
         var listeJeux: MutableList<JeuVideo> = ArrayList()
         var listeEvaluation1: MutableList<Evaluation> = ArrayList()
         var listeEvaluation2: MutableList<Evaluation> = ArrayList()
-        var jeuVideo: JeuVideo
         listeEvaluation1?.add(Evaluation("aaa", "aaa", "aaa", 5))
         listeEvaluation2?.add(Evaluation("bbb", "bbb", "bbb", 3))
-        jeuVideo = JeuVideo(
+        var jeuVideo = JeuVideo(
             "aaaa", "test", "un test", "Test", "Test", "Solo",
             2021, null, listeEvaluation1
         )
