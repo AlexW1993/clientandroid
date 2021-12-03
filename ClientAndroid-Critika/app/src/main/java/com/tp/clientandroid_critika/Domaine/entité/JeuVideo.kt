@@ -25,11 +25,15 @@ class JeuVideo(
     fun calculerMoyenneEvaluation(): Double {
         var totalEvaluation = 0
         var resultat = 0.0
-        for (liste in listeEvaluations!!) {
-            totalEvaluation += liste.note
-            println(totalEvaluation)
+        if (listeEvaluations?.size != 0) {
+            for (liste in listeEvaluations!!) {
+                totalEvaluation += liste.note
+                println(totalEvaluation)
+            }
+            resultat = (totalEvaluation / listeEvaluations!!.size).toDouble()
+        } else {
+            resultat = 0.0
         }
-        resultat = (totalEvaluation / listeEvaluations!!.size).toDouble()
         return resultat
     }
 
