@@ -17,13 +17,9 @@ class ModèleTest {
         //Mise en place
         var cobaye: Boolean?
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var j1 = JeuVideo("", "jeuTest1")
-        var j2 = JeuVideo("", "jeuTest2")
-        var j3 = JeuVideo("", "jeuTest3")
         var u = Utilisateur("", "utilisateurTest", "mdp", "test", "testeur")
-        var listeJeux : List<JeuVideo>? = null
-        var evalautionSelectionné : Evaluation? = null
-        var _modèle = Modèle()
+        var _modèle = Modèle.getInstance()
+        _modèle.sourceDeDonnées = sourceDeDonnées
 
         //Exécution
         cobaye = _modèle?.creationUtilisateur(u)
@@ -37,7 +33,9 @@ class ModèleTest {
 
         //Mise en place
         var cobaye: Boolean?
-        var _modèle = Modèle()
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
 
         //Exécution
         cobaye = _modèle?.verifierUtilisateur("utilisateurTest","mdp")
@@ -51,13 +49,17 @@ class ModèleTest {
 
         //Mise en place
         var cobaye = true
-        var _modèle = Modèle()
+        var _modèle = Modèle.getInstance()
         var listeJeux : List<JeuVideo>? = null
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
+
 
         //Exécution
-        _modèle?.chercherJeuxParConsole("Atari")
+        _modèle?.chercherJeuxParConsole("Test1")
+        listeJeux = _modèle.listeJeux
         for(j in listeJeux!!){
-            if(j.plateforme == "Atari"){
+            if(j.plateforme != "Test1"){
                 cobaye = false
             }
         }
@@ -71,7 +73,14 @@ class ModèleTest {
 
         //Mise en place
         var cobaye : Boolean?
-        var _modèle = Modèle()
+        var jeuTest = JeuVideo("aaaa", "test", "un test", "Test1", "Test", "Solo",
+            2021, null,null)
+        var u = Utilisateur("1111", "utilisateurTest", "mdp", "test", "testeur")
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
+        _modèle.jeuSelectionné = jeuTest
+        _modèle.utilisateur = u
 
         //Exécution
         cobaye = _modèle?.ajouterCommentaire("Je commente")
@@ -85,7 +94,14 @@ class ModèleTest {
 
         //Mise en place
         var cobaye : Boolean?
-        var _modèle = Modèle()
+        var jeuTest = JeuVideo("aaaa", "test", "un test", "Test1", "Test", "Solo",
+            2021, null,null)
+        var u = Utilisateur("", "utilisateurTest", "mdp", "test", "testeur")
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
+        _modèle.jeuSelectionné = jeuTest
+        _modèle.utilisateur = u
 
         //Exécution
         cobaye = _modèle?.chercherEvaluationUtilisateur()
@@ -99,7 +115,9 @@ class ModèleTest {
 
         //Mise en place
         var cobaye : Boolean?
-        var _modèle = Modèle()
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
 
         //Exécution
         cobaye = _modèle?.ajouterEvaluation(4)
@@ -113,7 +131,11 @@ class ModèleTest {
 
         //Mise en place
         var cobaye : Boolean?
-        var _modèle = Modèle()
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var evaluation = Evaluation("aaa", "aaa", "aaa", 5)
+        _modèle.sourceDeDonnées = sourceDeDonnées
+        _modèle.evalautionSelectionné = evaluation
 
         //Exécution
         cobaye = _modèle?.modifierEvaluation(2)
