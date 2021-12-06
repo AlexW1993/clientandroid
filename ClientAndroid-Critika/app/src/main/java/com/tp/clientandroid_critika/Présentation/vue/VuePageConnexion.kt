@@ -16,11 +16,11 @@ import com.tp.clientandroid_critika.R
 
 class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVuePageConnexion {
 
-    private var _présenateur : PrésentateurPageConnexion? = null
-    private var _surnom : EditText? = null
-    private var _motPasse : EditText? = null
-    private var _btnSeConnecter : ImageButton? = null
-    private var _nav : NavController? = null
+    private var _présenateur: PrésentateurPageConnexion? = null
+    private var _surnom: EditText? = null
+    private var _motPasse: EditText? = null
+    private var _btnSeConnecter: ImageButton? = null
+    private var _nav: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,10 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
         _btnSeConnecter = view.findViewById(R.id.bouton_Se_connecter_Connection)
         _nav = Navigation.findNavController(view)
         _btnSeConnecter?.setOnClickListener { view ->
-            _présenateur!!.verificationUtilisateur(_surnom!!.text.toString(), _motPasse!!.text.toString())
+            _présenateur!!.verificationUtilisateur(
+                _surnom!!.text.toString(),
+                _motPasse!!.text.toString()
+            )
         }
     }
 
@@ -54,10 +57,18 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
             }
     }
 
+    /**
+     * La méthode permet afficher la vue PageMenuPrincipal
+     */
     override fun afficherPageMenuPrincipal() {
         _nav!!.navigate(R.id.vueMenuPrincipale)
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }

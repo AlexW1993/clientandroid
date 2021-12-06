@@ -9,7 +9,8 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageJeu
 
-class PrésentateurPageJeu(var _vue: VuePageJeu) : IContratPrésentateurVuePageJeu.IPrésentateurPageJeu {
+class PrésentateurPageJeu(var _vue: VuePageJeu) :
+    IContratPrésentateurVuePageJeu.IPrésentateurPageJeu {
 
     private var _modèle: Modèle? = null
     private var _filEsclave: Thread? = null
@@ -36,17 +37,26 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) : IContratPrésentateurVuePageJ
         }
     }
 
+    /**
+     * La méthode cherche les informations du jeu selectionné
+     */
     override fun chercherInformationJeuSelectionné() {
         _vue?.affichageInformationJeuSelecionné(_modèle?.jeuSelectionné)
     }
 
+    /**
+     * La méthode permet ajouter le commentaire que l'utilisateur vient de créer. si le contenue
+     * est vide, il va envoyer une message
+     *
+     * @param (contenueCommentaire: String), le contenue du commentaire
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun ajouterCommenataire(contenueCommentaire: String) {
         if (contenueCommentaire != "") {
             _filEsclave = Thread {
                 var msg: Message?
                 var confirmation = _modèle?.ajouterCommentaire(contenueCommentaire)
-                if(confirmation == true){
+                if (confirmation == true) {
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
                     msg = _handlerRéponse.obtainMessage(_messageErreurCommentaire)
@@ -59,6 +69,12 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) : IContratPrésentateurVuePageJ
         }
     }
 
+    /**
+     * La méthode permet ajouter une note que l'utilisateur vient de créer. si le jeu a une note que
+     * l'utilisateur a fait, la note va être modifier
+     *
+     * @param (note: Int), la note que l'utilisateur a fait
+     */
     override fun ajouterEvaluation(note: Int) {
         _filEsclave = Thread {
             var confirmation = _modèle?.chercherEvaluationUtilisateur()
@@ -82,7 +98,6 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) : IContratPrésentateurVuePageJ
                 _handlerRéponse.sendMessage(msg!!)
             }
         }
-            _filEsclave!!.start()
+        _filEsclave!!.start()
     }
-
 }

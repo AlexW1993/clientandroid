@@ -19,14 +19,14 @@ import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 
 class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVueMenuPrincipale {
 
-    private var _présentateur : PrésentateurMenuPrincipale? = null
-    private var _nav : NavController? = null
-    private var _btnDéconnection : ImageButton? = null
-    private var _btnMenuPrincipale : ImageButton? = null
-    private var _btnRecherche : ImageButton? = null
-    private var _btnCompte : ImageButton? = null
-    private var _adapter : AdapterMenuPrincipal? = null
-    private var _listeJeux : RecyclerView? = null
+    private var _présentateur: PrésentateurMenuPrincipale? = null
+    private var _nav: NavController? = null
+    private var _btnDéconnection: ImageButton? = null
+    private var _btnMenuPrincipale: ImageButton? = null
+    private var _btnRecherche: ImageButton? = null
+    private var _btnCompte: ImageButton? = null
+    private var _adapter: AdapterMenuPrincipal? = null
+    private var _listeJeux: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,17 +50,17 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
         _btnCompte = view.findViewById(R.id.bouton_compte)
         _listeJeux = view.findViewById(R.id.recycler_view_menu)
 
-        _btnDéconnection?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageInitiale)
+        _btnDéconnection?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
-        _btnMenuPrincipale?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuPrincipale)
+        _btnMenuPrincipale?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuPrincipale)
         }
-        _btnRecherche?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageRecherche)
+        _btnRecherche?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageRecherche)
         }
-        _btnCompte?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuCompte)
+        _btnCompte?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuCompte)
         }
         _présentateur!!.chercherJeuxVideo()
     }
@@ -73,12 +73,22 @@ class VueMenuPrincipale : Fragment(), IContratPrésentateurVueMenuPrincipale.IVu
             }
     }
 
+    /**
+     * La méthode permet afficher une liste de jeux vidéos
+     *
+     * @param (liste: List<JeuVideo?>?), la liste de jeux vidéos
+     */
     override fun afficherListeJeuxVideo(liste: List<JeuVideo?>?) {
         _listeJeux?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = _présentateur?.let { AdapterMenuPrincipal(liste, it) }
         _listeJeux?.adapter = _adapter
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
