@@ -32,10 +32,10 @@ class PrésentateurPageConnexion(var _vue: VuePageConnexion) :
     }
 
     /**
-     * La méthode vérifier si l'utitilisateur qui essaie de se connecter, existe. S'il y a une
+     * La méthode vérifie si l'utitilisateur qui essaie de se connecter, existe. S'il y a une
      * erreur, une message sera envoyer
      *
-     * @param ((surnom : String, motPasse : String), le surnom et le mot de passe de l'utilisateur
+     * @param (surnom : String, motPasse : String), le surnom et le mot de passe de l'utilisateur
      */
     override fun verificationUtilisateur(surnom: String, motPasse: String) {
         if (surnom != "") {
