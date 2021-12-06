@@ -1,12 +1,9 @@
 package com.tp.clientandroid_critika.Domaine.interacteur
 
-import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
-import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.SourceDeDonnées.SourceDeDonnéesBidon
 import org.junit.Assert
 import org.junit.Test
-import java.time.LocalDateTime
 
 class GestionJeuVideoTest {
 
@@ -32,7 +29,7 @@ class GestionJeuVideoTest {
         var sourceDeDonnées = SourceDeDonnéesBidon()
 
         //Exécution
-        cobaye = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole("Test1")!!
+        cobaye = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme("Test1")!!
 
         //Vérification
         Assert.assertEquals(2, cobaye.size)

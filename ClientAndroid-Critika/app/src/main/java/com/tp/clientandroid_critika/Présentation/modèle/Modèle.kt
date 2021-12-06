@@ -11,29 +11,45 @@ import java.time.LocalDateTime
 
 class Modèle() {
 
-    var sourceDeDonnées : SourceDeDonnées? = null
-    var jeuSelectionné : JeuVideo? = null
-    var utilisateur : Utilisateur? = null
-    var listeJeux : List<JeuVideo>? = null
-    var evalautionSelectionné : Evaluation? = null
+    var sourceDeDonnées: SourceDeDonnées? = null
+    var jeuSelectionné: JeuVideo? = null
+    var utilisateur: Utilisateur? = null
+    var listeJeux: List<JeuVideo>? = null
+    var evalautionSelectionné: Evaluation? = null
 
     companion object {
-        var modèle : Modèle? = null
-        fun getInstance() : Modèle{
-            if (modèle == null){
+        var modèle: Modèle? = null
+        fun getInstance(): Modèle {
+            if (modèle == null) {
                 modèle = Modèle()
             }
             return modèle as Modèle
         }
     }
 
-    fun creationUtilisateur(utilisateur: Utilisateur) : Boolean?{
+    /**
+     * La méthode permet créer un utilisateur
+     *
+     * @param (utilisateur: Utilisateur), l'utilisateur à créer
+     *
+     * @return (Boolean) true si l'utilisateur a été créé correctement, false s'il y a eu un problème
+     */
+
+    fun creationUtilisateur(utilisateur: Utilisateur): Boolean? {
         return GestionCompte(sourceDeDonnées).creationCompte(utilisateur)
     }
 
-    fun verifierUtilisateur(surnom : String, motPasse : String) : Boolean{
-        var utilisateur : Utilisateur? = GestionCompte(sourceDeDonnées).verificationCompte(surnom,motPasse)
-        if (utilisateur != null){
+    /**
+     * La méthode permet de verifier si l'utilisateur qui essaie de se connecter existe
+     *
+     * @param (surnom : String, motPasse : String), le surnom et le mot de passe de l'utilisateur qui veut se connecter à son compte
+     *
+     * @return (Boolean) true si l'utilisateur existe, false s'il yn'existe pas
+     */
+    fun verifierUtilisateur(surnom: String, motPasse: String): Boolean {
+        var utilisateur: Utilisateur? =
+            GestionCompte(sourceDeDonnées).verificationCompte(surnom, motPasse)
+        if (utilisateur != null) {
             this.utilisateur = utilisateur
             return true
         } else {
@@ -41,7 +57,12 @@ class Modèle() {
         }
     }
 
-    fun chercherJeux() : Boolean {
+    /**
+     * La méthode permet de chercher la liste des tous les jeux
+     *
+     * @return (Boolean) true si l'utilisateur a été trouvé, false s'il y a eu un problème
+     */
+    fun chercherJeux(): Boolean {
         var liste = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
         if (liste == null) {
             return false
@@ -51,45 +72,40 @@ class Modèle() {
         }
     }
 
-    fun chercherJeuxParConsole(plateforme : String) {
-        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParConsole(plateforme)
+    /**
+     * La méthode permet de chercher la liste des jeux par plateforme
+     *
+     * @param (plateforme : String), le plateforme des jeux vidéos
+     */
+
+    fun chercherJeuxParConsole(plateforme: String) {
+        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme(plateforme)
     }
+
+    /**
+     * La méthode permet de ajouter un commentaire
+     *
+     * @param (contenueCommentaire: String), le contenue du commentaire
+     *
+     * @return (Boolean) true si le commentaire a été crée correctement, false s'il y a eu un problème
+     */
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun ajouterCommentaire(contenueCommentaire: String) : Boolean{
-        var commentaire = Commentaire("",jeuSelectionné!!.id,utilisateur!!.id,LocalDateTime.now().toString(),contenueCommentaire,utilisateur)
-        var confirmationAjouter = GestionCommentaire(sourceDeDonnées).ajouterCommentaire(commentaire)
-        if(confirmationAjouter == true){
+    fun ajouterCommentaire(contenueCommentaire: String): Boolean {
+        var commentaire = Commentaire(
+            "",
+            jeuSelectionné!!.id,
+            utilisateur!!.id,
+            LocalDateTime.now().toString(),
+            contenueCommentaire,
+            utilisateur
+        )
+        var confirmationAjouter =
+            GestionCommentaire(sourceDeDonnées).ajouterCommentaire(commentaire)
+        if (confirmationAjouter == true) {
             listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
-            for(l in listeJeux!!){
-               if(l.id == jeuSelectionné?.id){
-                   jeuSelectionné = l
-               }
-            }
-            return true
-        } else {
-            return false
-        }
-    }
-
-    fun chercherEvaluationUtilisateur() : Boolean {
-        var confirmation = false
-        for(l in jeuSelectionné?.listeEvaluations!!){
-            if(l.idUtilisateur == utilisateur?.id){
-                evalautionSelectionné = l
-                confirmation = true
-            }
-        }
-        return confirmation
-    }
-
-    fun ajouterEvaluation(note : Int) : Boolean{
-        var evaluation = Evaluation("",jeuSelectionné?.id,utilisateur?.id,note)
-        var confirmationAjouter = GestionEvaluation(sourceDeDonnées).ajouterEvaluation(evaluation)
-        if(confirmationAjouter == true){
-            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
-            for(l in listeJeux!!){
-                if(l.id == jeuSelectionné?.id){
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
                     jeuSelectionné = l
                 }
             }
@@ -99,7 +115,53 @@ class Modèle() {
         }
     }
 
-    fun modifierEvaluation(note : Int) : Boolean{
+    /**
+     * La méthode permet de chercher l'évaluation que l'utilisateur à fait pour un jeu
+     *
+     * @return (Boolean) true s'il y a un note de l'utilisateur, false s'il n'a pas fait un note pour le jeu
+     */
+    fun chercherEvaluationUtilisateur(): Boolean {
+        var confirmation = false
+        for (l in jeuSelectionné?.listeEvaluations!!) {
+            if (l.idUtilisateur == utilisateur?.id) {
+                evalautionSelectionné = l
+                confirmation = true
+            }
+        }
+        return confirmation
+    }
+
+    /**
+     * La méthode permet de ajouter une evaluation
+     *
+     * @param (note : Int), la note
+     *
+     * @return (Boolean) true si l'evaluation a été crée correctment, false s'il y a eu un problème
+     */
+    fun ajouterEvaluation(note: Int): Boolean {
+        var evaluation = Evaluation("", jeuSelectionné?.id, utilisateur?.id, note)
+        var confirmationAjouter = GestionEvaluation(sourceDeDonnées).ajouterEvaluation(evaluation)
+        if (confirmationAjouter == true) {
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+
+    /**
+     * La méthode permet de modifier une note que l'utilisateur a inscrit dans une évaluation
+     *
+     * @param (note : Int), la note
+     *
+     * @return (Boolean) true si l'evaluation a été modifié correctment, false s'il y a eu un problème
+     */
+    fun modifierEvaluation(note: Int): Boolean {
         evalautionSelectionné?.note = note
 
         var confirmationModification = evalautionSelectionné?.let {
@@ -107,10 +169,10 @@ class Modèle() {
                 it
             )
         }
-        if(confirmationModification == true){
+        if (confirmationModification == true) {
             listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
-            for(l in listeJeux!!){
-                if(l.id == jeuSelectionné?.id){
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
                     jeuSelectionné = l
                 }
             }

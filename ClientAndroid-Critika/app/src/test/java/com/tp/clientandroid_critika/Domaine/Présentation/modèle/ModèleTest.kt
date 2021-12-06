@@ -38,7 +38,7 @@ class ModèleTest {
         _modèle.sourceDeDonnées = sourceDeDonnées
 
         //Exécution
-        cobaye = _modèle?.verifierUtilisateur("utilisateurTest","mdp")
+        cobaye = _modèle?.verifierUtilisateur("utilisateurTest", "mdp")
 
         //Vérification
         Assert.assertTrue(cobaye!!)
@@ -50,7 +50,7 @@ class ModèleTest {
         //Mise en place
         var cobaye = true
         var _modèle = Modèle.getInstance()
-        var listeJeux : List<JeuVideo>? = null
+        var listeJeux: List<JeuVideo>? = null
         var sourceDeDonnées = SourceDeDonnéesBidon()
         _modèle.sourceDeDonnées = sourceDeDonnées
 
@@ -58,8 +58,8 @@ class ModèleTest {
         //Exécution
         _modèle?.chercherJeuxParConsole("Test1")
         listeJeux = _modèle.listeJeux
-        for(j in listeJeux!!){
-            if(j.plateforme != "Test1"){
+        for (j in listeJeux!!) {
+            if (j.plateforme != "Test1") {
                 cobaye = false
             }
         }
@@ -72,9 +72,11 @@ class ModèleTest {
     fun `étant donné un utilisateur, lorsque j'ajoute un commentaire, j'obtien un retour positif (true)`() {
 
         //Mise en place
-        var cobaye : Boolean?
-        var jeuTest = JeuVideo("aaaa", "test", "un test", "Test1", "Test", "Solo",
-            2021, null,null)
+        var cobaye: Boolean?
+        var jeuTest = JeuVideo(
+            "aaaa", "test", "un test", "Test1", "Test", "Solo",
+            2021, null, null
+        )
         var u = Utilisateur("1111", "utilisateurTest", "mdp", "test", "testeur")
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
@@ -93,9 +95,11 @@ class ModèleTest {
     fun `étant donné un utilisateur, lorsque je veux voir mon évaluation, j'obtien un retour positif (true)`() {
 
         //Mise en place
-        var cobaye : Boolean?
-        var jeuTest = JeuVideo("aaaa", "test", "un test", "Test1", "Test", "Solo",
-            2021, null,null)
+        var cobaye: Boolean?
+        var jeuTest = JeuVideo(
+            "aaaa", "test", "un test", "Test1", "Test", "Solo",
+            2021, null, null
+        )
         var u = Utilisateur("", "utilisateurTest", "mdp", "test", "testeur")
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
@@ -114,7 +118,7 @@ class ModèleTest {
     fun `étant donné un utilisateur, lorsque je veux ajouter mon évaluation, j'obtien un retour positif (true)`() {
 
         //Mise en place
-        var cobaye : Boolean?
+        var cobaye: Boolean?
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
         _modèle.sourceDeDonnées = sourceDeDonnées
@@ -130,7 +134,7 @@ class ModèleTest {
     fun `étant donné un utilisateur, lorsque je veux modifier mon évaluation, j'obtien un retour positif (true)`() {
 
         //Mise en place
-        var cobaye : Boolean?
+        var cobaye: Boolean?
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
         var evaluation = Evaluation("aaa", "aaa", "aaa", 5)

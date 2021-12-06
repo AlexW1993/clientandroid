@@ -20,7 +20,7 @@ class GestionJeuxVideo(var _source: SourceDeDonnées?) {
      *
      * @return (List<JeuVideo>?) La liste de jeux vidéos par plateforme
      */
-    fun chercherJuexVideoParConsole(plateforme: String): List<JeuVideo>? {
+    fun chercherJuexVideoParPlateforme(plateforme: String): List<JeuVideo>? {
         return _source?.chercherTousJeuxParPlateforme(plateforme)
     }
 }
