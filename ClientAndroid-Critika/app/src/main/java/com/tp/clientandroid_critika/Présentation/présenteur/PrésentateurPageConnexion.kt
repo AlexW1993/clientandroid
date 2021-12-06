@@ -7,11 +7,12 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageConnexion
 
-class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésentateurVuePageConnexion.IPrésentateurPageConnexion {
+class PrésentateurPageConnexion(var _vue: VuePageConnexion) :
+    IContratPrésentateurVuePageConnexion.IPrésentateurPageConnexion {
 
-    private var _modèle : Modèle? = null
-    private var _filEsclave : Thread? = null
-    private var _handlerRéponse : Handler
+    private var _modèle: Modèle? = null
+    private var _filEsclave: Thread? = null
+    private var _handlerRéponse: Handler
     private var _messageConfirmation = 0
     private var _messageErreur = 1
 
@@ -30,13 +31,19 @@ class PrésentateurPageConnexion(var _vue : VuePageConnexion) : IContratPrésent
         }
     }
 
-    override fun verificationUtilisateur(surnom : String, motPasse : String) {
-        if(surnom != ""){
-            if(motPasse != ""){
+    /**
+     * La méthode vérifier si l'utitilisateur qui essaie de se connecter, existe. S'il y a une
+     * erreur, une message sera envoyer
+     *
+     * @param ((surnom : String, motPasse : String), le surnom et le mot de passe de l'utilisateur
+     */
+    override fun verificationUtilisateur(surnom: String, motPasse: String) {
+        if (surnom != "") {
+            if (motPasse != "") {
                 _filEsclave = Thread {
                     var msg: Message?
                     val confirmation = _modèle?.verifierUtilisateur(surnom, motPasse)
-                    if(confirmation == true){
+                    if (confirmation == true) {
                         msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                     } else {
                         msg = _handlerRéponse.obtainMessage(_messageErreur)
