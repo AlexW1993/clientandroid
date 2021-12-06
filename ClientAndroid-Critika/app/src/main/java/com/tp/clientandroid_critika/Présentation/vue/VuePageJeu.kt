@@ -20,22 +20,22 @@ import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterPageJeu
 
 class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
 
-    private var _présentateur : PrésentateurPageJeu? = null
-    private var _nav : NavController? = null
-    private var _adapter : AdapterPageJeu? = null
-    private var _btnDéconnection : ImageButton? = null
-    private var _btnMenuPrincipale : ImageButton? = null
-    private var _btnRecherche : ImageButton? = null
-    private var _btnCompte : ImageButton? = null
-    private var _titreJeu : TextView? = null
-    private var _anneeJeu : TextView? = null
-    private var _moyenneJeu : TextView? = null
-    private var _imageJeu : ImageView? = null
-    private var _descriptionJeu : TextView? = null
-    private var _listeCommentaires : RecyclerView? = null
-    private var _commentaire : EditText? = null
-    private var _btnEnvoyer : ImageButton? = null
-    private var _ratingBar : RatingBar? = null
+    private var _présentateur: PrésentateurPageJeu? = null
+    private var _nav: NavController? = null
+    private var _adapter: AdapterPageJeu? = null
+    private var _btnDéconnection: ImageButton? = null
+    private var _btnMenuPrincipale: ImageButton? = null
+    private var _btnRecherche: ImageButton? = null
+    private var _btnCompte: ImageButton? = null
+    private var _titreJeu: TextView? = null
+    private var _anneeJeu: TextView? = null
+    private var _moyenneJeu: TextView? = null
+    private var _imageJeu: ImageView? = null
+    private var _descriptionJeu: TextView? = null
+    private var _listeCommentaires: RecyclerView? = null
+    private var _commentaire: EditText? = null
+    private var _btnEnvoyer: ImageButton? = null
+    private var _ratingBar: RatingBar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,20 +68,20 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _commentaire = view.findViewById(R.id.saisie_commentaire)
         _btnEnvoyer = view.findViewById(R.id.bouton_envoie_commentaire)
         _ratingBar = view.findViewById(R.id.ratingBar_jeu)
-        _btnDéconnection?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageInitiale)
+        _btnDéconnection?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
-        _btnMenuPrincipale?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuPrincipale)
+        _btnMenuPrincipale?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuPrincipale)
         }
-        _btnRecherche?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageRecherche)
+        _btnRecherche?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageRecherche)
         }
-        _btnCompte?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuCompte)
+        _btnCompte?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuCompte)
         }
         _présentateur?.chercherInformationJeuSelectionné()
-        _btnEnvoyer?.setOnClickListener{
+        _btnEnvoyer?.setOnClickListener {
             _présentateur?.ajouterCommenataire(_commentaire!!.text.toString())
         }
         _ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
@@ -109,10 +109,19 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires?.adapter = _adapter
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
+    /**
+     * La méthode permet afficher une message pour confirmer que l'operation a été effectuer
+     * correctement et reafficher la vue PageJeu
+     */
     override fun afficherPageJeu() {
         Toast.makeText(activity, "Operation effectué correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageJeu)

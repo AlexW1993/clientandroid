@@ -23,7 +23,7 @@ class PrésentateurPageInscription(var _vue: VuePageInscription) :
                 super.handleMessage(msg)
                 _filEsclave = null
                 if (msg.what == _messageConfirmation) {
-                    _vue?.afficherPageInscription()
+                    _vue?.afficherPageConnexion()
                 } else if (msg.what == _messageUtilisateruExistant) {
                     _vue?.afficherMessage(
                         "Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
@@ -41,7 +41,7 @@ class PrésentateurPageInscription(var _vue: VuePageInscription) :
      * @param (motPasse1: String, motPasse2: String, surNom: String), deux fois le mot de passe pour
      * verifier qui sont pareil et son surnom
      */
-    override fun verificationInscrption(motPasse1: String, motPasse2: String, surNom: String) {
+    override fun verificationInscription(motPasse1: String, motPasse2: String, surNom: String) {
         if (surNom != "") {
             if (motPasse1 != "" && motPasse2 != "") {
                 if (motPasse1 == motPasse2) {

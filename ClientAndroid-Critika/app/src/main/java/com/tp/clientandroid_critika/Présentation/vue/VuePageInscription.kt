@@ -16,14 +16,14 @@ import com.tp.clientandroid_critika.R
 
 class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.IVuePageInscription {
 
-    private var _présenateur : PrésentateurPageInscription? = null
-    private var _btnInscription : ImageButton? = null
-    private var _btnAvatatImage : ImageButton? = null
-    private var _btnAvatarCamera : ImageButton? = null
-    private var _surnom : EditText? = null
-    private var _motPasse1 : EditText? = null
-    private var _motPasse2 : EditText? = null
-    private var _nav : NavController? = null
+    private var _présenateur: PrésentateurPageInscription? = null
+    private var _btnInscription: ImageButton? = null
+    private var _btnAvatatImage: ImageButton? = null
+    private var _btnAvatarCamera: ImageButton? = null
+    private var _surnom: EditText? = null
+    private var _motPasse1: EditText? = null
+    private var _motPasse2: EditText? = null
+    private var _nav: NavController? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,11 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         _motPasse2 = view.findViewById(R.id.zone_texte_mot_passe_2)
         _nav = Navigation.findNavController(view)
         _btnInscription?.setOnClickListener { view ->
-            _présenateur!!.verificationInscrption(_motPasse1!!.text.toString(),_motPasse2!!.text.toString(), _surnom!!.text.toString() )
+            _présenateur!!.verificationInscription(
+                _motPasse1!!.text.toString(),
+                _motPasse2!!.text.toString(),
+                _surnom!!.text.toString()
+            )
         }
     }
 
@@ -60,13 +64,22 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
             }
     }
 
-    override fun afficherPageInscription() {
-        Toast.makeText(activity,"Votre compte à été créé correctement",Toast.LENGTH_LONG).show()
+    /**
+     * La méthode permet afficher une message pour confirmer la cration du compte et afficher la vue
+     * PageConnexion
+     */
+    override fun afficherPageConnexion() {
+        Toast.makeText(activity, "Votre compte à été créé correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageConnexion)
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
-        Toast.makeText(activity,message,Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
 }
