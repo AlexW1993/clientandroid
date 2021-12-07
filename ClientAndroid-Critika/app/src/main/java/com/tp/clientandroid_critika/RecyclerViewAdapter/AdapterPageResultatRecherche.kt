@@ -23,7 +23,13 @@ class AdapterPageResultatRecherche(var liste: List<JeuVideo?>?, var présentateu
         liste?.get(position)?.let { holder.viewHolder(it,présentateur) }
     }
 
-    override fun getItemCount(): Int = liste!!.size
+    override fun getItemCount(): Int {
+        if(liste != null){
+            return liste!!.size
+        } else {
+            return 0
+        }
+    }
 
     class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         var image : ImageView = itemView.findViewById(R.id.image_jeu_recherche)

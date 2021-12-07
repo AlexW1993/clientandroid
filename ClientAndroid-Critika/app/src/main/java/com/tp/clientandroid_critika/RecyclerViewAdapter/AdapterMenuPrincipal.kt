@@ -23,7 +23,13 @@ class AdapterMenuPrincipal(var liste: List<JeuVideo?>?, var présentateur : Pré
         liste?.get(position)?.let { holder.viewHolder(it,position,présentateur) }
     }
 
-    override fun getItemCount(): Int = liste!!.size
+    override fun getItemCount(): Int {
+        if(liste != null){
+            return liste!!.size
+        } else {
+            return 0
+        }
+    }
 
     class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         var palmares : TextView = itemView.findViewById(R.id.palmares_jeu)
