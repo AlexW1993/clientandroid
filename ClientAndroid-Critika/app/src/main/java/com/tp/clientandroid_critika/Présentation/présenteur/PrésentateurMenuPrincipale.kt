@@ -51,7 +51,7 @@ class PrésentateurMenuPrincipale(var _vue: VueMenuPrincipale) :
     }
 
     /**
-     * La méthode permet d'ajouter une evaluation
+     * La méthode permet d'ajouter un jeu dans le modèle
      *
      * @param (jeuVideo: JeuVideo), le jeu selectionné par l'utilisateur
      */

@@ -85,10 +85,18 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
             }
     }
 
+    /**
+     * La méthode permet afficher la vue PageResultatRecherche
+     */
     override fun afficherPageResultatRecherche() {
         _nav!!.navigate(R.id.vuePageResultatRecherche)
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }

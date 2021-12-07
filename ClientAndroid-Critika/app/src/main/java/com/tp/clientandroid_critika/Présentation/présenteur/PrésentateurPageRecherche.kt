@@ -34,6 +34,10 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
         }
     }
 
+    /**
+     * La méthode permet de chercher les jeux videos pour l'envoyer à la vue ou une message pour
+     * qu'il y a eu un problème pour afficher les jeux
+     */
     override fun chercherJeuxParConsole(plateforme: String) {
         _filEsclave = Thread {
             var confirmation = _modèle?.chercherJeuxParConsole(plateforme)
