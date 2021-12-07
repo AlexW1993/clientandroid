@@ -78,8 +78,9 @@ class Modèle() {
      * @param (plateforme : String), le plateforme des jeux vidéos
      */
 
-    fun chercherJeuxParConsole(plateforme: String) {
+    fun chercherJeuxParConsole(plateforme: String): Boolean {
         listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme(plateforme)
+        return listeJeux != null
     }
 
     /**

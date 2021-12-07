@@ -16,16 +16,17 @@ import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageR
 import com.tp.clientandroid_critika.R
 import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterPageResultatRecherche
 
-class VuePageResultatRecherche : Fragment(), IContratPrésentateurVuePageResultatRecherche.IVuePageResultatRecherche {
+class VuePageResultatRecherche : Fragment(),
+    IContratPrésentateurVuePageResultatRecherche.IVuePageResultatRecherche {
 
-    private var _présentateur : PrésentateurPageResultatRecherche? = null
-    private var _nav : NavController? = null
-    private var _btnDéconnection : ImageButton? = null
-    private var _btnMenuPrincipale : ImageButton? = null
-    private var _btnRecherche : ImageButton? = null
-    private var _btnCompte : ImageButton? = null
-    private var _adapter : AdapterPageResultatRecherche? = null
-    private var _listeJeux : RecyclerView? = null
+    private var _présentateur: PrésentateurPageResultatRecherche? = null
+    private var _nav: NavController? = null
+    private var _btnDéconnection: ImageButton? = null
+    private var _btnMenuPrincipale: ImageButton? = null
+    private var _btnRecherche: ImageButton? = null
+    private var _btnCompte: ImageButton? = null
+    private var _adapter: AdapterPageResultatRecherche? = null
+    private var _listeJeux: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,19 +48,19 @@ class VuePageResultatRecherche : Fragment(), IContratPrésentateurVuePageResulta
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
         _btnRecherche = view.findViewById(R.id.bouton_recherche)
         _btnCompte = view.findViewById(R.id.bouton_compte)
-        _listeJeux = view.findViewById(R.id.recycler_view_menu)
+        _listeJeux = view.findViewById(R.id.recycler_view_resultat_recherche)
 
-        _btnDéconnection?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageInitiale)
+        _btnDéconnection?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
-        _btnMenuPrincipale?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuPrincipale)
+        _btnMenuPrincipale?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuPrincipale)
         }
-        _btnRecherche?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageRecherche)
+        _btnRecherche?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageRecherche)
         }
-        _btnCompte?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuCompte)
+        _btnCompte?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuCompte)
         }
         _présentateur!!.chercherJeuxVideo()
     }
@@ -72,6 +73,11 @@ class VuePageResultatRecherche : Fragment(), IContratPrésentateurVuePageResulta
             }
     }
 
+    /**
+     * La méthode permet afficher une liste de jeux vidéos
+     *
+     * @param (liste: List<JeuVideo?>?), la liste de jeux vidéos
+     */
     override fun afficherListeJeuxVideo(liste: List<JeuVideo?>?) {
         _listeJeux?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = _présentateur?.let { AdapterPageResultatRecherche(liste, it) }
