@@ -7,25 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageRecherche
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageRecherche
 import com.tp.clientandroid_critika.R
 
-class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVuePageRecherche{
+class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVuePageRecherche {
 
-    private var _présentateur : PrésentateurPageRecherche? = null
-    private var _nav : NavController? = null
-    private var _btnDéconnection : ImageButton? = null
-    private var _btnMenuPrincipale : ImageButton? = null
-    private var _btnRecherche : ImageButton? = null
-    private var _btnCompte : ImageButton? = null
-    private var _btnXbox : ImageButton? = null
-    private var _btnPlaystation : ImageButton? = null
-    private var _btnSwitch : ImageButton? = null
-    private var _barreRecherche : EditText? = null
-    private var _iconRecherche : ImageButton? = null
+    private var _présentateur: PrésentateurPageRecherche? = null
+    private var _nav: NavController? = null
+    private var _btnDéconnection: ImageButton? = null
+    private var _btnMenuPrincipale: ImageButton? = null
+    private var _btnRecherche: ImageButton? = null
+    private var _btnCompte: ImageButton? = null
+    private var _btnXbox: ImageButton? = null
+    private var _btnPlaystation: ImageButton? = null
+    private var _btnSwitch: ImageButton? = null
+    private var _barreRecherche: EditText? = null
+    private var _iconRecherche: ImageButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,17 +54,17 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
         _barreRecherche = view.findViewById(R.id.saisie_recherche)
         _iconRecherche = view.findViewById(R.id.bouton_saisie_recherche)
 
-        _btnDéconnection?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageInitiale)
+        _btnDéconnection?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
-        _btnMenuPrincipale?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuPrincipale)
+        _btnMenuPrincipale?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuPrincipale)
         }
-        _btnRecherche?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vuePageRecherche)
+        _btnRecherche?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageRecherche)
         }
-        _btnCompte?.setOnClickListener {
-                view -> _nav!!.navigate(R.id.vueMenuCompte)
+        _btnCompte?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuCompte)
         }
         _btnXbox?.setOnClickListener {
             _présentateur?.chercherJeuxParConsole("Xbox One")
@@ -86,5 +87,9 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
 
     override fun afficherPageResultatRecherche() {
         _nav!!.navigate(R.id.vuePageResultatRecherche)
+    }
+
+    override fun afficherMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 }
