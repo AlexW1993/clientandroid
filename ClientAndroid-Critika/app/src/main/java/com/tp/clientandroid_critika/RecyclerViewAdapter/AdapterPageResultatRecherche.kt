@@ -26,9 +26,9 @@ class AdapterPageResultatRecherche(var liste: List<JeuVideo?>?, var présentateu
     override fun getItemCount(): Int = liste!!.size
 
     class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
-        var image : ImageView = itemView.findViewById(R.id.image_jeu_menu)
-        var nom : TextView = itemView.findViewById(R.id.nom_jeu_menu)
-        var button : Button = itemView.findViewById(R.id.button_jeu_menu)
+        var image : ImageView = itemView.findViewById(R.id.image_jeu_recherche)
+        var nom : TextView = itemView.findViewById(R.id.nom_jeu_recherche)
+        var button : Button = itemView.findViewById(R.id.button_jeu_recherche)
         fun viewHolder(jeuVideo : JeuVideo,présentateur: PrésentateurPageResultatRecherche){
             nom.text = jeuVideo.nom
             button.setOnClickListener{

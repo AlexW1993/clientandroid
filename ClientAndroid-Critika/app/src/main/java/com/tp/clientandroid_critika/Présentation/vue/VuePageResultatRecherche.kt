@@ -47,7 +47,7 @@ class VuePageResultatRecherche : Fragment(), IContratPrésentateurVuePageResulta
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
         _btnRecherche = view.findViewById(R.id.bouton_recherche)
         _btnCompte = view.findViewById(R.id.bouton_compte)
-        _listeJeux = view.findViewById(R.id.recycler_view_menu)
+        _listeJeux = view.findViewById(R.id.recycler_view_resultat_recherche)
 
         _btnDéconnection?.setOnClickListener {
                 view -> _nav!!.navigate(R.id.vuePageInitiale)
