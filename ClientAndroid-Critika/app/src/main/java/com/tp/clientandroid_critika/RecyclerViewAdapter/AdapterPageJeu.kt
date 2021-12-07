@@ -20,7 +20,13 @@ class AdapterPageJeu(var liste: List<Commentaire?>?) : RecyclerView.Adapter<Adap
         liste?.get(position)?.let { holder.viewHolder(it) }
     }
 
-    override fun getItemCount(): Int = liste!!.size
+    override fun getItemCount(): Int {
+        if(liste != null){
+            return liste!!.size
+        } else {
+            return 0
+        }
+    }
 
     class ViewHolder(val view : View) : RecyclerView.ViewHolder(view){
         var nomUtilisateur : TextView = itemView.findViewById(R.id.nom_utilisateur)
