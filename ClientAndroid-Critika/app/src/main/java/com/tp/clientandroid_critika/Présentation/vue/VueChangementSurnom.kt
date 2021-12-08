@@ -63,9 +63,9 @@ class VueChangementSurnom : Fragment(),
             _nav!!.navigate(R.id.vueMenuCompte)
         }
         _btnSauvegarderSurnom?.setOnClickListener { view ->
-
+            _présentateur?.sauvegarderNouveauSurnom(_nouveauSurnom!!.text.toString())
         }
-        _présentateur?.sauvegarderNouveauSurnom(_nouveauSurnom!!.text.toString())
+
 
     }
         companion object {

@@ -66,6 +66,7 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
         _avatar = view.findViewById(R.id.avatar_changement)
         _btnModifierSurnom = view.findViewById(R.id.bouton_modification_surnom)
         _surnom = view.findViewById(R.id.surnom)
+        _motPasse = view.findViewById(R.id.mot_passe)
         _btnModifierMotPasse = view.findViewById(R.id.bouton_modification_mot_passe)
         _btnModifierAvatar?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vueChangementAvatar)
