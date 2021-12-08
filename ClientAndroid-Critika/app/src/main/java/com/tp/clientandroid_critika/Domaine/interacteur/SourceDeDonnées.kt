@@ -15,4 +15,5 @@ interface SourceDeDonnées {
     fun ajouterEvaluation(evaluation: Evaluation): Boolean
     fun modifierEvaluation(evaluation: Evaluation): Boolean
     fun chercherJeuxParMotCle(motCle: String): List<JeuVideo>?
+    fun modifierSurnom(utilisateur: Utilisateur): Boolean
 }

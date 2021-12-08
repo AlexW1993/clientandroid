@@ -201,4 +201,21 @@ class Modèle() {
 
     }
 
+    /**
+     * La méthode permet de modifier le surnom d'un utilisateur
+     *
+     * @param (surnom: String), le surnom
+     *
+     * @return (Boolean) true si le surnom a été modifié correctment, false s'il y a eu un problème
+     */
+    fun modiferSurnom(surnom: String): Boolean? {
+        utilisateur?.nom = surnom
+        var confirmationModification = utilisateur?.let {
+            GestionCompte(sourceDeDonnées).modifierSurnom(
+                it
+            )
+        }
+        return confirmationModification
+    }
+
 }

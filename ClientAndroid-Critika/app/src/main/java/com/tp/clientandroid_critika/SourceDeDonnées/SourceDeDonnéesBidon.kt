@@ -128,5 +128,7 @@ class SourceDeDonnéesBidon : SourceDeDonnées {
 
     }
 
-
+    override fun modifierSurnom(utilisateur: Utilisateur): Boolean {
+        return true
+    }
 }

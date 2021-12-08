@@ -62,7 +62,7 @@
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="nouveau surnom"
+        android:hint="nouveau surnom"
         app:layout_constraintBottom_toBottomOf="@+id/conteneur_surnom"
         app:layout_constraintEnd_toEndOf="@+id/conteneur_surnom"
         app:layout_constraintStart_toStartOf="@+id/conteneur_surnom"
