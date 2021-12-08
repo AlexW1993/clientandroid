@@ -27,6 +27,9 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
     private var _btnSwitch: ImageButton? = null
     private var _barreRecherche: EditText? = null
     private var _iconRecherche: ImageButton? = null
+    private var _motCle : EditText? = null
+    private var _btnChercher : ImageButton? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,9 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
         _btnSwitch = view.findViewById(R.id.bouton_switch)
         _barreRecherche = view.findViewById(R.id.saisie_recherche)
         _iconRecherche = view.findViewById(R.id.bouton_saisie_recherche)
+        _motCle = view.findViewById(R.id.saisie_recherche)
+        _btnChercher = view.findViewById(R.id.bouton_saisie_recherche)
+
 
         _btnDéconnection?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vuePageInitiale)
@@ -75,6 +81,10 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
         _btnSwitch?.setOnClickListener {
             _présentateur?.chercherJeuxParConsole("Nintendo Switch")
         }
+        _btnChercher?.setOnClickListener {
+            _présentateur?.chercherJeuxParMotCle(_motCle!!.text.toString())
+        }
+
     }
 
     companion object {

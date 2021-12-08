@@ -31,4 +31,8 @@ interface ApiService {
     @PUT("Evaluation")
     fun PutModifierEvaluation(@Body evaluation: Evaluation) : Call<ResponseBody>
 
+    @GET("JeuVideo/rechercheParMotCle/{motCle}")
+    fun GetJeuVideoParMotCle(@Path("motCle") motCle : String) : Call<List<JeuVideo>>
+
+
 }

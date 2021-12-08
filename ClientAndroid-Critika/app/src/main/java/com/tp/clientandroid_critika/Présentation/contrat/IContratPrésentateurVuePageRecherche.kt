@@ -4,6 +4,7 @@ interface IContratPrésentateurVuePageRecherche {
 
     interface IPrésentateurPageRecherche {
         fun chercherJeuxParConsole(console: String)
+        fun chercherJeuxParMotCle(motCle: String)
     }
 
     interface IVuePageRecherche {
