@@ -16,6 +16,7 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
     private var _handlerRéponse: Handler
     private var _messageConfirmation = 0
     private var _messageErreur = 1
+    private var _messageIntrouvable = 2
 
     init {
         _modèle = Modèle.getInstance()
@@ -29,6 +30,11 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
                     _vue?.afficherMessage(
                         "Il y a un problème dans cette moment, essayez plus tard"
                     )
+                } else if (msg.what == _messageIntrouvable) {
+                    _vue?.afficherMessage(
+                        "Il n'existe aucun jeu avec le mot cle que vous avez utilisé"
+                    )
+
                 }
             }
         }
@@ -51,4 +57,23 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
         }
         _filEsclave!!.start()
     }
+
+    /**
+     * La méthode permet de chercher les jeux videos pour l'envoyer à la vue ou une message pour
+     * dire que il n'y a pas des jeux avec le mot clé que l'utilisateur a écrit
+     */
+    override fun chercherJeuxParMotCle(motCle: String) {
+        _filEsclave = Thread {
+            var confirmation = _modèle?.chercherJeuxParMotCle(motCle)
+            var msg: Message?
+            msg = if (confirmation == true) {
+                _handlerRéponse.obtainMessage(_messageConfirmation)
+            } else {
+                _handlerRéponse.obtainMessage(_messageIntrouvable)
+            }
+            _handlerRéponse.sendMessage(msg!!)
+        }
+        _filEsclave!!.start()
+    }
+
 }
