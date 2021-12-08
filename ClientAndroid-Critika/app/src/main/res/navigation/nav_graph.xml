@@ -77,7 +77,7 @@
             android:id="@+id/action_pageJeu_to_menuPrincipale"
             app:destination="@id/vueMenuPrincipale" />
         <action
-            android:id="@+id/action_vuePageJeu_to_vueChangementCommentaire2"
+            android:id="@+id/action_vuePageJeu_to_vueChangementCommentaire"
             app:destination="@id/vueChangementCommentaire" />
     </fragment>
     <fragment

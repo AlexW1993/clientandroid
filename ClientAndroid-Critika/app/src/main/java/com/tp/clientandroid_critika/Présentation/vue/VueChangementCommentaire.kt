@@ -24,8 +24,6 @@ class VueChangementCommentaire : Fragment(),
     private var _btnMenuPrincipale: ImageButton? = null
     private var _btnRecherche: ImageButton? = null
     private var _btnCompte: ImageButton? = null
-    private var _adapter: AdapterMenuPrincipal? = null
-    private var _listeJeux: RecyclerView? = null
     private var _contenue: EditText? = null
     private var _btnModifier: ImageButton? = null
     private var _btnAnnulation: ImageButton? = null
@@ -39,7 +37,7 @@ class VueChangementCommentaire : Fragment(),
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu_principale, container, false)
+        return inflater.inflate(R.layout.fragment_changement_commentaire, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +48,6 @@ class VueChangementCommentaire : Fragment(),
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
         _btnRecherche = view.findViewById(R.id.bouton_recherche)
         _btnCompte = view.findViewById(R.id.bouton_compte)
-        _listeJeux = view.findViewById(R.id.recycler_view_menu)
         _contenue = view.findViewById(R.id.saisie_changement_commentaire)
         _btnModifier = view.findViewById(R.id.bouton_changement_commentaire)
         _btnAnnulation = view.findViewById(R.id.bouton_supprimer_commentaire2)
