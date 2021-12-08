@@ -100,6 +100,10 @@ class ModèleTest {
             "aaaa", "test", "un test", "Test1", "Test", "Solo",
             2021, null, null
         )
+        var liste: MutableList<Evaluation> = ArrayList()
+        liste.add(Evaluation("111", "aaaa", "", 5))
+        jeuTest.listeEvaluations = liste
+
         var u = Utilisateur("", "utilisateurTest", "mdp", "test", "testeur")
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
@@ -147,4 +151,29 @@ class ModèleTest {
         //Vérification
         Assert.assertTrue(cobaye!!)
     }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque je rechercher un jeu un mot cle, j'obtien un retour positif (true)`() {
+
+        //Mise en place
+        var cobaye = true
+        var _modèle = Modèle.getInstance()
+        var listeJeux: List<JeuVideo>? = null
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
+
+
+        //Exécution
+        _modèle?.chercherJeuxParMotCle("test1")
+        listeJeux = _modèle.listeJeux
+        for (j in listeJeux!!) {
+            if (j.nom != "test1") {
+                cobaye = false
+            }
+        }
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
+
 }
