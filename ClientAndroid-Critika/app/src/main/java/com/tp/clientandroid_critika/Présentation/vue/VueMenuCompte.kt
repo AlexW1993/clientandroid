@@ -9,9 +9,11 @@ import com.tp.clientandroid_critika.R
 import android.widget.ImageButton
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueMenuCompte
 
 
-class VueMenuCompte : Fragment() {
+class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVueMenuCompte {
 
     private var _nav: NavController? = null
     private var _btnDéconnection: ImageButton? = null
@@ -52,11 +54,16 @@ class VueMenuCompte : Fragment() {
         }
     }
 
-        companion object {
+    companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             VueMenuCompte().apply {
             }
+    }
+
+    override fun afficherInformationCompte(utilisateur: Utilisateur) {
+        TODO("Not yet implemented")
+
     }
 }
