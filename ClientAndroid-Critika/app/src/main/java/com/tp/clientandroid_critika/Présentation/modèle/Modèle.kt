@@ -60,7 +60,7 @@ class Modèle() {
     /**
      * La méthode permet de chercher la liste des tous les jeux
      *
-     * @return (Boolean) true si l'utilisateur a été trouvé, false s'il y a eu un problème
+     * @return (Boolean) true si la liste  a été trouvé, false s'il y a eu un problème
      */
     fun chercherJeux(): Boolean {
         var liste = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
@@ -79,7 +79,7 @@ class Modèle() {
      */
 
     fun chercherJeuxParConsole(plateforme: String): Boolean {
-        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme(plateforme)
+        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParPlateforme(plateforme)
         return listeJeux != null
     }
 
@@ -182,4 +182,23 @@ class Modèle() {
             return false
         }
     }
+
+    /**
+     * La méthode permet de chercher des jeux vidéos qui ont dans son nom le mot cle que
+     * l'utilisateur a écrit
+     *
+     * @param (motCle: String), le mot cle
+     *
+     * @return (Boolean) true si il y a une resultat, false s'il n'y a pas des jeux qui utilisent le mot cle
+     */
+    fun chercherJeuxParMotCle(motCle: String): Boolean? {
+        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParMotCle(motCle)
+        return if(listeJeux != null){
+            listeJeux?.size!! > 0
+        } else {
+            null
+        }
+
+    }
+
 }

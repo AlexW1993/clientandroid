@@ -77,6 +77,18 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
         return reponse == 204
     }
 
+    override fun chercherJeuxParMotCle(motCle: String): List<JeuVideo>? {
+        val retro = ApiClient.SERVICE
+        val call : Call<List<JeuVideo>> = retro.GetJeuVideoParMotCle(motCle)
+        var res = call.execute()
+        if(res.code() == 200){
+            return res.body()
+        } else{
+            return null
+        }
+    }
+
+
 
 }
 
