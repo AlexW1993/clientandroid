@@ -76,6 +76,9 @@
         <action
             android:id="@+id/action_pageJeu_to_menuPrincipale"
             app:destination="@id/vueMenuPrincipale" />
+        <action
+            android:id="@+id/action_vuePageJeu_to_vueChangementCommentaire2"
+            app:destination="@id/vueChangementCommentaire" />
     </fragment>
     <fragment
         android:id="@+id/vuePageRecherche"
@@ -196,5 +199,26 @@
         <action
             android:id="@+id/action_changementMotPasse_to_pageInitiale"
             app:destination="@id/vuePageInitiale" />
+    </fragment>
+    <fragment
+        android:id="@+id/vueChangementCommentaire"
+        android:name="com.tp.clientandroid_critika.Présentation.vue.VueChangementCommentaire"
+        android:label="fragment_changement_commentaire"
+        tools:layout="@layout/fragment_changement_commentaire" >
+        <action
+            android:id="@+id/action_vueChangementCommentaire_to_vuePageInitiale"
+            app:destination="@id/vuePageInitiale" />
+        <action
+            android:id="@+id/action_vueChangementCommentaire_to_vueMenuCompte"
+            app:destination="@id/vueMenuCompte" />
+        <action
+            android:id="@+id/action_vueChangementCommentaire_to_vuePageRecherche"
+            app:destination="@id/vuePageRecherche" />
+        <action
+            android:id="@+id/action_vueChangementCommentaire_to_vueMenuPrincipale"
+            app:destination="@id/vueMenuPrincipale" />
+        <action
+            android:id="@+id/action_vueChangementCommentaire_to_vuePageJeu"
+            app:destination="@id/vuePageJeu" />
     </fragment>
 </navigation>
