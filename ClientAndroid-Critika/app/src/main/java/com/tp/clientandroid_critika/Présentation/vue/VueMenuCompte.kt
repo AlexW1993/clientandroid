@@ -88,6 +88,11 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
             }
     }
 
+    /**
+     * La méthode affiche les infomration de l'utilisateur
+     *
+     * @param (utilisateur: Utilisateur?), le utilisateur
+     */
     override fun afficherInformationCompte(utilisateur: Utilisateur?) {
         _surnom?.text = utilisateur?.nom
         _motPasse?.text = utilisateur?.motPasse
