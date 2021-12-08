@@ -6,8 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tp.clientandroid_critika.R
+import android.widget.ImageButton
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+
 
 class VueMenuCompte : Fragment() {
+
+    private var _nav: NavController? = null
+    private var _btnDéconnection: ImageButton? = null
+    private var _btnMenuPrincipale: ImageButton? = null
+    private var _btnRecherche: ImageButton? = null
+    private var _btnCompte: ImageButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +31,28 @@ class VueMenuCompte : Fragment() {
         return inflater.inflate(R.layout.fragment_menu_compte, container, false)
     }
 
-    companion object {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _nav = Navigation.findNavController(view)
+        _btnDéconnection = view.findViewById(R.id.bouton_deconnection)
+        _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
+        _btnRecherche = view.findViewById(R.id.bouton_recherche)
+        _btnCompte = view.findViewById(R.id.bouton_compte)
+        _btnDéconnection?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
+        }
+        _btnMenuPrincipale?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuPrincipale)
+        }
+        _btnRecherche?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageRecherche)
+        }
+        _btnCompte?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueMenuCompte)
+        }
+    }
+
+        companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
