@@ -16,6 +16,7 @@ class Modèle() {
     var utilisateur: Utilisateur? = null
     var listeJeux: List<JeuVideo>? = null
     var evalautionSelectionné: Evaluation? = null
+    var commentaireSelectionné: Commentaire? = null
 
     companion object {
         var modèle: Modèle? = null
@@ -193,7 +194,7 @@ class Modèle() {
      */
     fun chercherJeuxParMotCle(motCle: String): Boolean? {
         listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParMotCle(motCle)
-        return if(listeJeux != null){
+        return if (listeJeux != null) {
             listeJeux?.size!! > 0
         } else {
             null

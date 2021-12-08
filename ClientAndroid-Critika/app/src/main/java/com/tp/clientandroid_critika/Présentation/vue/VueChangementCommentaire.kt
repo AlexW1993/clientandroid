@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementCommentaire
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuPrincipale
 import com.tp.clientandroid_critika.R
 import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 
-class VueChangementCommentaire : Fragment() {
+class VueChangementCommentaire : Fragment(), IContratPrésentateurVueChangementCommentaire.IContratVueChangementCommentaire {
 
     private var _présentateur: PrésentateurMenuPrincipale? = null
     private var _nav: NavController? = null
@@ -67,5 +68,17 @@ class VueChangementCommentaire : Fragment() {
         fun newInstance(param1: String, param2: String) =
             VueMenuPrincipale().apply {
             }
+    }
+
+    override fun afficherContenue(contenue: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun afficherMessage(message: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun afficherPageJeu() {
+        TODO("Not yet implemented")
     }
 }
