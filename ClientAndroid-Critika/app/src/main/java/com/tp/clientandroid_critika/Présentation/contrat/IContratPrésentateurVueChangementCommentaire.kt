@@ -3,6 +3,7 @@ package com.tp.clientandroid_critika.Présentation.contrat
 interface IContratPrésentateurVueChangementCommentaire {
 
     interface IContratPrésentateurChangementCommentaire {
+        fun chercherContenue()
         fun modifierContenueCommentaire(contenue: String)
     }
 

@@ -34,6 +34,10 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
         }
     }
 
+    override fun chercherContenue() {
+        _modèle?.commentaireSelectionné?.let { _vue?.afficherContenue(it.contenue) }
+    }
+
     override fun modifierContenueCommentaire(contenue: String) {
         TODO("Not yet implemented")
     }

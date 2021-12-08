@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuCompte
 import android.widget.Toast
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementSurnom
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementSurnom
@@ -93,5 +92,4 @@ class VueChangementSurnom : Fragment(),
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
-
 }

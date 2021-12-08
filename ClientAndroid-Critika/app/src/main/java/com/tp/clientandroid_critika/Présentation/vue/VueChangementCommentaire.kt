@@ -4,19 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementCommentaire
-import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuPrincipale
+import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementCommentaire
 import com.tp.clientandroid_critika.R
 import com.tp.clientandroid_critika.RecyclerViewAdapter.AdapterMenuPrincipal
 
-class VueChangementCommentaire : Fragment(), IContratPrésentateurVueChangementCommentaire.IContratVueChangementCommentaire {
+class VueChangementCommentaire : Fragment(),
+    IContratPrésentateurVueChangementCommentaire.IContratVueChangementCommentaire {
 
-    private var _présentateur: PrésentateurMenuPrincipale? = null
+    private var _présentateur: PrésentateurChangementCommentaire? = null
     private var _nav: NavController? = null
     private var _btnDéconnection: ImageButton? = null
     private var _btnMenuPrincipale: ImageButton? = null
@@ -24,6 +26,9 @@ class VueChangementCommentaire : Fragment(), IContratPrésentateurVueChangementC
     private var _btnCompte: ImageButton? = null
     private var _adapter: AdapterMenuPrincipal? = null
     private var _listeJeux: RecyclerView? = null
+    private var _contenue: EditText? = null
+    private var _btnModifier: ImageButton? = null
+    private var _btnAnnulation: ImageButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +44,16 @@ class VueChangementCommentaire : Fragment(), IContratPrésentateurVueChangementC
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //_présentateur = PrésentateurMenuPrincipale(this)
+        _présentateur = PrésentateurChangementCommentaire(this)
         _nav = Navigation.findNavController(view)
         _btnDéconnection = view.findViewById(R.id.bouton_deconnection)
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
         _btnRecherche = view.findViewById(R.id.bouton_recherche)
         _btnCompte = view.findViewById(R.id.bouton_compte)
         _listeJeux = view.findViewById(R.id.recycler_view_menu)
+        _contenue = view.findViewById(R.id.saisie_changement_commentaire)
+        _btnModifier = view.findViewById(R.id.bouton_changement_commentaire)
+        _btnAnnulation = view.findViewById(R.id.bouton_supprimer_commentaire2)
 
         _btnDéconnection?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vuePageInitiale)
@@ -59,7 +67,13 @@ class VueChangementCommentaire : Fragment(), IContratPrésentateurVueChangementC
         _btnCompte?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vueMenuCompte)
         }
-        //_présentateur!!.chercherJeuxVideo()
+        _présentateur!!.chercherContenue()
+        _btnModifier?.setOnClickListener { view ->
+            _présentateur?.modifierContenueCommentaire(_contenue!!.text.toString())
+        }
+        _btnAnnulation?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageJeu)
+        }
     }
 
     companion object {
