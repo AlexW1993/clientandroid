@@ -35,4 +35,20 @@ class GestionCompteTest {
         //Vérification
         Assert.assertTrue(cobaye)
     }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque j'ai fait un changement à mon surnom, j'obtien comme resultat une true pour confirmer que le surnom a été modifié correctement`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var utilisateur = Utilisateur("","test","test","test","testeur")
+
+        //Exécution
+        cobaye = GestionCompte(sourceDeDonnées).modifierSurnom(utilisateur)
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
+
 }
