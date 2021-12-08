@@ -11,7 +11,7 @@ interface IContratPrésentateurVuePageJeu {
     }
 
     interface IVuePageJeu{
-        fun affichageInformationJeuSelecionné(jeu : JeuVideo?)
+        fun affichageInformationJeuSelecionné(jeu : JeuVideo?, idUtilisateur : String)
         fun afficherMessage(message : String)
         fun afficherPageJeu()
     }

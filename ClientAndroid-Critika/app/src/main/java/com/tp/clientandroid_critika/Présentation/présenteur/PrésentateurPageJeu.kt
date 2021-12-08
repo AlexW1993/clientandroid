@@ -41,7 +41,11 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      * La méthode cherche les informations du jeu selectionné
      */
     override fun chercherInformationJeuSelectionné() {
-        _vue?.affichageInformationJeuSelecionné(_modèle?.jeuSelectionné)
+        _modèle?.utilisateur?.id?.let {
+            _vue?.affichageInformationJeuSelecionné(_modèle?.jeuSelectionné,
+                it
+            )
+        }
     }
 
     /**

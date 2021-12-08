@@ -98,14 +98,14 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
             }
     }
 
-    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?) {
+    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur : String) {
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneSortie.toString()
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()
         _imageJeu = null
         _descriptionJeu?.text = jeu?.description
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
-        _adapter = AdapterPageJeu(jeu?.listeCommentaires)
+        _adapter = AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur)
         _listeCommentaires?.adapter = _adapter
     }
 
