@@ -11,15 +11,24 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueMenuCompte
-
+import android.widget.ImageView
+import android.widget.TextView
+import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuCompte
 
 class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVueMenuCompte {
 
+    private var _présentateur: PrésentateurMenuCompte? = null
     private var _nav: NavController? = null
     private var _btnDéconnection: ImageButton? = null
     private var _btnMenuPrincipale: ImageButton? = null
     private var _btnRecherche: ImageButton? = null
     private var _btnCompte: ImageButton? = null
+    private var _surnom: TextView? = null
+    private var _motPasse: TextView? = null
+    private var _avatar: ImageView? = null
+    private var _btnModifierAvatar: ImageButton? = null
+    private var _btnModifierSurnom: ImageButton? = null
+    private var _btnModifierMotPasse: ImageButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +44,7 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _présentateur = PrésentateurMenuCompte(this)
         _nav = Navigation.findNavController(view)
         _btnDéconnection = view.findViewById(R.id.bouton_deconnection)
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
@@ -52,6 +62,22 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
         _btnCompte?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vueMenuCompte)
         }
+        _btnModifierAvatar = view.findViewById(R.id.bouton_modification_avatar)
+        _avatar = view.findViewById(R.id.avatar_changement)
+        _btnModifierSurnom = view.findViewById(R.id.bouton_modification_surnom)
+        _surnom = view.findViewById(R.id.surnom)
+        _btnModifierMotPasse = view.findViewById(R.id.bouton_modification_mot_passe)
+        _btnModifierAvatar?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueChangementAvatar)
+        }
+        _btnModifierSurnom?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueChangementSurnom)
+        }
+        _btnModifierMotPasse?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vueChangementMotPasse)
+        }
+        _présentateur!!.chercherInformationCompte()
+
     }
 
     companion object {
@@ -62,8 +88,9 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
             }
     }
 
-    override fun afficherInformationCompte(utilisateur: Utilisateur) {
-        TODO("Not yet implemented")
+    override fun afficherInformationCompte(utilisateur: Utilisateur?) {
+        _surnom?.text = utilisateur?.nom
+        _motPasse?.text = utilisateur?.motPasse
 
     }
 }
