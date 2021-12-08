@@ -45,7 +45,10 @@ class AdapterMenuPrincipal(
             position: Int,
             présentateur: PrésentateurMenuPrincipale
         ) {
+            var nomImage = jeuVideo?.nom?.replace(' ', '_')?.replace('.', '_').replace('-', '_').lowercase()
+            var drawableId: Int = view.context.getResources().getIdentifier(nomImage, "drawable", view.context.packageName)
             nom.text = jeuVideo.nom
+            image.setImageResource(drawableId)
             palmares.text = (position + 1).toString()
             moyenne.text = jeuVideo.calculerMoyenneEvaluation().toString()
             button.setOnClickListener {
@@ -53,5 +56,6 @@ class AdapterMenuPrincipal(
                 Navigation.findNavController(view).navigate(R.id.vuePageJeu)
             }
         }
+
     }
 }
