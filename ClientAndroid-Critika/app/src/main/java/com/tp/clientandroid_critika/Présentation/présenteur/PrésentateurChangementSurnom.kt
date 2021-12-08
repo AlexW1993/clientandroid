@@ -15,7 +15,8 @@ class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
     private var _messageConfirmation = 0
     private var _messageUtilisateruExistant = 1
 
-    init{_modèle = Modèle.getInstance()
+    init {
+        _modèle = Modèle.getInstance()
         _handlerRéponse = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
@@ -32,8 +33,14 @@ class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
         }
     }
 
+    /**
+     * La méthode permet le changement du surnom d'un utilisateur, si le surnom existe, il va
+     * afficher une message pour dire que le surnom existe
+     *
+     * @param (surnom: String), le nouveau surnom
+     */
     override fun sauvegarderNouveauSurnom(surnom: String) {
-        if(surnom != ""){
+        if (surnom != "") {
             _filEsclave = Thread {
                 var msg: Message?
                 val confirmation = _modèle?.modiferSurnom(surnom)

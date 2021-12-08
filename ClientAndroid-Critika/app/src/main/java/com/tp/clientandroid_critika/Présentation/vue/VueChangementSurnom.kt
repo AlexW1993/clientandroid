@@ -75,11 +75,21 @@ class VueChangementSurnom : Fragment(),
             VueChangementSurnom().apply {
             }
     }
+
+    /**
+     * La méthode permet afficher la vue MenuCompte et un message pour confirmer que l'operation a
+     * été realisé correctement
+     */
     override fun afficherMenuCompte() {
         Toast.makeText(activity, "Changement effectué correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vueMenuCompte)
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
