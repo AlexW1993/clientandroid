@@ -11,28 +11,30 @@ import retrofit2.http.*
 interface ApiService {
 
     @POST("Utilisateur/Authentification")
-    fun PostAuthentificationUtilisateur(@Body utilisateur : Utilisateur) : Call<Utilisateur>
+    fun PostAuthentificationUtilisateur(@Body utilisateur: Utilisateur): Call<Utilisateur>
 
     @POST("Utilisateur")
-    fun PostCreationUtilisateur(@Body utilisateur: Utilisateur) : Call<ResponseBody>
+    fun PostCreationUtilisateur(@Body utilisateur: Utilisateur): Call<ResponseBody>
 
     @GET("JeuVideo")
-    fun GetToutJeuVideo() : Call<List<JeuVideo>>
+    fun GetToutJeuVideo(): Call<List<JeuVideo>>
 
     @GET("JeuVideo/recherchePlateforme/{plateforme}")
-    fun GetJeuVideoParPlateforme(@Path("plateforme") plateforme : String) : Call<List<JeuVideo>>
+    fun GetJeuVideoParPlateforme(@Path("plateforme") plateforme: String): Call<List<JeuVideo>>
 
     @POST("Commentaire")
-    fun PostAjouterCommentaire(@Body commentaire: Commentaire) : Call<ResponseBody>
+    fun PostAjouterCommentaire(@Body commentaire: Commentaire): Call<ResponseBody>
 
     @POST("Evaluation")
-    fun PostAjouterEvaluation(@Body evaluation: Evaluation) : Call<ResponseBody>
+    fun PostAjouterEvaluation(@Body evaluation: Evaluation): Call<ResponseBody>
 
     @PUT("Evaluation")
-    fun PutModifierEvaluation(@Body evaluation: Evaluation) : Call<ResponseBody>
+    fun PutModifierEvaluation(@Body evaluation: Evaluation): Call<ResponseBody>
 
     @GET("JeuVideo/rechercheParMotCle/{motCle}")
-    fun GetJeuVideoParMotCle(@Path("motCle") motCle : String) : Call<List<JeuVideo>>
+    fun GetJeuVideoParMotCle(@Path("motCle") motCle: String): Call<List<JeuVideo>>
 
+    @PUT("Utilisateur/ModifierNom")
+    fun PutModifierSurnom(@Body utilisateur: Utilisateur): Call<ResponseBody>
 
 }

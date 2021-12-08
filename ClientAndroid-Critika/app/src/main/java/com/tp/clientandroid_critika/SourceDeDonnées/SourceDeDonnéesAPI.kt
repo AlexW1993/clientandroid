@@ -9,22 +9,22 @@ import com.tp.clientandroid_critika.SourceDeDonnées.Retrofit.ApiClient
 import okhttp3.ResponseBody
 import retrofit2.Call
 
-class SourceDeDonnéesAPI : SourceDeDonnées{
+class SourceDeDonnéesAPI : SourceDeDonnées {
 
-    override fun chercherUtilisateur(utilisateur : Utilisateur) : Utilisateur? {
+    override fun chercherUtilisateur(utilisateur: Utilisateur): Utilisateur? {
         val retro = ApiClient.SERVICE
-        val call : Call<Utilisateur> = retro.PostAuthentificationUtilisateur(utilisateur)
+        val call: Call<Utilisateur> = retro.PostAuthentificationUtilisateur(utilisateur)
         var res = call.execute()
-        if(res.code() == 200){
+        if (res.code() == 200) {
             return res.body()
-        } else{
+        } else {
             return null
         }
     }
 
-    override fun ajouterUtilisateur(utilisateur: Utilisateur) : Boolean{
+    override fun ajouterUtilisateur(utilisateur: Utilisateur): Boolean {
         val retro = ApiClient.SERVICE
-        val call : Call<ResponseBody> = retro.PostCreationUtilisateur(utilisateur)
+        val call: Call<ResponseBody> = retro.PostCreationUtilisateur(utilisateur)
         var res = call.execute()
         var reponse = res.code()
         return reponse == 200
@@ -32,22 +32,22 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun chercherTousJeux(): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
-        val call : Call<List<JeuVideo>> = retro.GetToutJeuVideo()
+        val call: Call<List<JeuVideo>> = retro.GetToutJeuVideo()
         var res = call.execute()
-        if(res.code() == 200){
+        if (res.code() == 200) {
             return res.body()
-        } else{
+        } else {
             return null
         }
     }
 
-    override fun chercherTousJeuxParPlateforme(plateforme : String): List<JeuVideo>? {
+    override fun chercherTousJeuxParPlateforme(plateforme: String): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
-        val call : Call<List<JeuVideo>> = retro.GetJeuVideoParPlateforme(plateforme)
+        val call: Call<List<JeuVideo>> = retro.GetJeuVideoParPlateforme(plateforme)
         var res = call.execute()
-        if(res.code() == 200){
+        if (res.code() == 200) {
             return res.body()
-        } else{
+        } else {
             return null
         }
 
@@ -55,7 +55,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun ajouterCommentaire(commentaire: Commentaire): Boolean {
         val retro = ApiClient.SERVICE
-        val call : Call<ResponseBody> = retro.PostAjouterCommentaire(commentaire)
+        val call: Call<ResponseBody> = retro.PostAjouterCommentaire(commentaire)
         var res = call.execute()
         var reponse = res.code()
         return reponse == 201
@@ -63,7 +63,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun ajouterEvaluation(evaluation: Evaluation): Boolean {
         val retro = ApiClient.SERVICE
-        val call : Call<ResponseBody> = retro.PostAjouterEvaluation(evaluation)
+        val call: Call<ResponseBody> = retro.PostAjouterEvaluation(evaluation)
         var res = call.execute()
         var reponse = res.code()
         return reponse == 201
@@ -71,7 +71,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun modifierEvaluation(evaluation: Evaluation): Boolean {
         val retro = ApiClient.SERVICE
-        val call : Call<ResponseBody> = retro.PutModifierEvaluation(evaluation)
+        val call: Call<ResponseBody> = retro.PutModifierEvaluation(evaluation)
         var res = call.execute()
         var reponse = res.code()
         return reponse == 204
@@ -79,17 +79,22 @@ class SourceDeDonnéesAPI : SourceDeDonnées{
 
     override fun chercherJeuxParMotCle(motCle: String): List<JeuVideo>? {
         val retro = ApiClient.SERVICE
-        val call : Call<List<JeuVideo>> = retro.GetJeuVideoParMotCle(motCle)
+        val call: Call<List<JeuVideo>> = retro.GetJeuVideoParMotCle(motCle)
         var res = call.execute()
-        if(res.code() == 200){
+        if (res.code() == 200) {
             return res.body()
-        } else{
+        } else {
             return null
         }
     }
 
-
-
+    override fun modifierSurnom(utilisateur: Utilisateur): Boolean {
+        val retro = ApiClient.SERVICE
+        val call: Call<ResponseBody> = retro.PutModifierSurnom(utilisateur)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 204
+    }
 }
 
 
