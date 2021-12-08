@@ -201,4 +201,14 @@ class Modèle() {
 
     }
 
+    fun modiferSurnom(surnom: String): Boolean? {
+        utilisateur?.nom = surnom
+        var confirmationModification = utilisateur?.let {
+            GestionCompte(sourceDeDonnées).modifierSurnom(
+                it
+            )
+        }
+        return confirmationModification
+    }
+
 }
