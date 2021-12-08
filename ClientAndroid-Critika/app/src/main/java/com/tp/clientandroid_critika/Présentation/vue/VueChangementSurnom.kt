@@ -11,10 +11,15 @@ import android.widget.ImageButton
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuCompte
+import android.widget.Toast
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementSurnom
+import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementSurnom
 
-class VueChangementSurnom : Fragment() {
+class VueChangementSurnom : Fragment(),
+    IContratPrésentateurVueChangementSurnom.IContratVueChangementSurnom
+{
 
-    //private var _présentateur: PrésentateurMenuCompte? = null
+    private var _présentateur: PrésentateurChangementSurnom? = null
     private var _nav: NavController? = null
     private var _btnDéconnection: ImageButton? = null
     private var _btnMenuPrincipale: ImageButton? = null
@@ -37,7 +42,7 @@ class VueChangementSurnom : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //_présentateur = PrésentateurMenuCompte(this)
+        _présentateur = PrésentateurChangementSurnom(this)
         _nav = Navigation.findNavController(view)
         _btnDéconnection = view.findViewById(R.id.bouton_deconnection)
         _btnMenuPrincipale = view.findViewById(R.id.bouton_menu)
@@ -60,6 +65,7 @@ class VueChangementSurnom : Fragment() {
         _btnSauvegarderSurnom?.setOnClickListener { view ->
 
         }
+        _présentateur?.sauvegarderNouveauSurnom(_nouveauSurnom!!.text.toString())
 
     }
         companion object {
@@ -69,4 +75,13 @@ class VueChangementSurnom : Fragment() {
             VueChangementSurnom().apply {
             }
     }
+    override fun afficherMenuCompte() {
+        Toast.makeText(activity, "Changement effectué correctement", Toast.LENGTH_LONG).show()
+        _nav!!.navigate(R.id.vueMenuCompte)
+    }
+
+    override fun afficherMessage(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+    }
+
 }
