@@ -1,5 +1,7 @@
 package com.tp.clientandroid_critika.Présentation.vue
 
+import android.app.Application
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -99,10 +101,12 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     }
 
     override fun affichageInformationJeuSelecionné(jeu: JeuVideo?) {
+        var nomImage = jeu?.nom?.replace(' ', '_')?.lowercase()
+        var drawableId: Int = getResources().getIdentifier(nomImage, "drawable", context?.packageName)
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneSortie.toString()
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()
-        _imageJeu = null
+        _imageJeu?.setImageResource(drawableId)
         _descriptionJeu?.text = jeu?.description
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = AdapterPageJeu(jeu?.listeCommentaires)
