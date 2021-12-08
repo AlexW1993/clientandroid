@@ -31,10 +31,18 @@ class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
             }
         }
     }
+
     override fun sauvegarderNouveauSurnom(surnom: String) {
         if(surnom != ""){
             _filEsclave = Thread {
-
+                var msg: Message?
+                val confirmation = _modèle?.modiferSurnom(surnom)
+                if (confirmation == true) {
+                    msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+                } else {
+                    msg = _handlerRéponse.obtainMessage(_messageUtilisateruExistant)
+                }
+                _handlerRéponse.sendMessage(msg!!)
             }
             _filEsclave!!.start()
         }
