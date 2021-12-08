@@ -23,4 +23,16 @@ class GestionJeuxVideo(var _source: SourceDeDonnées?) {
     fun chercherJeuxVideoParPlateforme(plateforme: String): List<JeuVideo>? {
         return _source?.chercherTousJeuxParPlateforme(plateforme)
     }
+
+    /**
+     * La méthode permet de chercher une liste de jeux vidéos en utilisant un mot cle
+     *
+     * @param (motCle: String), Le mot cle
+     *
+     * @return (List<JeuVideo>?) La liste de jeux vidéos qui a le mot cle dans ses noms
+     */
+    fun chercherJeuxVideoParMotCle(motCle: String): List<JeuVideo>? {
+        return _source?.chercherJeuxParMotCle(motCle)
+    }
+
 }
