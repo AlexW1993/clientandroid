@@ -27,4 +27,8 @@ class GestionCompte(var _source: SourceDeDonnées?) {
     fun creationCompte(utilisateur: Utilisateur): Boolean? {
         return _source?.ajouterUtilisateur(utilisateur)
     }
+
+    fun modifierSurnom(utilisateur: Utilisateur): Boolean? {
+        return _source?.modifierSurnom(utilisateur)
+    }
 }
