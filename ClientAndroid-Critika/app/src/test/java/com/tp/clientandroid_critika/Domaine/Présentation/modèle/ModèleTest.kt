@@ -176,4 +176,21 @@ class ModèleTest {
         Assert.assertTrue(cobaye!!)
     }
 
+    @Test
+    fun `étant donné un utilisateur, lorsque je veux modifier mon surnom, j'obtien un retour positif (true)`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var utilisateur = Utilisateur("","test","test","test","testeur")
+        _modèle.sourceDeDonnées = sourceDeDonnées
+        _modèle.utilisateur = utilisateur
+
+        //Exécution
+        cobaye = _modèle?.modiferSurnom("test2")
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
 }
