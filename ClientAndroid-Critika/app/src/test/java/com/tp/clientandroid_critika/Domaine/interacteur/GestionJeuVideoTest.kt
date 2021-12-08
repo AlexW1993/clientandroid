@@ -29,7 +29,7 @@ class GestionJeuVideoTest {
         var sourceDeDonnées = SourceDeDonnéesBidon()
 
         //Exécution
-        cobaye = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme("Test1")!!
+        cobaye = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParPlateforme("Test1")!!
 
         //Vérification
         Assert.assertEquals(2, cobaye.size)

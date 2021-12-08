@@ -79,7 +79,7 @@ class Modèle() {
      */
 
     fun chercherJeuxParConsole(plateforme: String): Boolean {
-        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJuexVideoParPlateforme(plateforme)
+        listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParPlateforme(plateforme)
         return listeJeux != null
     }
 
