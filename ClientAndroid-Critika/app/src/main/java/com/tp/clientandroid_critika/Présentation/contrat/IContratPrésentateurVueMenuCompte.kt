@@ -9,6 +9,6 @@ interface IContratPrésentateurVueMenuCompte {
     }
 
     interface IContratVueMenuCompte {
-        fun afficherInformationCompte(utilisateur: Utilisateur)
+        fun afficherInformationCompte(utilisateur: Utilisateur?)
     }
 }

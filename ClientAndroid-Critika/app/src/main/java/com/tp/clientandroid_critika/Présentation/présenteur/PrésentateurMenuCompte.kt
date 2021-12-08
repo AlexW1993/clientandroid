@@ -1,4 +1,19 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
-class PrésentateurMenuCompte {
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueMenuCompte
+import com.tp.clientandroid_critika.Présentation.modèle.Modèle
+import com.tp.clientandroid_critika.Présentation.vue.VueMenuCompte
+
+class PrésentateurMenuCompte(var _vue: VueMenuCompte) :
+    IContratPrésentateurVueMenuCompte.IContratPrésentateurMenuCompte {
+
+    private var _modèle: Modèle? = null
+
+    init {
+        _modèle = Modèle.getInstance()
+    }
+
+    override fun chercherInformationCompte() {
+        _vue?.afficherInformationCompte(_modèle?.utilisateur)
+    }
 }
