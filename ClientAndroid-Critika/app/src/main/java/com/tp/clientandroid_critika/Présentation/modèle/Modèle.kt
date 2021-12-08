@@ -191,9 +191,14 @@ class Modèle() {
      *
      * @return (Boolean) true si il y a une resultat, false s'il n'y a pas des jeux qui utilisent le mot cle
      */
-    fun chercherJeuxParMotCle(motCle: String): Boolean {
+    fun chercherJeuxParMotCle(motCle: String): Boolean? {
         listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParMotCle(motCle)
-        return listeJeux != null
+        return if(listeJeux != null){
+            listeJeux?.size!! > 0
+        } else {
+            null
+        }
+
     }
 
 }

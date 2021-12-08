@@ -68,9 +68,12 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
             var msg: Message?
             msg = if (confirmation == true) {
                 _handlerRéponse.obtainMessage(_messageConfirmation)
-            } else {
+            } else if (confirmation == false) {
                 _handlerRéponse.obtainMessage(_messageIntrouvable)
+            } else {
+                _handlerRéponse.obtainMessage(_messageErreur)
             }
+
             _handlerRéponse.sendMessage(msg!!)
         }
         _filEsclave!!.start()
