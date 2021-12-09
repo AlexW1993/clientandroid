@@ -10,9 +10,10 @@ import androidx.core.view.isInvisible
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
+import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageJeu
 import com.tp.clientandroid_critika.R
 
-class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String) :
+class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String, var présentatur : PrésentateurPageJeu) :
     RecyclerView.Adapter<AdapterPageJeu.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +22,7 @@ class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String) 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        liste?.get(position)?.let { holder.viewHolder(it, idUtilisateur) }
+        liste?.get(position)?.let { holder.viewHolder(it, idUtilisateur, présentatur) }
     }
 
     override fun getItemCount(): Int {
@@ -40,12 +41,14 @@ class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String) 
         var btnChangementCommentaire: ImageButton =
             itemView.findViewById(R.id.bouton_changer_commentaire)
 
-        fun viewHolder(commentaire: Commentaire, idUtilisateur: String) {
+        fun viewHolder(commentaire: Commentaire, idUtilisateur: String, présentatur : PrésentateurPageJeu) {
             nomUtilisateur.text = commentaire.utilisateur?.nom
             contenu.text = commentaire.contenue
             dateHeure.text = commentaire.dateHeure
             if (commentaire.utilisateurId == idUtilisateur) {
                 btnChangementCommentaire?.setOnClickListener {
+
+                    présentatur?.commentaireSelectionné(commentaire)
                     Navigation.findNavController(view).navigate(R.id.vueChangementCommentaire)
                 }
             } else {

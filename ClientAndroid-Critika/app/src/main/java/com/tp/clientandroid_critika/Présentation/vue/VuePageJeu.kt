@@ -105,7 +105,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _imageJeu = null
         _descriptionJeu?.text = jeu?.description
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
-        _adapter = AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur)
+        _adapter = _présentateur?.let { AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur, it) }
         _listeCommentaires?.adapter = _adapter
     }
 

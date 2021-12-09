@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import androidx.annotation.RequiresApi
+import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageJeu
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageJeu
@@ -18,7 +19,6 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
     private var _messageConfirmation = 0
     private var _messageErreurCommentaire = 1
     private var _messageErreurEvaluation = 2
-
 
     init {
         _modèle = Modèle.getInstance()
@@ -103,5 +103,10 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
             }
         }
         _filEsclave!!.start()
+    }
+
+    override fun commentaireSelectionné(commentaire: Commentaire) {
+        _modèle?.commentaireSelectionné = null
+        _modèle?.commentaireSelectionné = commentaire
     }
 }

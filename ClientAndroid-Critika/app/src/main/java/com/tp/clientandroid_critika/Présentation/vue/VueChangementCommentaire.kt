@@ -82,7 +82,7 @@ class VueChangementCommentaire : Fragment(),
     }
 
     override fun afficherContenue(contenue: String) {
-        TODO("Not yet implemented")
+        _contenue?.setText(contenue)
     }
 
     override fun afficherMessage(message: String) {
