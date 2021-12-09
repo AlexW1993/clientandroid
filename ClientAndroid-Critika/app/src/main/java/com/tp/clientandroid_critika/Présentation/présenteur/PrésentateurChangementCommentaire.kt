@@ -39,6 +39,11 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
     }
 
     override fun modifierContenueCommentaire(contenue: String) {
-        TODO("Not yet implemented")
+        if (contenue != _modèle?.commentaireSelectionné?.contenue) {
+
+
+        } else {
+            _vue?.afficherMessage("Vous n'avez pas effectué une changement dans votre commentaire")
+        }
     }
 }

@@ -131,4 +131,8 @@ class SourceDeDonnéesBidon : SourceDeDonnées {
     override fun modifierSurnom(utilisateur: Utilisateur): Boolean {
         return true
     }
+
+    override fun modifierCommentaire(commentaire: Commentaire): Boolean {
+        return true
+    }
 }
