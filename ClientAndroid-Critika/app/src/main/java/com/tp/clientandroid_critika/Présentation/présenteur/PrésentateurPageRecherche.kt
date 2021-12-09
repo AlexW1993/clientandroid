@@ -34,7 +34,6 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
                     _vue?.afficherMessage(
                         "Il n'existe aucun jeu avec le mot cle que vous avez utilisé"
                     )
-
                 }
             }
         }

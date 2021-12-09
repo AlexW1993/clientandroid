@@ -98,7 +98,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
             }
     }
 
-    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur : String) {
+    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur: String) {
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneSortie.toString()
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()

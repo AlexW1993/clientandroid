@@ -13,7 +13,11 @@ import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageJeu
 import com.tp.clientandroid_critika.R
 
-class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String, var présentatur : PrésentateurPageJeu) :
+class AdapterPageJeu(
+    var liste: List<Commentaire?>?,
+    var idUtilisateur: String,
+    var présentatur: PrésentateurPageJeu
+) :
     RecyclerView.Adapter<AdapterPageJeu.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,7 +45,11 @@ class AdapterPageJeu(var liste: List<Commentaire?>?, var idUtilisateur: String, 
         var btnChangementCommentaire: ImageButton =
             itemView.findViewById(R.id.bouton_changer_commentaire)
 
-        fun viewHolder(commentaire: Commentaire, idUtilisateur: String, présentatur : PrésentateurPageJeu) {
+        fun viewHolder(
+            commentaire: Commentaire,
+            idUtilisateur: String,
+            présentatur: PrésentateurPageJeu
+        ) {
             nomUtilisateur.text = commentaire.utilisateur?.nom
             contenu.text = commentaire.contenue
             dateHeure.text = commentaire.dateHeure

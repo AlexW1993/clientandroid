@@ -22,7 +22,7 @@ class VueChangementMotPasse : Fragment() {
     }
 
     companion object {
-      @JvmStatic
+        @JvmStatic
         fun newInstance(param1: String, param2: String) =
             VueChangementMotPasse().apply {
             }

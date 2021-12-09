@@ -42,7 +42,8 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      */
     override fun chercherInformationJeuSelectionné() {
         _modèle?.utilisateur?.id?.let {
-            _vue?.affichageInformationJeuSelecionné(_modèle?.jeuSelectionné,
+            _vue?.affichageInformationJeuSelecionné(
+                _modèle?.jeuSelectionné,
                 it
             )
         }

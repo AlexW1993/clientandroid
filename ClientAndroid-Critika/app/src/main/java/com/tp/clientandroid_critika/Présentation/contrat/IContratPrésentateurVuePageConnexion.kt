@@ -2,12 +2,12 @@ package com.tp.clientandroid_critika.Présentation.contrat
 
 interface IContratPrésentateurVuePageConnexion {
 
-    interface IPrésentateurPageConnexion{
-        fun verificationUtilisateur(motPasse : String, surnom : String)
+    interface IPrésentateurPageConnexion {
+        fun verificationUtilisateur(motPasse: String, surnom: String)
     }
 
-    interface IVuePageConnexion{
+    interface IVuePageConnexion {
         fun afficherPageMenuPrincipal()
-        fun afficherMessage(message : String)
+        fun afficherMessage(message: String)
     }
 }

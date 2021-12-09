@@ -12,9 +12,9 @@ import com.tp.clientandroid_critika.R
 
 class VuePageInitiale : Fragment() {
 
-    private var btnSeConnecter : ImageButton? = null
-    private var btnSInscrire : ImageButton? = null
-    private var nav : NavController? = null
+    private var btnSeConnecter: ImageButton? = null
+    private var btnSInscrire: ImageButton? = null
+    private var nav: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class VuePageInitiale : Fragment() {
         btnSeConnecter = view.findViewById(R.id.bouton_Se_connecter)
         nav = Navigation.findNavController(view)
 
-        btnSeConnecter?.setOnClickListener{ view ->
+        btnSeConnecter?.setOnClickListener { view ->
             nav!!.navigate(R.id.vuePageConnexion)
         }
 

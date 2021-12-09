@@ -39,7 +39,7 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
     }
 
     override fun modifierContenueCommentaire(contenue: String) {
-        if(contenue != ""){
+        if (contenue != "") {
             if (contenue != _modèle?.commentaireSelectionné?.contenue) {
                 _filEsclave = Thread {
                     var msg: Message?

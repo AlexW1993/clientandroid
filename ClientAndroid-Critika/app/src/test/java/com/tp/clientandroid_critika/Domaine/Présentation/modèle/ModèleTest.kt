@@ -183,7 +183,7 @@ class ModèleTest {
         var cobaye: Boolean?
         var _modèle = Modèle.getInstance()
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var utilisateur = Utilisateur("","test","test","test","testeur")
+        var utilisateur = Utilisateur("", "test", "test", "test", "testeur")
         _modèle.sourceDeDonnées = sourceDeDonnées
         _modèle.utilisateur = utilisateur
 

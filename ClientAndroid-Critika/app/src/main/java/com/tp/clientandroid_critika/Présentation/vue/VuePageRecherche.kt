@@ -27,8 +27,8 @@ class VuePageRecherche : Fragment(), IContratPrésentateurVuePageRecherche.IVueP
     private var _btnSwitch: ImageButton? = null
     private var _barreRecherche: EditText? = null
     private var _iconRecherche: ImageButton? = null
-    private var _motCle : EditText? = null
-    private var _btnChercher : ImageButton? = null
+    private var _motCle: EditText? = null
+    private var _btnChercher: ImageButton? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
