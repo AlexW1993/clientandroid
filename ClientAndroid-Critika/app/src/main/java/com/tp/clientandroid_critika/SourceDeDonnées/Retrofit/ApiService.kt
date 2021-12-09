@@ -37,4 +37,7 @@ interface ApiService {
     @PUT("Utilisateur/ModifierNom")
     fun PutModifierSurnom(@Body utilisateur: Utilisateur): Call<ResponseBody>
 
+    @PUT("Commentaire")
+    fun PutModifierCommentaire(@Body commentaire: Commentaire): Call<ResponseBody>
+
 }

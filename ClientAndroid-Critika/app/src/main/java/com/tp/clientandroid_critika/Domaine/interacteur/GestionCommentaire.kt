@@ -15,4 +15,7 @@ class GestionCommentaire(var _source: SourceDeDonnées?) {
         return _source?.ajouterCommentaire(commentaire)
     }
 
+    fun modifierCommentaire(commentaire: Commentaire): Boolean? {
+        return _source?.modifierCommentaire(commentaire)
+    }
 }

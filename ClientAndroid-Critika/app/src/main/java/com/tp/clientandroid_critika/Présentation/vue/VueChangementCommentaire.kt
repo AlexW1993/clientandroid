@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -86,10 +87,11 @@ class VueChangementCommentaire : Fragment(),
     }
 
     override fun afficherMessage(message: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
     override fun afficherPageJeu() {
-        TODO("Not yet implemented")
+        Toast.makeText(activity, "Changement effectué correctement", Toast.LENGTH_LONG).show()
+        _nav!!.navigate(R.id.vuePageJeu)
     }
 }

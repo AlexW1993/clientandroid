@@ -39,6 +39,24 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
     }
 
     override fun modifierContenueCommentaire(contenue: String) {
-        TODO("Not yet implemented")
+        if(contenue != ""){
+            if (contenue != _modèle?.commentaireSelectionné?.contenue) {
+                _filEsclave = Thread {
+                    var msg: Message?
+                    val confirmation = _modèle?.modiferCommentaire(contenue)
+                    if (confirmation == true) {
+                        msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+                    } else {
+                        msg = _handlerRéponse.obtainMessage(_messageErreur)
+                    }
+                    _handlerRéponse.sendMessage(msg!!)
+                }
+                _filEsclave!!.start()
+            } else {
+                _vue?.afficherMessage("Vous n'avez pas effectué une changement dans votre commentaire")
+            }
+        } else {
+            _vue?.afficherMessage("Le contenue ne doit pas être vide")
+        }
     }
 }

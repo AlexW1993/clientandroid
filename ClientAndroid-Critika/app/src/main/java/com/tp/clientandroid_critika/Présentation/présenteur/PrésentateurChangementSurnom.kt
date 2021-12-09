@@ -41,18 +41,23 @@ class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
      */
     override fun sauvegarderNouveauSurnom(surnom: String) {
         if (surnom != "") {
-            _filEsclave = Thread {
-                var msg: Message?
-                val confirmation = _modèle?.modiferSurnom(surnom)
-                if (confirmation == true) {
-                    msg = _handlerRéponse.obtainMessage(_messageConfirmation)
-                } else {
-                    msg = _handlerRéponse.obtainMessage(_messageUtilisateruExistant)
+            if (surnom != _modèle?.utilisateur?.nom) {
+                _filEsclave = Thread {
+                    var msg: Message?
+                    val confirmation = _modèle?.modiferSurnom(surnom)
+                    if (confirmation == true) {
+                        msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+                    } else {
+                        msg = _handlerRéponse.obtainMessage(_messageUtilisateruExistant)
+                    }
+                    _handlerRéponse.sendMessage(msg!!)
                 }
-                _handlerRéponse.sendMessage(msg!!)
+                _filEsclave!!.start()
+            } else {
+                _vue?.afficherMessage("Vous utilisez le même surnom que vous avez actuelment")
             }
-            _filEsclave!!.start()
+        } else {
+            _vue?.afficherMessage("Vous devez remplir la boite pour modifier votre surnom")
         }
     }
-
 }

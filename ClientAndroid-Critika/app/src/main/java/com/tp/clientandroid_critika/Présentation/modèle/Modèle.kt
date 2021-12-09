@@ -219,4 +219,13 @@ class Modèle() {
         return confirmationModification
     }
 
+    fun modiferCommentaire(contenue: String): Boolean? {
+        commentaireSelectionné?.contenue = contenue
+        var confirmationModification = commentaireSelectionné?.let {
+            GestionCommentaire(sourceDeDonnées).modifierCommentaire(
+                it
+            )
+        }
+        return confirmationModification
+    }
 }
