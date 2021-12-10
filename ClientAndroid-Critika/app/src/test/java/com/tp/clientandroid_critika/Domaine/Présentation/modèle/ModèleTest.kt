@@ -217,4 +217,21 @@ class ModèleTest {
         //Vérification
         Assert.assertTrue(cobaye!!)
     }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque je veux effacer un commentaire, j'obtien un retour positif (true)`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        _modèle.sourceDeDonnées = sourceDeDonnées
+
+        //Exécution
+        cobaye = _modèle?.effacerCommentaire("aaaaaa")
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
+
 }

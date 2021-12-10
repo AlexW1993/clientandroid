@@ -55,7 +55,7 @@ class AdapterPageJeu(
         ) {
             nomUtilisateur.text = commentaire.utilisateur?.nom
             contenu.text = commentaire.contenue
-            dateHeure.text = commentaire.dateHeure
+            dateHeure.text = commentaire.dateHeure.replace("T","   ")
             if (commentaire.utilisateurId == idUtilisateur) {
                 btnChangementCommentaire?.setOnClickListener {
 
