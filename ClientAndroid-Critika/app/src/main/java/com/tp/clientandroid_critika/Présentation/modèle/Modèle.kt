@@ -247,6 +247,17 @@ class Modèle() {
      */
     fun effacerCommentaire(id: String): Boolean? {
         var confirmation = GestionCommentaire(sourceDeDonnées)?.effacerCommentiare(id)
-        return confirmation
+        if (confirmation == true) {
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+
     }
 }
