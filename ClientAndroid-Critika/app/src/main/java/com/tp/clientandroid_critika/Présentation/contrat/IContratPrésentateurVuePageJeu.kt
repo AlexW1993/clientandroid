@@ -10,6 +10,7 @@ interface IContratPrésentateurVuePageJeu {
         fun ajouterCommenataire(contenueCommentaire: String)
         fun ajouterEvaluation(note: Int)
         fun commentaireSelectionné(commentaire: Commentaire)
+        fun effacerCommentaire(id: String)
     }
 
     interface IVuePageJeu {
