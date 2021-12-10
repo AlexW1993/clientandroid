@@ -39,5 +39,9 @@ interface ApiService {
 
     @PUT("Commentaire")
     fun PutModifierCommentaire(@Body commentaire: Commentaire): Call<ResponseBody>
+    
+    @DELETE("Commentaire/{id}")
+    fun DeleteCommentaire(@Path("id")id : String) : Call<ResponseBody>
+
 
 }

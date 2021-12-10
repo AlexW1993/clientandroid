@@ -17,4 +17,5 @@ interface SourceDeDonnées {
     fun chercherJeuxParMotCle(motCle: String): List<JeuVideo>?
     fun modifierSurnom(utilisateur: Utilisateur): Boolean
     fun modifierCommentaire(commentaire: Commentaire): Boolean
+    fun effacerCommentaire(id: String): Boolean
 }
