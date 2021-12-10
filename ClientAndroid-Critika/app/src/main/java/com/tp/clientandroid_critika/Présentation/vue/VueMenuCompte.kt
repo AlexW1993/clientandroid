@@ -97,6 +97,5 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
     override fun afficherInformationCompte(utilisateur: Utilisateur?) {
         _surnom?.text = utilisateur?.nom
         _motPasse?.text = utilisateur?.motPasse
-
     }
 }

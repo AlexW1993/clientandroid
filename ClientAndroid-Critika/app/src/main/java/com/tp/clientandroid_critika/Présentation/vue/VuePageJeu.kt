@@ -100,8 +100,8 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
             }
     }
 
-    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?) {
-        var nomImage = jeu?.nom?.replace(' ', '_')?.lowercase()
+    override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur: String) {
+		var nomImage = jeu?.nom?.replace(' ', '_')?.lowercase()
         var drawableId: Int = getResources().getIdentifier(nomImage, "drawable", context?.packageName)
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneSortie.toString()
@@ -109,7 +109,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _imageJeu?.setImageResource(drawableId)
         _descriptionJeu?.text = jeu?.description
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
-        _adapter = AdapterPageJeu(jeu?.listeCommentaires)
+        _adapter = _présentateur?.let { AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur, it) }
         _listeCommentaires?.adapter = _adapter
     }
 

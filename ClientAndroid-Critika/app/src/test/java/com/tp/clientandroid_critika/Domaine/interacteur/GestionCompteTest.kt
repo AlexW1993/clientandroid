@@ -42,7 +42,7 @@ class GestionCompteTest {
         //Mise en place
         var cobaye: Boolean?
         var sourceDeDonnées = SourceDeDonnéesBidon()
-        var utilisateur = Utilisateur("","test","test","test","testeur")
+        var utilisateur = Utilisateur("", "test", "test", "test", "testeur")
 
         //Exécution
         cobaye = GestionCompte(sourceDeDonnées).modifierSurnom(utilisateur)
@@ -50,5 +50,4 @@ class GestionCompteTest {
         //Vérification
         Assert.assertTrue(cobaye!!)
     }
-
 }

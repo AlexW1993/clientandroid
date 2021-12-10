@@ -10,14 +10,12 @@ import android.widget.EditText
 import android.widget.ImageButton
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurMenuCompte
 import android.widget.Toast
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementSurnom
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementSurnom
 
 class VueChangementSurnom : Fragment(),
-    IContratPrésentateurVueChangementSurnom.IContratVueChangementSurnom
-{
+    IContratPrésentateurVueChangementSurnom.IContratVueChangementSurnom {
 
     private var _présentateur: PrésentateurChangementSurnom? = null
     private var _nav: NavController? = null
@@ -68,7 +66,8 @@ class VueChangementSurnom : Fragment(),
 
 
     }
-        companion object {
+
+    companion object {
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -93,5 +92,4 @@ class VueChangementSurnom : Fragment(),
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
-
 }

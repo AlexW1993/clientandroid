@@ -48,5 +48,4 @@ class GestionJeuVideoTest {
         //Vérification
         Assert.assertEquals(1, cobaye.size)
     }
-
 }

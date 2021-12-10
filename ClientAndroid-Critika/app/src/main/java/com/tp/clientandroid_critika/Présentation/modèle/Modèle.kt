@@ -16,6 +16,7 @@ class Modèle() {
     var utilisateur: Utilisateur? = null
     var listeJeux: List<JeuVideo>? = null
     var evalautionSelectionné: Evaluation? = null
+    var commentaireSelectionné: Commentaire? = null
 
     companion object {
         var modèle: Modèle? = null
@@ -193,7 +194,7 @@ class Modèle() {
      */
     fun chercherJeuxParMotCle(motCle: String): Boolean? {
         listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherJeuxVideoParMotCle(motCle)
-        return if(listeJeux != null){
+        return if (listeJeux != null) {
             listeJeux?.size!! > 0
         } else {
             null
@@ -218,4 +219,21 @@ class Modèle() {
         return confirmationModification
     }
 
+    /**
+     * La méthode permet de modifier un commentaire d'un utilisateur
+     *
+     * @param (contenue: String):, le contenue
+     *
+     * @return (Boolean) true si le contenue d'un commentaire a été modifié correctment,
+     * false s'il y a eu un problème
+     */
+    fun modiferCommentaire(contenue: String): Boolean? {
+        commentaireSelectionné?.contenue = contenue
+        var confirmationModification = commentaireSelectionné?.let {
+            GestionCommentaire(sourceDeDonnées).modifierCommentaire(
+                it
+            )
+        }
+        return confirmationModification
+    }
 }

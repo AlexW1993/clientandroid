@@ -95,6 +95,14 @@ class SourceDeDonnéesAPI : SourceDeDonnées {
         var reponse = res.code()
         return reponse == 204
     }
+
+    override fun modifierCommentaire(commentaire: Commentaire): Boolean {
+        val retro = ApiClient.SERVICE
+        val call: Call<ResponseBody> = retro.PutModifierCommentaire(commentaire)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 204
+    }
 }
 
 
