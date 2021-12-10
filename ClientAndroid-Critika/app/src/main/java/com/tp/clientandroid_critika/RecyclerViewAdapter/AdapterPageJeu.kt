@@ -44,6 +44,9 @@ class AdapterPageJeu(
         var avatar: ImageView = itemView.findViewById(R.id.image_avatar)
         var btnChangementCommentaire: ImageButton =
             itemView.findViewById(R.id.bouton_changer_commentaire)
+        var btnEffacerCommentaire: ImageButton =
+            itemView.findViewById(R.id.bouton_supprimer_commentaire)
+
 
         fun viewHolder(
             commentaire: Commentaire,
@@ -59,8 +62,14 @@ class AdapterPageJeu(
                     présentatur?.commentaireSelectionné(commentaire)
                     Navigation.findNavController(view).navigate(R.id.vueChangementCommentaire)
                 }
+                btnEffacerCommentaire?.setOnClickListener {
+
+                    présentatur?.effacerCommentaire(commentaire.id)
+                }
+
             } else {
                 btnChangementCommentaire.setVisibility(View.INVISIBLE)
+                btnEffacerCommentaire.setVisibility(View.INVISIBLE)
             }
         }
     }
