@@ -25,4 +25,16 @@ class GestionCommentaire(var _source: SourceDeDonnées?) {
     fun modifierCommentaire(commentaire: Commentaire): Boolean? {
         return _source?.modifierCommentaire(commentaire)
     }
+
+    /**
+     * La méthode permet effacer une commentaire de l'utilisateur
+     *
+     * @param (id: String), l'id du commentaire'
+     *
+     * @return (Boolean) true si le commentaire a été effacé correctment, false s'il y a eu un problème
+     */
+    fun effacerCommentiare(id: String): Boolean? {
+        return _source?.effacerCommentaire(id)
+    }
+
 }
