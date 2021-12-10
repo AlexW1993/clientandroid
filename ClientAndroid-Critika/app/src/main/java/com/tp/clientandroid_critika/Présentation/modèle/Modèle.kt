@@ -219,6 +219,14 @@ class Modèle() {
         return confirmationModification
     }
 
+    /**
+     * La méthode permet de modifier un commentaire d'un utilisateur
+     *
+     * @param (contenue: String):, le contenue
+     *
+     * @return (Boolean) true si le contenue d'un commentaire a été modifié correctment,
+     * false s'il y a eu un problème
+     */
     fun modiferCommentaire(contenue: String): Boolean? {
         commentaireSelectionné?.contenue = contenue
         var confirmationModification = commentaireSelectionné?.let {

@@ -106,6 +106,11 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
         _filEsclave!!.start()
     }
 
+    /**
+     * La méthode permet d'ajouter un commentaire dans le modèle
+     *
+     * @param (commentaire: Commentaire), le commentaire selectionné par l'utilisateur
+     */
     override fun commentaireSelectionné(commentaire: Commentaire) {
         _modèle?.commentaireSelectionné = null
         _modèle?.commentaireSelectionné = commentaire

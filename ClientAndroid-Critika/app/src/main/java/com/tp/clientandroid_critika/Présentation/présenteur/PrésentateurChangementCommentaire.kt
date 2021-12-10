@@ -34,10 +34,19 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
         }
     }
 
+    /**
+     * La méthode cherche le contenue du commentaire selectionné
+     */
     override fun chercherContenue() {
         _modèle?.commentaireSelectionné?.let { _vue?.afficherContenue(it.contenue) }
     }
 
+    /**
+     * La méthode permet le changement de contenue d'un commentaire d'un utilisateur, s'il y a une
+     * problème, une message sera afficher
+     *
+     * @param (contenue: String), le nouveau contenue
+     */
     override fun modifierContenueCommentaire(contenue: String) {
         if (contenue != "") {
             if (contenue != _modèle?.commentaireSelectionné?.contenue) {

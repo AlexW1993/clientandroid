@@ -15,6 +15,13 @@ class GestionCommentaire(var _source: SourceDeDonnées?) {
         return _source?.ajouterCommentaire(commentaire)
     }
 
+    /**
+     * La méthode permet modifié une commentaire de l'utilisateur
+     *
+     * @param (commentaire : Commentaire), le commentaire a ajouté
+     *
+     * @return (Boolean) true si le commentaire a été modifié correctment, false s'il y a eu un problème
+     */
     fun modifierCommentaire(commentaire: Commentaire): Boolean? {
         return _source?.modifierCommentaire(commentaire)
     }

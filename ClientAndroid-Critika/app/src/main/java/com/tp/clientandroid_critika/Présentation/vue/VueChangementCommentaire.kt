@@ -70,6 +70,7 @@ class VueChangementCommentaire : Fragment(),
             _présentateur?.modifierContenueCommentaire(_contenue!!.text.toString())
         }
         _btnAnnulation?.setOnClickListener { view ->
+            Toast.makeText(activity, "Operation annulée", Toast.LENGTH_LONG).show()
             _nav!!.navigate(R.id.vuePageJeu)
         }
     }
@@ -82,14 +83,28 @@ class VueChangementCommentaire : Fragment(),
             }
     }
 
+    /**
+     * La méthode permet afficher le contenue d'un commentaire pour être modifier
+     *
+     * @param (contenue: String), la contenue d'un commentaire
+     */
     override fun afficherContenue(contenue: String) {
         _contenue?.setText(contenue)
     }
 
+    /**
+     * La méthode permet afficher une message
+     *
+     * @param (message: String), le message
+     */
     override fun afficherMessage(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
+    /**
+     * La méthode permet afficher une message pour confirmer que l'operation a été effectuer
+     * correctement et reafficher la vue PageJeu
+     */
     override fun afficherPageJeu() {
         Toast.makeText(activity, "Changement effectué correctement", Toast.LENGTH_LONG).show()
         _nav!!.navigate(R.id.vuePageJeu)
