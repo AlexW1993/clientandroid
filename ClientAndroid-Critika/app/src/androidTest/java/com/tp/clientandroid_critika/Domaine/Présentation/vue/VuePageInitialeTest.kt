@@ -1,29 +1,44 @@
 package com.tp.clientandroid_critika.Domaine.Présentation.vue
 
 
+
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
-import com.tp.clientandroid_critika.Présentation.vue.VuePageInitiale
+import androidx.test.espresso.Espresso.onView
 import com.tp.clientandroid_critika.R
 import com.tp.clientandroid_critika.UI_Activité.MainActivity
-import org.junit.Assert
 import org.junit.Test
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
+import org.junit.Before
+import androidx.test.core.app.ActivityScenario.launch
 
-class VuePageInitialeTest {
-    @Test
-    fun `étant`() {
-        val scenario: ActivityScenario<MainActivity> = ActivityScenario.launch<MainActivity>(
-            MainActivity::class.java
-        )
-        scenario.onActivity(ActivityScenario.ActivityAction<MainActivity> {
-                activité: MainActivity ->
-            val vueinitial = activité.supportFragmentManager.findFragmentById(R.id.frameLayout_initial)
-            Assert.assertNotNull(vueinitial)
-            Assert.assertTrue(vueinitial is VuePageInitiale)
-        })
-        //Mise en place
+class VuePageInitialeTest{
 
-        //Exécution
+    private lateinit var scenario: ActivityScenario<MainActivity>
 
-        //Vérification
+    @Before
+    fun setupTest(){
+        scenario = launch(MainActivity::class.java)
+        scenario.moveToState(Lifecycle.State.RESUMED)
     }
+
+    @Test
+    fun `testInitialVisuel`() {
+        onView(withId(R.id.logo)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.bouton_s_inscrire_initial)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.bouton_Se_connecter)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test
+    fun `testInitialBoutonConnexion`() {
+        onView(withId(R.id.bouton_Se_connecter)).perform(click())
+    }
+
+    @Test
+    fun `testInitialBoutonInscription`() {
+        onView(withId(R.id.bouton_s_inscrire_initial)).perform(click())
+    }
+
 }

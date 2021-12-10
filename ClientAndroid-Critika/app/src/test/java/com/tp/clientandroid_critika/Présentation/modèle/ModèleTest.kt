@@ -1,4 +1,4 @@
-package com.tp.clientandroid_critika.Domaine.Présentation.modèle
+package com.tp.clientandroid_critika.Présentation.modèle
 
 import com.tp.clientandroid_critika.Domaine.entité.Evaluation
 import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
