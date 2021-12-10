@@ -114,7 +114,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     }
 
     /**
-     * La méthode permet afficher une message
+     * La méthode permet afficher un message
      *
      * @param (message: String), le message
      */
