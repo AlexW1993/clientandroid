@@ -50,5 +50,4 @@ class GestionCompteTest {
         //Vérification
         Assert.assertTrue(cobaye!!)
     }
-
 }

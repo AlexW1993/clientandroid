@@ -25,4 +25,20 @@ class GestionCommentaireTest {
         Assert.assertTrue(cobaye!!)
 
     }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque j'ai fait un changement dans un commentaire, j'obtien comme resultat une true pour confirmer que le commentaire a été modifié correctement`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var commentaire =
+            Commentaire("aaaa", "aaaa", "aaaa", LocalDateTime.now().toString(), "Test,", null)
+
+        //Exécution
+        cobaye = GestionCommentaire(sourceDeDonnées).modifierCommentaire(commentaire)
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
 }
