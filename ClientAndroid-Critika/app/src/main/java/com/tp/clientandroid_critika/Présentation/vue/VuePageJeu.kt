@@ -101,7 +101,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     }
 
     override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur: String) {
-		var nomImage = jeu?.nom?.replace(' ', '_')?.lowercase()
+        var nomImage = jeu?.nom?.replace(' ', '_')?.replace('.', '_')?.replace('-', '_')?.lowercase()
         var drawableId: Int = getResources().getIdentifier(nomImage, "drawable", context?.packageName)
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneSortie.toString()
