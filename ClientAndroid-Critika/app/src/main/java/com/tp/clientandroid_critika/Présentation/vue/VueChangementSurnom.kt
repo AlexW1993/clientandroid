@@ -63,8 +63,6 @@ class VueChangementSurnom : Fragment(),
         _btnSauvegarderSurnom?.setOnClickListener { view ->
             _présentateur?.sauvegarderNouveauSurnom(_nouveauSurnom!!.text.toString())
         }
-
-
     }
 
     companion object {

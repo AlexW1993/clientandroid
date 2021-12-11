@@ -103,7 +103,8 @@ class SourceDeDonnéesAPI : SourceDeDonnées {
         var reponse = res.code()
         return reponse == 204
     }
-     override fun effacerCommentaire(id: String): Boolean {
+
+    override fun effacerCommentaire(id: String): Boolean {
         val retro = ApiClient.SERVICE
         val call: Call<ResponseBody> = retro.DeleteCommentaire(id)
         var res = call.execute()
@@ -111,4 +112,11 @@ class SourceDeDonnéesAPI : SourceDeDonnées {
         return reponse == 204
     }
 
+    override fun modifierMotPasse(utilisateur: Utilisateur): Boolean {
+        val retro = ApiClient.SERVICE
+        val call: Call<ResponseBody> = retro.PutModifierMotPasse(utilisateur)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 204
+    }
 }

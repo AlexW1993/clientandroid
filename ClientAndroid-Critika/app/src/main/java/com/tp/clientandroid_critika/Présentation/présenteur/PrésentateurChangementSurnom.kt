@@ -9,6 +9,7 @@ import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 
 class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
     IContratPrésentateurVueChangementSurnom.IContratPrésentateurChangementSurnom {
+
     private var _modèle: Modèle? = null
     private var _filEsclave: Thread? = null
     private var _handlerRéponse: Handler

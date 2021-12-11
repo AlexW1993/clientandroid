@@ -50,4 +50,19 @@ class GestionCompteTest {
         //Vérification
         Assert.assertTrue(cobaye!!)
     }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque j'ai fait un changement à mon mot de passe, j'obtien comme resultat une true pour confirmer que le mot de passe a été modifié correctement`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var utilisateur = Utilisateur("", "test", "test", "test", "testeur")
+
+        //Exécution
+        cobaye = GestionCompte(sourceDeDonnées).modifierMotPasse(utilisateur)
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
 }
