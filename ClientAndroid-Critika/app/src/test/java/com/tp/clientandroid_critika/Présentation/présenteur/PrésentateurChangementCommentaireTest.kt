@@ -34,13 +34,4 @@ class PrésentateurChangementCommentaireTest {
         verify(mockView).afficherMessage("Il y a eu un problème pour faire les modofication à votre commentaire, esseyez plus tard")
     }
 
-   // @Test
-    //fun `étant donné un utilisateur, lorsque je veux modifier un de mes commentaire, je me rend à la page de jeu`() {
-        //val mockView = mock(VueChangementCommentaire::class.java)
-        //val presentateur = PrésentateurChangementCommentaire(mockView)
-        //presentateur.modifierContenueCommentaire("commentaire modifié")
-        //Thread.sleep(100)
-        //shadowOf(getMainLooper()).idle()
-        //verify(mockView).afficherPageJeu()
-    //}
 }

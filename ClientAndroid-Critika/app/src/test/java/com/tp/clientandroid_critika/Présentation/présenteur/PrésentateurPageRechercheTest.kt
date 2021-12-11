@@ -44,13 +44,4 @@ class PrésentateurPageRechercheTest {
         verify(mockView).afficherMessage("Il y a un problème dans cette moment, essayez plus tard")
     }
 
-    //@Test
-    //fun `étant donné un utilisateur, lorsque je recherche un jeu ayant le mot clé "apex", je me retrouve sur la page des résultat de recherche'`() {
-        //val mockView = mock(VuePageRecherche::class.java)
-        //val presentateur = PrésentateurPageRecherche(mockView)
-        //presentateur.chercherJeuxParMotCle("apex")
-        //Thread.sleep(100)
-        //shadowOf(getMainLooper()).idle()
-        //verify(mockView).afficherPageResultatRecherche()
-    //}
 }

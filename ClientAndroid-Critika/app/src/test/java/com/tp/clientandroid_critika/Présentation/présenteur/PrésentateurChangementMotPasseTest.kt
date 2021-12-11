@@ -55,13 +55,4 @@ class PrésentateurChangementMotPasseTest {
         verify(mockView).afficherMessage("Les mots de passés ne sont pas identiques")
     }
 
-    //@Test
-    //fun `étant donné un utilisateur, lorsque je veux modifier mon mot de passe', je me rend au menu principale`() {
-        //val mockView = mock(VueChangementMotPasse::class.java)
-        //val presentateur = PrésentateurChangementMotPasse(mockView)
-        //presentateur.sauvegarderNouveauMotPasse("mdp","mdp")
-        //Thread.sleep(100)
-        //shadowOf(getMainLooper()).idle()
-        //verify(mockView).afficherMenuCompte()
-    //}
 }
