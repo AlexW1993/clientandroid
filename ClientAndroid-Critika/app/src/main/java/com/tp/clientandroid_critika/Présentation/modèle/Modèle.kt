@@ -276,4 +276,27 @@ class Modèle() {
         }
         return confirmationModification
     }
+
+    /**
+     * La méthode permet effacer l'evaluation de l'utilisateur sur une jeu
+     *
+     * @param (id:String):, l'id de l'evaluation'
+     *
+     * @return (Boolean) true si l'evaluation' a été effacé correctement,
+     * false s'il y a eu un problème
+     */
+    fun effacerEvaluation(id: String): Boolean? {
+        var confirmation = GestionEvaluation(sourceDeDonnées)?.effacerEvaluation(id)
+        if (confirmation == true) {
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+    }
 }
