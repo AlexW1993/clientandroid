@@ -54,13 +54,4 @@ class PrésentateurPageInscriptionTest {
         verify(mockView).afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait ecrivez vous une autre surnom")
     }
 
-    //@Test
-    //fun `étant donné un utilisateur, lorsque je m'inscrit et que je saisie tput correctement, je me retrouve sur la page de connexion`() {
-        //val mockView = mock(VuePageInscription::class.java)
-        //val presentateur = PrésentateurPageInscription(mockView)
-        //presentateur.verificationInscription("mdp","mdp","tester")
-        //Thread.sleep(100)
-        //shadowOf(getMainLooper()).idle()
-        //verify(mockView)?.afficherPageConnexion()
-    //}
 }
