@@ -1,12 +1,7 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
 import android.os.Looper.getMainLooper
-import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
-import com.tp.clientandroid_critika.Domaine.entité.Utilisateur
 import com.tp.clientandroid_critika.Présentation.vue.VueMenuCompte
-import com.tp.clientandroid_critika.Présentation.vue.VueMenuPrincipale
-import com.tp.clientandroid_critika.Présentation.vue.VuePageConnexion
-import com.tp.clientandroid_critika.Présentation.vue.VuePageInscription
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
