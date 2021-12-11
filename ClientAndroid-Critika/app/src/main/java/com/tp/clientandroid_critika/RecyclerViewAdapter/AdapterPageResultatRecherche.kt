@@ -39,6 +39,9 @@ class AdapterPageResultatRecherche(
         var nom: TextView = itemView.findViewById(R.id.nom_jeu_recherche)
         var button: Button = itemView.findViewById(R.id.button_jeu_recherche)
         fun viewHolder(jeuVideo: JeuVideo, présentateur: PrésentateurPageResultatRecherche) {
+            var nomImage = jeuVideo?.nom?.replace(' ', '_')?.replace('.', '_').replace('-', '_').lowercase()
+            var drawableId: Int = view.context.getResources().getIdentifier(nomImage, "drawable", view.context.packageName)
+            image.setImageResource(drawableId)
             nom.text = jeuVideo.nom
             button.setOnClickListener {
                 présentateur.jeuSelectionné(jeuVideo)
