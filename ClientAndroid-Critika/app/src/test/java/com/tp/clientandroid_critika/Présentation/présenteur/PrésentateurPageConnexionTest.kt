@@ -51,4 +51,14 @@ class PrésentateurPageConnexionTest {
         shadowOf(getMainLooper()).idle()
         verify(mockView).afficherMessage("Surnom et/ou mot de passe incorrectes")
     }
+
+   // @Test
+    //fun `étant donné un utilisateur, lorsque je saisie tout correctement', je me retrouve sur le menu principal`() {
+        //val mockView = mock(VuePageConnexion::class.java)
+        //val presentateur = PrésentateurPageConnexion(mockView)
+        //presentateur.verificationUtilisateur("root","root")
+        //Thread.sleep(100)
+        //shadowOf(getMainLooper()).idle()
+        //verify(mockView).afficherPageMenuPrincipal()
+    //}
 }
