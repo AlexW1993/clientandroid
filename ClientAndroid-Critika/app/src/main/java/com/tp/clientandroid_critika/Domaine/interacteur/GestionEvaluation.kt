@@ -26,4 +26,14 @@ class GestionEvaluation(var _source: SourceDeDonnées?) {
         return _source?.modifierEvaluation(evaluation)
     }
 
+    /**
+     * La méthode permet effacer l'evaluation que l'utilisateur a fait
+     *
+     * @param (id: String), l'id de l'evaluation'
+     *
+     * @return (Boolean) true si l'evaluation a été effacé correctement, false s'il y a eu un problème
+     */
+    fun effacerEvaluation(id: String): Boolean? {
+        return _source?.effacerEvaluation(id)
+    }
 }
