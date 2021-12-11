@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementMotPasse
 import com.tp.clientandroid_critika.R
 
-class VueChangementMotPasse : Fragment() {
+class VueChangementMotPasse : Fragment(),
+    IContratPrésentateurVueChangementMotPasse.IContratVueChangementMotPasse {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,5 +28,13 @@ class VueChangementMotPasse : Fragment() {
         fun newInstance(param1: String, param2: String) =
             VueChangementMotPasse().apply {
             }
+    }
+
+    override fun afficherMenuCompte() {
+        TODO("Not yet implemented")
+    }
+
+    override fun afficherMessage(message: String) {
+        TODO("Not yet implemented")
     }
 }
