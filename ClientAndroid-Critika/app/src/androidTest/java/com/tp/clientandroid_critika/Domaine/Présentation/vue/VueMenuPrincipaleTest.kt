@@ -1,16 +1,21 @@
 package com.tp.clientandroid_critika.Domaine.Présentation.vue
+
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
-import com.tp.clientandroid_critika.R
-import com.tp.clientandroid_critika.UI_Activité.MainActivity
-import org.junit.Test
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.tp.clientandroid_critika.R
+import com.tp.clientandroid_critika.UI_Activité.MainActivity
 import org.junit.Before
-import androidx.test.espresso.action.ViewActions
+import org.junit.Test
+import org.junit.runner.RunWith
+
 
 class VueMenuPrincipaleTest {
 
@@ -35,12 +40,38 @@ class VueMenuPrincipaleTest {
     }
 
     @Test
-    fun `TestAffichageMenuPrincipal`() {
+    fun `TestAffichageMenuPrincipalVisuel`() {
         onView(withId(R.id.bouton_retour)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_deconnection)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_menu)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_recherche)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_compte)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
-        onView(withId(R.id.palmares_jeu)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.recycler_view_menu)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
+
+    @Test
+    fun `testBoutonDeconnection`() {
+        onView(withId(R.id.bouton_deconnection)).perform(click())
+    }
+
+    @Test
+    fun `testBoutonMenu`() {
+        onView(withId(R.id.bouton_menu)).perform(click())
+    }
+
+    @Test
+    fun `testBoutonRechercher`() {
+        onView(withId(R.id.bouton_recherche)).perform(click())
+    }
+
+    @Test
+    fun `testBoutonCompte`() {
+        onView(withId(R.id.bouton_compte)).perform(click())
+    }
+
+    //@Test
+    //fun `testBoutonJeu`() {
+    //onView(withId(R.id.button_jeu_menu)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+    //}
+
 }
