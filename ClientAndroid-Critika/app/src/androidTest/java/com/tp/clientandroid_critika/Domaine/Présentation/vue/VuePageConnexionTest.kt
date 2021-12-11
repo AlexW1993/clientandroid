@@ -24,14 +24,14 @@ class VuePageConnexionTest {
     }
 
     @Test
-    fun `testAffichageConnexion`() {
+    fun `testAffichageConnexionVisuel`() {
         onView(withId(R.id.saisie_surnom_connection)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.saisie_mot_passe_connection)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_Se_connecter_Connection)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test
-    fun `testConnexion`() {
+    fun `testFonctionnalitéConnexion`() {
         val surnom = "root"
         val motDePasse = "root"
         onView(withId(R.id.zone_texte_surnom)).perform(click())

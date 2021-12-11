@@ -23,7 +23,7 @@ class VuePageInscriptionTest {
     }
 
     @Test
-    fun `testInitialBoutonSinscrire`() {
+    fun `testInscriptionVisuel`() {
         onView(withId(R.id.contenant_avatar)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_avatar_image)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.bouton_avatar_camera)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
@@ -34,7 +34,7 @@ class VuePageInscriptionTest {
     }
 
     @Test
-    fun `testInscription`() {
+    fun `testFonctionnalitéInscription`() {
         val surnom = "TestSurnom"
         val motDePasse = "TestMdp"
         onView(withId(R.id.zone_texte_surnom)).perform(ViewActions.typeText(surnom.toString()))

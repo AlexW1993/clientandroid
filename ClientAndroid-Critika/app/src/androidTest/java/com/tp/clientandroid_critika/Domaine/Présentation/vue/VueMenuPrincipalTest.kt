@@ -17,7 +17,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 
-class VueMenuPrincipaleTest {
+class VueMenuPrincipalTest {
 
     private lateinit var scenario: ActivityScenario<MainActivity>
 
