@@ -1,7 +1,5 @@
 package com.tp.clientandroid_critika.Présentation.vue
 
-import android.app.Application
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -104,7 +102,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         var nomImage = jeu?.nom?.replace(' ', '_')?.replace('.', '_')?.replace('-', '_')?.lowercase()
         var drawableId: Int = getResources().getIdentifier(nomImage, "drawable", context?.packageName)
         _titreJeu?.text = jeu?.nom
-        _anneeJeu?.text = jeu?.anneSortie.toString()
+        _anneeJeu?.text = jeu?.anneeSortie.toString()
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()
         _imageJeu?.setImageResource(drawableId)
         _descriptionJeu?.text = jeu?.description

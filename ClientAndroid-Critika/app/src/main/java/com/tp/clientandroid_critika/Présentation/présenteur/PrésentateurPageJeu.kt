@@ -42,17 +42,20 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      * La méthode cherche les informations du jeu selectionné
      */
     override fun chercherInformationJeuSelectionné() {
-        _modèle?.jeuSelectionné?.listeCommentaires?.sortBy { it.dateHeure }
-        var listeCommentaire: MutableList<Commentaire>? = arrayListOf()
-        listeCommentaire =
-            _modèle?.jeuSelectionné?.listeCommentaires?.reversed() as MutableList<Commentaire>?
-        _modèle?.jeuSelectionné?.listeCommentaires = listeCommentaire
+        if (_modèle?.jeuSelectionné?.listeCommentaires?.size != 0) {
+            _modèle?.jeuSelectionné?.listeCommentaires?.sortBy { it.dateHeure }
+            var listeCommentaire: MutableList<Commentaire>? = arrayListOf()
+            listeCommentaire =
+                _modèle?.jeuSelectionné?.listeCommentaires?.reversed() as MutableList<Commentaire>?
+            _modèle?.jeuSelectionné?.listeCommentaires = listeCommentaire
+        }
         _modèle?.utilisateur?.id?.let {
             _vue?.affichageInformationJeuSelecionné(
                 _modèle?.jeuSelectionné,
                 it
             )
         }
+
     }
 
     /**

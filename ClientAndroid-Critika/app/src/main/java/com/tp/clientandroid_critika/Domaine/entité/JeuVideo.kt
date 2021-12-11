@@ -12,7 +12,7 @@ class JeuVideo(
     var plateforme: String? = "",
     var genre: String? = "",
     var modeJeu: String? = "",
-    var anneSortie: Int = 1999,
+    var anneeSortie: Int = 1999,
     var listeCommentaires: MutableList<Commentaire>? = null,
     var listeEvaluations: MutableList<Evaluation>? = null
 ) {
@@ -44,7 +44,7 @@ class JeuVideo(
      * @return (String) la chîne de caractères
      */
     override fun toString(): String {
-        return "JeuVideo(id='$id', nom='$nom', description='$description', plateforme='$plateforme', genre='$genre', modeJeu='$modeJeu', anneSortie=$anneSortie, listeCommentaires=$listeCommentaires, listeEvaluations=$listeEvaluations)"
+        return "JeuVideo(id='$id', nom='$nom', description='$description', plateforme='$plateforme', genre='$genre', modeJeu='$modeJeu', anneSortie=$anneeSortie, listeCommentaires=$listeCommentaires, listeEvaluations=$listeEvaluations)"
     }
 
 
