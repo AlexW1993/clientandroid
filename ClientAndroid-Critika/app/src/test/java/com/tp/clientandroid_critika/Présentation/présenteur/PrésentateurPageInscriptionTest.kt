@@ -1,7 +1,6 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
 import android.os.Looper.getMainLooper
-import com.tp.clientandroid_critika.Présentation.vue.VuePageConnexion
 import com.tp.clientandroid_critika.Présentation.vue.VuePageInscription
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -9,8 +8,10 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
+@Config(manifest= Config.NONE)
 class PrésentateurPageInscriptionTest {
 
     @Test
@@ -57,7 +58,7 @@ class PrésentateurPageInscriptionTest {
     //fun `étant donné un utilisateur, lorsque je m'inscrit et que je saisie tput correctement, je me retrouve sur la page de connexion`() {
         //val mockView = mock(VuePageInscription::class.java)
         //val presentateur = PrésentateurPageInscription(mockView)
-        //presentateur.verificationInscription("mdp","mdp","test")
+        //presentateur.verificationInscription("mdp","mdp","tester")
         //Thread.sleep(100)
         //shadowOf(getMainLooper()).idle()
         //verify(mockView)?.afficherPageConnexion()
