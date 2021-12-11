@@ -1,12 +1,7 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
 import android.os.Looper.getMainLooper
-import com.tp.clientandroid_critika.Domaine.interacteur.SourceDeDonnées
 import com.tp.clientandroid_critika.Présentation.vue.VueChangementSurnom
-import com.tp.clientandroid_critika.Présentation.vue.VueMenuCompte
-import com.tp.clientandroid_critika.Présentation.vue.VuePageRecherche
-import com.tp.clientandroid_critika.Présentation.vue.VuePageResultatRecherche
-import com.tp.clientandroid_critika.SourceDeDonnées.SourceDeDonnéesAPI
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
