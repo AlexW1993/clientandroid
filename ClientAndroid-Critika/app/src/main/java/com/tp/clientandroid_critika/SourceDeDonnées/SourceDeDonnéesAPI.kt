@@ -112,7 +112,7 @@ class SourceDeDonnéesAPI : SourceDeDonnées {
         return reponse == 204
     }
 
-    override fun modiferMotPasse(utilisateur: Utilisateur): Boolean {
+    override fun modifierMotPasse(utilisateur: Utilisateur): Boolean {
         val retro = ApiClient.SERVICE
         val call: Call<ResponseBody> = retro.PutModifierMotPasse(utilisateur)
         var res = call.execute()

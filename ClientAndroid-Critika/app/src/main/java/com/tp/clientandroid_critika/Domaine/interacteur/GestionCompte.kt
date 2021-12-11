@@ -38,4 +38,15 @@ class GestionCompte(var _source: SourceDeDonnées?) {
     fun modifierSurnom(utilisateur: Utilisateur): Boolean? {
         return _source?.modifierSurnom(utilisateur)
     }
+
+    /**
+     * La méthode permet de modifier le mot de passe de un utilisateur
+     *
+     * @param (utilisateur: Utilisateur), L'utilisateur avec son surnom modifié
+     *
+     * @return (Boolean?) true por confirmer que le mot de passe a été modifié correctement, false si il y a eu un erreur
+     */
+    fun modifierMotPasse(utilisateur: Utilisateur): Boolean? {
+        return _source?.modifierMotPasse(utilisateur)
+    }
 }

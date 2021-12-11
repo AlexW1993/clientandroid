@@ -18,5 +18,5 @@ interface SourceDeDonnées {
     fun modifierSurnom(utilisateur: Utilisateur): Boolean
     fun modifierCommentaire(commentaire: Commentaire): Boolean
     fun effacerCommentaire(id: String): Boolean
-    fun modiferMotPasse(utilisateur: Utilisateur): Boolean
+    fun modifierMotPasse(utilisateur: Utilisateur): Boolean
 }

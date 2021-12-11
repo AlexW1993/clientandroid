@@ -140,7 +140,7 @@ class SourceDeDonnéesBidon : SourceDeDonnées {
         return true
     }
 
-    override fun modiferMotPasse(utilisateur: Utilisateur): Boolean {
+    override fun modifierMotPasse(utilisateur: Utilisateur): Boolean {
         return true
     }
 }
