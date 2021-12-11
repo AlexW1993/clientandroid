@@ -127,10 +127,12 @@
         app:layout_constraintTop_toTopOf="@+id/saisie_mdp1"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/bouton_logo_retour_inscription"
         android:layout_width="79dp"
         android:layout_height="70dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
         android:src="@drawable/logocriti"
         app:layout_constraintBottom_toTopOf="@+id/fond_gris_inscription"
         app:layout_constraintEnd_toEndOf="parent"

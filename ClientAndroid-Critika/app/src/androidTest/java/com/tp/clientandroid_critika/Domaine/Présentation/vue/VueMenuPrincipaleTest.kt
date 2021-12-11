@@ -69,9 +69,4 @@ class VueMenuPrincipaleTest {
         onView(withId(R.id.bouton_compte)).perform(click())
     }
 
-    //@Test
-    //fun `testBoutonJeu`() {
-    //onView(withId(R.id.button_jeu_menu)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-    //}
-
 }

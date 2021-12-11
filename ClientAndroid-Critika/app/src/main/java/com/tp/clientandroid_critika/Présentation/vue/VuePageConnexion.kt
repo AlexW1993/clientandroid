@@ -20,6 +20,7 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
     private var _surnom: EditText? = null
     private var _motPasse: EditText? = null
     private var _btnSeConnecter: ImageButton? = null
+    private var _btnRetour: ImageButton? = null
     private var _nav: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,12 +41,16 @@ class VuePageConnexion : Fragment(), IContratPrésentateurVuePageConnexion.IVueP
         _surnom = view.findViewById(R.id.zone_texte_surnom)
         _motPasse = view.findViewById(R.id.zone_texte_mot_passe_1)
         _btnSeConnecter = view.findViewById(R.id.bouton_Se_connecter_Connection)
+        _btnRetour = view.findViewById(R.id.bouton_logo_retour)
         _nav = Navigation.findNavController(view)
         _btnSeConnecter?.setOnClickListener { view ->
             _présenateur!!.verificationUtilisateur(
                 _surnom!!.text.toString(),
                 _motPasse!!.text.toString()
             )
+        }
+        _btnRetour?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
     }
 

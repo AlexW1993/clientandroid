@@ -34,12 +34,19 @@ class VueChangementCommentaireTest {
         Espresso.closeSoftKeyboard()
         onView(withId(R.id.bouton_Se_connecter_Connection)).perform(click())
         onView(withId(R.id.bouton_recherche)).perform(click())
-        val recherche = "apex"
+        val recherche = "last"
         onView(withId(R.id.saisie_recherche)).perform(click())
         onView(withId(R.id.saisie_recherche)).perform(ViewActions.typeText(recherche.toString()))
         onView(withId(R.id.bouton_saisie_recherche)).perform(click())
         onView(withId(R.id.button_jeu_recherche)).perform(click())
+        var commentaire = "Test commentaire"
         onView(withId(R.id.saisie_commentaire)).perform(ViewActions.scrollTo())
+        onView(withId(R.id.saisie_commentaire)).perform(click())
+        onView(withId(R.id.saisie_commentaire)).perform(ViewActions.typeText(commentaire.toString()))
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.bouton_envoie_commentaire)).perform(click())
+        Espresso.closeSoftKeyboard()
+        onView(withId(R.id.bouton_envoie_commentaire)).perform(ViewActions.scrollTo())
         onView(withId(R.id.bouton_changer_commentaire)).perform(click())
     }
 
@@ -79,21 +86,16 @@ class VueChangementCommentaireTest {
 
     @Test
     fun `testBoutonChangementCommentaire`() {
-        var commentaire = "Test commentaire"
-        onView(withId(R.id.saisie_commentaire)).perform(click())
-        onView(withId(R.id.saisie_commentaire)).perform(ViewActions.typeText(commentaire.toString()))
+        var commentaireModifie = "Test commentaire modifier"
+        onView(withId(R.id.saisie_changement_commentaire)).perform(ViewActions.typeText(commentaireModifie.toString()))
+        Espresso.closeSoftKeyboard()
         onView(withId(R.id.bouton_changement_commentaire)).perform(click())
-        //onView(withId(R.id.saisie_commentaire)).perform(ViewActions.scrollTo())
-        //onView(withId(R.id.saisie_commentaire)).perform(click())
-        //onView(withId(R.id.bouton_supprimer_commentaire)).perform(click())
+        onView(withId(R.id.bouton_envoie_commentaire)).perform(ViewActions.scrollTo())
+        onView(withId(R.id.bouton_supprimer_commentaire)).perform(click())
     }
 
     @Test
     fun `testBoutonSupprimerCommentaire`() {
-        var commentaire = "Test commentaire"
-        onView(withId(R.id.saisie_commentaire)).perform(click())
-        onView(withId(R.id.saisie_commentaire)).perform(ViewActions.typeText(commentaire.toString()))
-        onView(withId(R.id.bouton_changement_commentaire)).perform(click())
         onView(withId(R.id.bouton_supprimer_commentaire2)).perform(click())
     }
 }
