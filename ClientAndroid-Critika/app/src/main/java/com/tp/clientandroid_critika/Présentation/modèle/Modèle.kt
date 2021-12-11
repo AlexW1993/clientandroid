@@ -258,6 +258,22 @@ class Modèle() {
         } else {
             return false
         }
+    }
 
+    /**
+     * La méthode permet de modifier le mot de passe d'un utilisateur
+     *
+     * @param (motPasse: String), le mot de passe
+     *
+     * @return (Boolean) true si le mot de passe a été modifié correctment, false s'il y a eu un problème
+     */
+    fun modiferMotPasse(motPasse: String): Boolean? {
+        utilisateur?.motPasse = motPasse
+        var confirmationModification = utilisateur?.let {
+            GestionCompte(sourceDeDonnées).modifierMotPasse(
+                it
+            )
+        }
+        return confirmationModification
     }
 }
