@@ -6,6 +6,7 @@ import android.os.Looper
 import android.os.Message
 import androidx.annotation.RequiresApi
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
+import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageJeu
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageJeu
@@ -41,6 +42,11 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      * La méthode cherche les informations du jeu selectionné
      */
     override fun chercherInformationJeuSelectionné() {
+        _modèle?.jeuSelectionné?.listeCommentaires?.sortBy { it.dateHeure }
+        var listeCommentaire: MutableList<Commentaire>? = arrayListOf()
+        listeCommentaire =
+            _modèle?.jeuSelectionné?.listeCommentaires?.reversed() as MutableList<Commentaire>?
+        _modèle?.jeuSelectionné?.listeCommentaires = listeCommentaire
         _modèle?.utilisateur?.id?.let {
             _vue?.affichageInformationJeuSelecionné(
                 _modèle?.jeuSelectionné,
@@ -116,7 +122,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
         _modèle?.commentaireSelectionné = commentaire
     }
 
-     /**
+    /**
      * La méthode permet effacer un commentaire de l'utilisateur.
      *
      * @param (id: String), l'id du commentaire
