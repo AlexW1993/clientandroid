@@ -20,6 +20,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     private var _btnInscription: ImageButton? = null
     private var _btnAvatatImage: ImageButton? = null
     private var _btnAvatarCamera: ImageButton? = null
+    private var _btnRetour: ImageButton? = null
     private var _surnom: EditText? = null
     private var _motPasse1: EditText? = null
     private var _motPasse2: EditText? = null
@@ -44,6 +45,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         _btnInscription = view.findViewById(R.id.bouton_inscription)
         _btnAvatatImage = view.findViewById(R.id.bouton_avatar_image)
         _btnAvatarCamera = view.findViewById(R.id.bouton_avatar_camera)
+        _btnRetour = view.findViewById(R.id.bouton_logo_retour_inscription)
         _surnom = view.findViewById(R.id.zone_texte_surnom)
         _motPasse1 = view.findViewById(R.id.zone_texte_mot_passe_1)
         _motPasse2 = view.findViewById(R.id.zone_texte_mot_passe_2)
@@ -54,6 +56,9 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
                 _motPasse2!!.text.toString(),
                 _surnom!!.text.toString()
             )
+        }
+        _btnRetour?.setOnClickListener { view ->
+            _nav!!.navigate(R.id.vuePageInitiale)
         }
     }
 
