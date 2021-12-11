@@ -236,4 +236,28 @@ class Modèle() {
         }
         return confirmationModification
     }
+
+    /**
+     * La méthode permet effacer un commentaire d'un utilisateur
+     *
+     * @param (id:String):, l'id du commentaire'
+     *
+     * @return (Boolean) true si le commentaire a été effacé correctment,
+     * false s'il y a eu un problème
+     */
+    fun effacerCommentaire(id: String): Boolean? {
+        var confirmation = GestionCommentaire(sourceDeDonnées)?.effacerCommentiare(id)
+        if (confirmation == true) {
+            listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
+            for (l in listeJeux!!) {
+                if (l.id == jeuSelectionné?.id) {
+                    jeuSelectionné = l
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+
+    }
 }

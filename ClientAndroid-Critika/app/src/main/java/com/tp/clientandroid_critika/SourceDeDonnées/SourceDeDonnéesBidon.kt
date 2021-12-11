@@ -135,4 +135,8 @@ class SourceDeDonnéesBidon : SourceDeDonnées {
     override fun modifierCommentaire(commentaire: Commentaire): Boolean {
         return true
     }
+
+    override fun effacerCommentaire(id: String): Boolean {
+        return true
+    }
 }

@@ -115,4 +115,24 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
         _modèle?.commentaireSelectionné = null
         _modèle?.commentaireSelectionné = commentaire
     }
+
+     /**
+     * La méthode permet effacer un commentaire de l'utilisateur.
+     *
+     * @param (id: String), l'id du commentaire
+     */
+    override fun effacerCommentaire(id: String) {
+        _filEsclave = Thread {
+            var msg: Message?
+            var confirmation = _modèle?.effacerCommentaire(id)
+            if (confirmation == true) {
+                msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+            } else {
+                msg = _handlerRéponse.obtainMessage(_messageErreurCommentaire)
+            }
+            _handlerRéponse.sendMessage(msg!!)
+        }
+        _filEsclave!!.start()
+    }
+
 }
