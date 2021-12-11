@@ -1,7 +1,6 @@
 package com.tp.clientandroid_critika.Présentation.présenteur
 
 import android.os.Looper.getMainLooper
-import com.tp.clientandroid_critika.Présentation.vue.VueMenuCompte
 import com.tp.clientandroid_critika.Présentation.vue.VuePageRecherche
 import org.junit.Test
 import org.junit.runner.RunWith
