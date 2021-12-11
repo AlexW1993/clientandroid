@@ -119,4 +119,12 @@ class SourceDeDonnéesAPI : SourceDeDonnées {
         var reponse = res.code()
         return reponse == 204
     }
+
+    override fun effacerEvaluation(id: String): Boolean {
+        val retro = ApiClient.SERVICE
+        val call: Call<ResponseBody> = retro.DeleteEvaluation(id)
+        var res = call.execute()
+        var reponse = res.code()
+        return reponse == 204
+    }
 }

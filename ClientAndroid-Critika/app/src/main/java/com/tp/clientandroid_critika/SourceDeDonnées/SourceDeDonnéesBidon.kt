@@ -143,4 +143,8 @@ class SourceDeDonnéesBidon : SourceDeDonnées {
     override fun modifierMotPasse(utilisateur: Utilisateur): Boolean {
         return true
     }
+
+    override fun effacerEvaluation(id: String): Boolean {
+        return true
+    }
 }
