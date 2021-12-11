@@ -18,7 +18,7 @@ import org.robolectric.annotation.Config
 class PrésentateurPageResultatRechercheTest {
 
     @Test
-    fun `étant donné un utilisateur, lorsque je recherche tout les jeux se jouant sur une console précise mais qu'il n'y pas de connection avec la source de données, j'obtiens un message d'erreur'`() {
+    fun `étant donné un utilisateur, lorsque je fais une recherche mais qu'il n'y pas de connection avec la source de données, j'obtiens un message d'erreur'`() {
         val mockView = mock(VuePageResultatRecherche::class.java)
         val presentateur = PrésentateurPageResultatRecherche(mockView)
         presentateur.chercherJeuxVideo()
