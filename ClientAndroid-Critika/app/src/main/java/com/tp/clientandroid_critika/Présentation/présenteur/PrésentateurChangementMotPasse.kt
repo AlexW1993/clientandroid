@@ -4,7 +4,8 @@ import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurV
 import com.tp.clientandroid_critika.Présentation.vue.VueChangementMotPasse
 
 class PrésentateurChangementMotPasse(var _vue : VueChangementMotPasse) : IContratPrésentateurVueChangementMotPasse.IContratPrésentateurChangementMotPasse {
-    override fun sauvegarderNouveauMotPasse(surnom: String) {
+
+    override fun sauvegarderNouveauMotPasse(motPasse1: String, motPasse2: String) {
         TODO("Not yet implemented")
     }
 }

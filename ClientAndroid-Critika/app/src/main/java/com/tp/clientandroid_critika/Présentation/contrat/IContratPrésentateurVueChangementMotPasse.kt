@@ -3,7 +3,7 @@ package com.tp.clientandroid_critika.Présentation.contrat
 interface IContratPrésentateurVueChangementMotPasse {
 
     interface IContratPrésentateurChangementMotPasse {
-        fun sauvegarderNouveauMotPasse(surnom: String)
+        fun sauvegarderNouveauMotPasse(motPasse1: String, motPasse2: String)
     }
 
     interface IContratVueChangementMotPasse {

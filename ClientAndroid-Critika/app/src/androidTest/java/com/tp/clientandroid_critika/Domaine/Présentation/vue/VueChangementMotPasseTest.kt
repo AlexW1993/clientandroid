@@ -48,7 +48,7 @@ class VueChangementMotPasseTest {
         onView(withId(R.id.textView5)).check(matches(withText("Changez votre mot de passe")))
         onView(withId(R.id.saisie_changement_mot_passe)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.saisie_changement_mot_passe_2)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
-        onView(withId(R.id.boutou_sauvegarde_mot_passe)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.bouton_sauvegarde_mot_passe)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test
@@ -80,6 +80,6 @@ class VueChangementMotPasseTest {
         onView(withId(R.id.saisie_changement_mot_passe_2)).perform(click())
         onView(withId(R.id.saisie_changement_mot_passe_2)).perform(ViewActions.typeText(motPasse.toString()))
         Espresso.closeSoftKeyboard()
-        onView(withId(R.id.boutou_sauvegarde_mot_passe)).perform(click())
+        onView(withId(R.id.bouton_sauvegarde_mot_passe)).perform(click())
     }
 }
