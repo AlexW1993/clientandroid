@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.tp.clientandroid_critika.R
 
-class VuePageInitiale : Fragment() {
+class VuePageInitiale : Fragment(){
 
     private var btnSeConnecter: ImageButton? = null
     private var btnSInscrire: ImageButton? = null
