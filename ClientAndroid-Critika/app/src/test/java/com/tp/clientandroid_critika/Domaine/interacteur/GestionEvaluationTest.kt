@@ -1,9 +1,11 @@
 package com.tp.clientandroid_critika.Domaine.interacteur
 
+import com.tp.clientandroid_critika.Domaine.entité.Commentaire
 import com.tp.clientandroid_critika.Domaine.entité.Evaluation
 import com.tp.clientandroid_critika.SourceDeDonnées.SourceDeDonnéesBidon
 import org.junit.Assert
 import org.junit.Test
+import java.time.LocalDateTime
 
 class GestionEvaluationTest {
 
@@ -32,6 +34,20 @@ class GestionEvaluationTest {
 
         //Exécution
         cobaye = GestionEvaluation(sourceDeDonnées).modifierEvaluation(evaluation)
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
+
+    @Test
+    fun `étant donné un utilisateur, lorsque j'ai effacé une évaluation, j'obtien comme resultat une true pour confirmer que l'évaluation a été effacé correctement`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+
+        //Exécution
+        cobaye = GestionCommentaire(sourceDeDonnées).effacerCommentiare("aaaaa")
 
         //Vérification
         Assert.assertTrue(cobaye!!)
