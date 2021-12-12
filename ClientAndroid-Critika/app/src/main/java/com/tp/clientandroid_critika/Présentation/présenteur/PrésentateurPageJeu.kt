@@ -6,7 +6,6 @@ import android.os.Looper
 import android.os.Message
 import androidx.annotation.RequiresApi
 import com.tp.clientandroid_critika.Domaine.entité.Commentaire
-import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageJeu
 import com.tp.clientandroid_critika.Présentation.modèle.Modèle
 import com.tp.clientandroid_critika.Présentation.vue.VuePageJeu
@@ -18,8 +17,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
     private var _filEsclave: Thread? = null
     private var _handlerRéponse: Handler
     private var _messageConfirmation = 0
-    private var _messageErreurCommentaire = 1
-    private var _messageErreurEvaluation = 2
+    private var _messageErreur = 1
 
     init {
         _modèle = Modèle.getInstance()
@@ -29,10 +27,8 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
                 _filEsclave = null
                 if (msg.what == _messageConfirmation) {
                     _vue?.afficherPageJeu()
-                } else if (msg.what == _messageErreurCommentaire) {
-                    _vue?.afficherMessage("Il y a une problème pour votre commentaire")
-                } else if (msg.what == _messageErreurEvaluation) {
-                    _vue?.afficherMessage("Il y a une problème pour votre evaluation")
+                } else if (msg.what == _messageErreur) {
+                    _vue?.afficherMessage("Il y a une problème pour réaliser l'operation")
                 }
             }
         }
@@ -42,17 +38,20 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      * La méthode cherche les informations du jeu selectionné
      */
     override fun chercherInformationJeuSelectionné() {
-        _modèle?.jeuSelectionné?.listeCommentaires?.sortBy { it.dateHeure }
-        var listeCommentaire: MutableList<Commentaire>? = arrayListOf()
-        listeCommentaire =
-            _modèle?.jeuSelectionné?.listeCommentaires?.reversed() as MutableList<Commentaire>?
-        _modèle?.jeuSelectionné?.listeCommentaires = listeCommentaire
+        if (_modèle?.jeuSelectionné?.listeCommentaires?.size != 0) {
+            _modèle?.jeuSelectionné?.listeCommentaires?.sortBy { it.dateHeure }
+            var listeCommentaire: MutableList<Commentaire>? = arrayListOf()
+            listeCommentaire =
+                _modèle?.jeuSelectionné?.listeCommentaires?.reversed() as MutableList<Commentaire>?
+            _modèle?.jeuSelectionné?.listeCommentaires = listeCommentaire
+        }
         _modèle?.utilisateur?.id?.let {
             _vue?.affichageInformationJeuSelecionné(
                 _modèle?.jeuSelectionné,
                 it
             )
         }
+
     }
 
     /**
@@ -70,7 +69,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
                 if (confirmation == true) {
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
-                    msg = _handlerRéponse.obtainMessage(_messageErreurCommentaire)
+                    msg = _handlerRéponse.obtainMessage(_messageErreur)
                 }
                 _handlerRéponse.sendMessage(msg!!)
             }
@@ -95,7 +94,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
                 if (confirmation == true) {
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
-                    msg = _handlerRéponse.obtainMessage(_messageErreurEvaluation)
+                    msg = _handlerRéponse.obtainMessage(_messageErreur)
                 }
                 _handlerRéponse.sendMessage(msg!!)
             } else {
@@ -104,7 +103,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
                 if (confirmation == true) {
                     msg = _handlerRéponse.obtainMessage(_messageConfirmation)
                 } else {
-                    msg = _handlerRéponse.obtainMessage(_messageErreurEvaluation)
+                    msg = _handlerRéponse.obtainMessage(_messageErreur)
                 }
                 _handlerRéponse.sendMessage(msg!!)
             }
@@ -134,11 +133,29 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
             if (confirmation == true) {
                 msg = _handlerRéponse.obtainMessage(_messageConfirmation)
             } else {
-                msg = _handlerRéponse.obtainMessage(_messageErreurCommentaire)
+                msg = _handlerRéponse.obtainMessage(_messageErreur)
             }
             _handlerRéponse.sendMessage(msg!!)
         }
         _filEsclave!!.start()
     }
 
+    /**
+     * La méthode permet effacer l'evaluation de l'utilisateur sur un jeu.
+     *
+     * @param (id: String), l'id de l'evaluation
+     */
+    override fun effacerEvaluation() {
+        _filEsclave = Thread {
+            var msg: Message?
+            var confirmation = _modèle?.effacerEvaluation()
+            if (confirmation == true) {
+                msg = _handlerRéponse.obtainMessage(_messageConfirmation)
+            } else {
+                msg = _handlerRéponse.obtainMessage(_messageErreur)
+            }
+            _handlerRéponse.sendMessage(msg!!)
+        }
+        _filEsclave!!.start()
+    }
 }

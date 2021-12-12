@@ -38,7 +38,7 @@ class JeuVideoTest {
         Assert.assertEquals(plateforme, cobaye.plateforme)
         Assert.assertEquals(genre, cobaye.genre)
         Assert.assertEquals(modeJeu, cobaye.modeJeu)
-        Assert.assertEquals(anneSortie, cobaye.anneSortie)
+        Assert.assertEquals(anneSortie, cobaye.anneeSortie)
         Assert.assertEquals(listeCommentaire[0].id, cobaye.listeCommentaires?.get(0)?.id)
         Assert.assertEquals(listeEvaluation[0].id, cobaye.listeEvaluations?.get(0)?.id)
     }
@@ -54,7 +54,7 @@ class JeuVideoTest {
         Assert.assertEquals("", jeuCobaye.plateforme)
         Assert.assertEquals("", jeuCobaye.genre)
         Assert.assertEquals("", jeuCobaye.modeJeu)
-        Assert.assertEquals(1999, jeuCobaye.anneSortie)
+        Assert.assertEquals(1999, jeuCobaye.anneeSortie)
         Assert.assertNull(jeuCobaye.listeCommentaires)
         Assert.assertNull(jeuCobaye.listeEvaluations)
     }
@@ -79,7 +79,7 @@ class JeuVideoTest {
         cobaye.plateforme = "Playstation 4"
         cobaye.genre = "Aventure"
         cobaye.modeJeu = "Solo"
-        cobaye.anneSortie = 2020
+        cobaye.anneeSortie = 2020
         cobaye.listeCommentaires?.get(0)?.id = "2"
         cobaye.listeEvaluations?.get(0)?.id = "2"
 
@@ -90,7 +90,7 @@ class JeuVideoTest {
         Assert.assertEquals("Playstation 4", cobaye.plateforme)
         Assert.assertEquals("Aventure", cobaye.genre)
         Assert.assertEquals("Solo", cobaye.modeJeu)
-        Assert.assertEquals(2020, cobaye.anneSortie)
+        Assert.assertEquals(2020, cobaye.anneeSortie)
         Assert.assertEquals("2", cobaye.listeCommentaires?.get(0)?.id)
         Assert.assertEquals("2", cobaye.listeEvaluations?.get(0)?.id)
     }

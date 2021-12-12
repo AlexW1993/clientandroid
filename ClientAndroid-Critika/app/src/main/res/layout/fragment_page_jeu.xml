@@ -52,7 +52,10 @@
                 android:layout_width="295dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="TextView"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +64,10 @@
                 android:layout_width="169dp"
                 android:layout_height="74dp"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="TextView"
+                android:textColor="#6C1313"
+                android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image_jeu"
                 app:layout_constraintTop_toBottomOf="@+id/titre_jeu" />
@@ -70,7 +76,7 @@
                 android:id="@+id/ratingBar_jeu"
                 android:layout_width="237dp"
                 android:layout_height="57dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image_jeu"
                 app:layout_constraintTop_toBottomOf="@+id/moyenne_jeu" />
@@ -80,7 +86,9 @@
                 android:layout_width="89dp"
                 android:layout_height="51dp"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:text="TextView"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.407"
                 app:layout_constraintStart_toEndOf="@+id/titre_jeu"
@@ -88,26 +96,46 @@
 
             <TextView
                 android:id="@+id/description_jeu"
-                android:layout_width="386dp"
-                android:layout_height="71dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ratingBar_jeu" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/commentaires_jeu"
-                android:layout_width="384dp"
-                android:layout_height="208dp"
+                android:layout_width="387dp"
+                android:layout_height="62dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_annuler_evaluation" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="388dp"
+                android:layout_height="202dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/conteneur_recycler"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description_jeu" />
+                app:layout_constraintTop_toBottomOf="@+id/description_jeu">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/commentaires_jeu"
+                    android:layout_width="384dp"
+                    android:layout_height="208dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:scrollbars="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </RelativeLayout>
 
             <EditText
                 android:id="@+id/saisie_commentaire"
@@ -119,19 +147,35 @@
                 android:hint="Commentaire"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/commentaires_jeu" />
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
             <ImageButton
                 android:id="@+id/bouton_envoie_commentaire"
-                android:background="?selectableItemBackgroundBorderless"
-                android:scaleType="fitXY"
                 android:layout_width="51dp"
                 android:layout_height="58dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
                 android:src="@drawable/sends"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/saisie_commentaire"
-                app:layout_constraintTop_toBottomOf="@+id/commentaires_jeu" />
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+            <Button
+                android:id="@+id/button_annuler_evaluation"
+                android:layout_width="147dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#9C1515"
+                android:shadowColor="#877E7E"
+                android:shadowDx="-4"
+                android:shadowDy="-4"
+                android:text="Annuler évaluation"
+                android:textColor="#C6BCBC"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_jeu"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar_jeu" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView><com.google.android.material.appbar.AppBarLayout

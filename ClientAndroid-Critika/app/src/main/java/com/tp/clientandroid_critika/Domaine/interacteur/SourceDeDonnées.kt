@@ -19,4 +19,5 @@ interface SourceDeDonnées {
     fun modifierCommentaire(commentaire: Commentaire): Boolean
     fun effacerCommentaire(id: String): Boolean
     fun modifierMotPasse(utilisateur: Utilisateur): Boolean
+    fun effacerEvaluation(id: String): Boolean
 }
