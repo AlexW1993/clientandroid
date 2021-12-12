@@ -19,6 +19,11 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -32,7 +37,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
 
     private var _présenateur: PrésentateurPageInscription? = null
     private var _btnInscription: ImageButton? = null
-    private var _btnAvatatImage: ImageButton? = null
+    private var _btnAvatarImage: ImageButton? = null
     private var _btnAvatarCamera: ImageButton? = null
     private var _btnRetour: ImageButton? = null
     private var _surnom: EditText? = null
@@ -61,7 +66,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         super.onViewCreated(view, savedInstanceState)
         _présenateur = PrésentateurPageInscription(this)
         _btnInscription = view.findViewById(R.id.bouton_inscription)
-        _btnAvatatImage = view.findViewById(R.id.bouton_avatar_image)
+        _btnAvatarImage = view.findViewById(R.id.bouton_avatar_image)
         _btnAvatarCamera = view.findViewById(R.id.bouton_avatar_camera)
         _btnRetour = view.findViewById(R.id.bouton_logo_retour_inscription)
         _surnom = view.findViewById(R.id.zone_texte_surnom)
@@ -103,6 +108,11 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
                 OpenCamera()
             }
         }
+        _btnAvatarImage?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            galleryActivityResultLauncher.launch(intent)
+        }
     }
 
 
@@ -133,9 +143,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
 
     fun OpenCamera() {
         val values = ContentValues()
-        values.put(MediaStore.Images.Media.TITLE, "New Picture")
+        values.put(MediaStore.Images.Media.TITLE, _surnom.toString())
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
-        image_uri = context?.getContentResolver()?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
+        image_uri = context?.getContentResolver()
+            ?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
@@ -164,5 +175,19 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
             _imageAvatar?.setImageURI(image_uri)
         }
     }
+
+    private val galleryActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val imageUri = data!!.data
+
+            _imageAvatar?.setImageURI(imageUri)
+        } else {
+            Toast.makeText(context, "Cancelled...", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
 }
