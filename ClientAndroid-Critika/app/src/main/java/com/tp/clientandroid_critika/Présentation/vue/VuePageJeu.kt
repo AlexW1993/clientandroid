@@ -87,7 +87,6 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             _présentateur?.ajouterEvaluation(rating.toInt())
         }
-
     }
 
     companion object {
@@ -98,9 +97,14 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
             }
     }
 
+    /**
+     * La méthode permet afficher touts les information relies au jue selectionné
+     */
     override fun affichageInformationJeuSelecionné(jeu: JeuVideo?, idUtilisateur: String) {
-        var nomImage = jeu?.nom?.replace(' ', '_')?.replace('.', '_')?.replace('-', '_')?.lowercase()
-        var drawableId: Int = getResources().getIdentifier(nomImage, "drawable", context?.packageName)
+        var nomImage =
+            jeu?.nom?.replace(' ', '_')?.replace('.', '_')?.replace('-', '_')?.lowercase()
+        var drawableId: Int =
+            getResources().getIdentifier(nomImage, "drawable", context?.packageName)
         _titreJeu?.text = jeu?.nom
         _anneeJeu?.text = jeu?.anneeSortie.toString()
         _moyenneJeu?.text = jeu?.calculerMoyenneEvaluation().toString()
@@ -109,6 +113,13 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = _présentateur?.let { AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur, it) }
         _listeCommentaires?.adapter = _adapter
+        var note = 0
+        for (l in jeu?.listeEvaluations!!) {
+            if (l.idUtilisateur == idUtilisateur) {
+                note = l.note
+            }
+        }
+        _ratingBar?.rating = note.toFloat()
     }
 
     /**
