@@ -252,4 +252,29 @@ class ModèleTest {
         Assert.assertTrue(cobaye!!)
     }
 
+    @Test
+    fun `étant donné un utilisateur, lorsque je veux effacer une évaluation, j'obtien un retour positif (true)`() {
+
+        //Mise en place
+        var cobaye: Boolean?
+        var _modèle = Modèle.getInstance()
+        var sourceDeDonnées = SourceDeDonnéesBidon()
+        var utilisateur = Utilisateur("", "test", "test", "test", "testeur")
+        _modèle.sourceDeDonnées = sourceDeDonnées
+        _modèle.utilisateur = utilisateur
+        var jeuTest = JeuVideo(
+            "aaaa", "test", "un test", "Test1", "Test", "Solo",
+            2021, null, null
+        )
+        var liste: MutableList<Evaluation> = ArrayList()
+        liste.add(Evaluation("111", "aaaa", "", 5))
+        jeuTest.listeEvaluations = liste
+        _modèle.jeuSelectionné = jeuTest
+
+        //Exécution
+        cobaye = _modèle?.effacerEvaluation()
+
+        //Vérification
+        Assert.assertTrue(cobaye!!)
+    }
 }
