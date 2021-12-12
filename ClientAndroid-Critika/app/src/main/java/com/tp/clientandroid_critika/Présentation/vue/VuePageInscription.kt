@@ -141,6 +141,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
     }
 
+    /**
+     * La méthode permet l'ouverture de la camera et de garder en l'image capturer
+     *
+     */
     fun OpenCamera() {
         val values = ContentValues()
         values.put(MediaStore.Images.Media.TITLE, _surnom.toString())
@@ -152,6 +156,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
     }
 
+    /**
+     * La méthode permet de gérer les permissions
+     *
+     */
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -169,6 +177,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         }
     }
 
+    /**
+     * La méthode permet a l'image prise en photo d'être afficher
+     *
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -176,6 +188,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         }
     }
 
+    /**
+     * La méthode permet a l'image choisi dans la galerie d'être afficher
+     *
+     */
     private val galleryActivityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
