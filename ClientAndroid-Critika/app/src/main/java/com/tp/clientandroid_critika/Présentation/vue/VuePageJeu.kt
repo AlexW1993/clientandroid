@@ -36,7 +36,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
     private var _commentaire: EditText? = null
     private var _btnEnvoyer: ImageButton? = null
     private var _ratingBar: RatingBar? = null
-
+    private var _btnEffacerEvaluation: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +68,7 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _commentaire = view.findViewById(R.id.saisie_commentaire)
         _btnEnvoyer = view.findViewById(R.id.bouton_envoie_commentaire)
         _ratingBar = view.findViewById(R.id.ratingBar_jeu)
+        _btnEffacerEvaluation = view.findViewById(R.id.button_annuler_evaluation)
         _btnDéconnection?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vuePageInitiale)
         }
@@ -86,6 +87,9 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         }
         _ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             _présentateur?.ajouterEvaluation(rating.toInt())
+        }
+        _btnEffacerEvaluation?.setOnClickListener {
+            _présentateur?.effacerEvaluation()
         }
     }
 
@@ -113,13 +117,18 @@ class VuePageJeu : Fragment(), IContratPrésentateurVuePageJeu.IVuePageJeu {
         _listeCommentaires?.layoutManager = LinearLayoutManager(parentFragment?.context)
         _adapter = _présentateur?.let { AdapterPageJeu(jeu?.listeCommentaires, idUtilisateur, it) }
         _listeCommentaires?.adapter = _adapter
-        var note = 0
+        var note: Int? = null
         for (l in jeu?.listeEvaluations!!) {
             if (l.idUtilisateur == idUtilisateur) {
                 note = l.note
             }
         }
-        _ratingBar?.rating = note.toFloat()
+        if (note != null) {
+            _ratingBar?.rating = note!!.toFloat()
+        } else {
+            _btnEffacerEvaluation?.setVisibility(View.INVISIBLE)
+        }
+
     }
 
     /**

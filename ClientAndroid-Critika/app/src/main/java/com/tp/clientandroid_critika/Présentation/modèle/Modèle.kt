@@ -285,8 +285,14 @@ class Modèle() {
      * @return (Boolean) true si l'evaluation' a été effacé correctement,
      * false s'il y a eu un problème
      */
-    fun effacerEvaluation(id: String): Boolean? {
-        var confirmation = GestionEvaluation(sourceDeDonnées)?.effacerEvaluation(id)
+    fun effacerEvaluation(): Boolean? {
+        var id: String? = null
+        for (l in jeuSelectionné?.listeEvaluations!!) {
+            if (l.idUtilisateur == utilisateur?.id) {
+                id = l.id
+            }
+        }
+        var confirmation = id?.let { GestionEvaluation(sourceDeDonnées)?.effacerEvaluation(it) }
         if (confirmation == true) {
             listeJeux = GestionJeuxVideo(sourceDeDonnées).chercherTousJeuxVideo()
             for (l in listeJeux!!) {

@@ -145,10 +145,10 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
      *
      * @param (id: String), l'id de l'evaluation
      */
-    override fun effacerEvaluation(id: String) {
+    override fun effacerEvaluation() {
         _filEsclave = Thread {
             var msg: Message?
-            var confirmation = _modèle?.effacerEvaluation(id)
+            var confirmation = _modèle?.effacerEvaluation()
             if (confirmation == true) {
                 msg = _handlerRéponse.obtainMessage(_messageConfirmation)
             } else {
