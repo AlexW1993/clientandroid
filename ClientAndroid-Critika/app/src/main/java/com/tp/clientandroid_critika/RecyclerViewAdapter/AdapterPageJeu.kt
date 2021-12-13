@@ -53,6 +53,13 @@ class AdapterPageJeu(
             idUtilisateur: String,
             présentatur: PrésentateurPageJeu
         ) {
+            if(commentaire?.utilisateur?.codeAvatar != "default.png" && commentaire?.utilisateur?.codeAvatar != "" && commentaire?.utilisateur?.codeAvatar != null) {
+                var nomImage = commentaire?.utilisateur?.codeAvatar?.lowercase()?.replace(' ', '_')
+                    ?.replace('-', '_')?.replace(".png", "")?.replace(".jpg", "")
+                var drawableId: Int = view.context.getResources()
+                    .getIdentifier(nomImage, "drawable", view.context.packageName)
+                avatar.setImageResource(drawableId)
+            }
             nomUtilisateur.text = commentaire.utilisateur?.nom
             contenu.text = commentaire.contenue
             dateHeure.text = commentaire.dateHeure.replace("T","   ")

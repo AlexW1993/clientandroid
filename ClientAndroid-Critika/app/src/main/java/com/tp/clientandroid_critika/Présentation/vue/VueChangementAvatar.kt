@@ -90,6 +90,7 @@ class VueChangementAvatar : Fragment() {
             intent.type = "image/*"
             galleryActivityResultLauncher.launch(intent)
         }
+
     }
 
     companion object {
