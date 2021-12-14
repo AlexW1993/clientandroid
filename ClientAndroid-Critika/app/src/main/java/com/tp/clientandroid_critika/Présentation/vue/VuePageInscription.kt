@@ -2,16 +2,13 @@ package com.tp.clientandroid_critika.Présentation.vue
 
 import android.Manifest
 import android.app.Activity
-import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE
 import android.provider.MediaStore
-import android.provider.SyncStateContract.Helpers.insert
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,16 +16,11 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVuePageInscription
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurPageInscription
 import com.tp.clientandroid_critika.R
@@ -47,8 +39,19 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     private var _nav: NavController? = null
     private val PERMISSION_CODE = 1000
     private val IMAGE_CAPTURE_CODE = 1001
-    var image_uri: Uri? = null
+    var _image_uri: Uri? = null
+    private val _galleryActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val imageUri = data!!.data
 
+            _imageAvatar?.setImageURI(imageUri)
+        } else {
+            Toast.makeText(context, "Cancelled...", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,7 +114,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         _btnAvatarImage?.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
-            galleryActivityResultLauncher.launch(intent)
+            _galleryActivityResultLauncher.launch(intent)
         }
     }
 
@@ -149,10 +152,10 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
         val values = ContentValues()
         values.put(MediaStore.Images.Media.TITLE, _surnom.toString())
         values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
-        image_uri = context?.getContentResolver()
+        _image_uri = context?.getContentResolver()
             ?.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, _image_uri)
         startActivityForResult(cameraIntent, IMAGE_CAPTURE_CODE)
     }
 
@@ -184,26 +187,7 @@ class VuePageInscription : Fragment(), IContratPrésentateurVuePageInscription.I
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            _imageAvatar?.setImageURI(image_uri)
+            _imageAvatar?.setImageURI(_image_uri)
         }
     }
-
-    /**
-     * La méthode permet a l'image choisi dans la galerie d'être afficher
-     *
-     */
-    private val galleryActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data
-            val imageUri = data!!.data
-
-            _imageAvatar?.setImageURI(imageUri)
-        } else {
-            Toast.makeText(context, "Cancelled...", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
 }
