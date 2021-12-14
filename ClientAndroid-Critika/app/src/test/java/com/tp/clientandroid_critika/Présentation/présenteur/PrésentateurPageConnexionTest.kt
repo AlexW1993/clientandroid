@@ -31,7 +31,7 @@ class PrésentateurPageConnexionTest {
         presentateur.verificationUtilisateur("surnom","")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("S'il vous plait, rempliez la boite de mot des passe")
+        verify(mockView).afficherMessage("S'il vous plait, remplissez la boite de mot des passe")
     }
 
     @Test

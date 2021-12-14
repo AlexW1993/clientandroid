@@ -32,7 +32,7 @@ class PrésentateurPageConnexion(var _vue: VuePageConnexion) :
     }
 
     /**
-     * La méthode vérifie si l'utitilisateur qui essaie de se connecter, existe. S'il y a une
+     * La méthode vérifie si l'utilisateur qui essaie de se connecter, existe. S'il y a une
      * erreur, une message sera envoyer
      *
      * @param (surnom : String, motPasse : String), le surnom et le mot de passe de l'utilisateur
@@ -52,7 +52,7 @@ class PrésentateurPageConnexion(var _vue: VuePageConnexion) :
                 }
                 _filEsclave!!.start()
             } else {
-                _vue?.afficherMessage("S'il vous plait, rempliez la boite de mot des passe")
+                _vue?.afficherMessage("S'il vous plait, remplissez la boite de mot des passe")
             }
         } else {
             _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")

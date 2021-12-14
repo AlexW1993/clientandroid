@@ -75,7 +75,7 @@ class PrésentateurPageJeu(var _vue: VuePageJeu) :
             }
             _filEsclave!!.start()
         } else {
-            _vue?.afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, rempliez la boite de commentaire")
+            _vue?.afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, remplissez la boite de commentaire")
         }
     }
 

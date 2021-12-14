@@ -22,7 +22,7 @@ class PrésentateurChangementMotPasseTest {
         presentateur.sauvegarderNouveauMotPasse("","")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("S'il vous plait, rempliez les deux boites des mot des passes")
+        verify(mockView).afficherMessage("S'il vous plait, remplissez les deux boites des mot des passes")
     }
 
     @Test
@@ -32,7 +32,7 @@ class PrésentateurChangementMotPasseTest {
         presentateur.sauvegarderNouveauMotPasse("","mdp")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("S'il vous plait, rempliez les deux boites des mot des passes")
+        verify(mockView).afficherMessage("S'il vous plait, remplissez les deux boites des mot des passes")
     }
 
     @Test
@@ -42,7 +42,7 @@ class PrésentateurChangementMotPasseTest {
         presentateur.sauvegarderNouveauMotPasse("mdp","")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("S'il vous plait, rempliez les deux boites des mot des passes")
+        verify(mockView).afficherMessage("S'il vous plait, remplissez les deux boites des mot des passes")
     }
 
     @Test
@@ -52,7 +52,7 @@ class PrésentateurChangementMotPasseTest {
         presentateur.sauvegarderNouveauMotPasse("mdp","mdd")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("Les mots de passés ne sont pas identiques")
+        verify(mockView).afficherMessage("Les mots passés ne sont pas identiques")
     }
 
 }

@@ -29,11 +29,11 @@ class GestionCompte(var _source: SourceDeDonnées?) {
     }
 
     /**
-     * La méthode permet de modifier le surnom de un utilisateur
+     * La méthode permet de modifier le surnom d'un utilisateur
      *
      * @param (utilisateur: Utilisateur), L'utilisateur avec son surnom modifié
      *
-     * @return (Boolean?) true por confirmer que le surnom a été modifié correctement, false si il y a eu un erreur
+     * @return (Boolean?) true pour confirmer que le surnom a été modifié correctement, false si il y a eu un erreur
      */
     fun modifierSurnom(utilisateur: Utilisateur): Boolean? {
         return _source?.modifierSurnom(utilisateur)
@@ -44,7 +44,7 @@ class GestionCompte(var _source: SourceDeDonnées?) {
      *
      * @param (utilisateur: Utilisateur), L'utilisateur avec son surnom modifié
      *
-     * @return (Boolean?) true por confirmer que le mot de passe a été modifié correctement, false si il y a eu un erreur
+     * @return (Boolean?) true pour confirmer que le mot de passe a été modifié correctement, false si il y a eu un erreur
      */
     fun modifierMotPasse(utilisateur: Utilisateur): Boolean? {
         return _source?.modifierMotPasse(utilisateur)

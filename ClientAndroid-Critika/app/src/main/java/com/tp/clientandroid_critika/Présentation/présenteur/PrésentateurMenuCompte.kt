@@ -14,7 +14,7 @@ class PrésentateurMenuCompte(var _vue: VueMenuCompte) :
     }
 
     /**
-     * La méthode chercher l'utilisateur avec ses informations
+     * La méthode cherche l'utilisateur avec ses informations
      */
     override fun chercherInformationCompte() {
         _vue?.afficherInformationCompte(_modèle?.utilisateur)

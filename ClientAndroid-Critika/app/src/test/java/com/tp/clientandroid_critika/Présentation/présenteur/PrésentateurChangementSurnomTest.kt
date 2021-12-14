@@ -31,6 +31,6 @@ class PrésentateurChangementSurnomTest {
         presentateur.sauvegarderNouveauSurnom("root")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("Le surnom que vous avez choisi est dèja utiliser, S'il vous plait ecrivez vous une autre surnom")
+        verify(mockView).afficherMessage("Le surnom que vous avez choisi est dèja utilisé, S'il vous plait ecrivez vous une autre surnom")
     }
 }

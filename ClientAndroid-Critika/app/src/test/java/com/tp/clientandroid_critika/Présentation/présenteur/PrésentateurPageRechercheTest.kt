@@ -21,7 +21,7 @@ class PrésentateurPageRechercheTest {
         presentateur.chercherJeuxParConsole("Nintendo Swotch")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("Il y a un problème dans cette moment, essayez plus tard");
+        verify(mockView).afficherMessage("Il y a un problème en ce moment, essayez plus tard");
     }
 
     @Test
@@ -31,7 +31,7 @@ class PrésentateurPageRechercheTest {
         presentateur.chercherJeuxParMotCle("apex")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("Il y a un problème dans cette moment, essayez plus tard")
+        verify(mockView).afficherMessage("Il y a un problème en ce moment, essayez plus tard")
     }
 
 }

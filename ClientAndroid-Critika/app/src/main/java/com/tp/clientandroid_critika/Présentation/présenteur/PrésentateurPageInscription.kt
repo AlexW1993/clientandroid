@@ -26,7 +26,7 @@ class PrésentateurPageInscription(var _vue: VuePageInscription) :
                     _vue?.afficherPageConnexion()
                 } else if (msg.what == _messageUtilisateruExistant) {
                     _vue?.afficherMessage(
-                        "Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
+                        "Le surnom que vous avez choisi est dèja utilisé, S'il vous plait " +
                                 "ecrivez vous une autre surnom"
                     )
                 }
@@ -35,7 +35,7 @@ class PrésentateurPageInscription(var _vue: VuePageInscription) :
     }
 
     /**
-     * La méthode vérifie si l'utitilisateur a rempli correctement les champs pour son inscription et l'envoye.
+     * La méthode vérifie si l'utilisateur a rempli correctement les champs pour son inscription et l'envoyer.
      * S'il y a un problème, il va envoyer un message à la vue
      *
      * @param (motPasse1: String, motPasse2: String, surNom: String), deux fois le mot de passe pour
@@ -61,7 +61,7 @@ class PrésentateurPageInscription(var _vue: VuePageInscription) :
                     _vue?.afficherMessage("Les mots de passés ne sont pas identiques")
                 }
             } else {
-                _vue?.afficherMessage("S'il vous plait, rempliez les deux boites des mot des passes")
+                _vue?.afficherMessage("S'il vous plait, remplissez les deux boites des mot des passes")
             }
         } else {
             _vue?.afficherMessage("S'il vous plait, ajoutez un surnom dans la boite de texte")

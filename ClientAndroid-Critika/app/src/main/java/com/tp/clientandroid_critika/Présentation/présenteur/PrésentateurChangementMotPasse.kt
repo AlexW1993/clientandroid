@@ -56,7 +56,7 @@ class PrésentateurChangementMotPasse(var _vue: VueChangementMotPasse) :
                         }
                         _filEsclave!!.start()
                     } else {
-                        _vue?.afficherMessage("Les mots de passés ne sont pas identiques")
+                        _vue?.afficherMessage("Les mots passés ne sont pas identiques")
                     }
                 } else {
                     _vue?.afficherMessage("Vous utilisez le même mot de passe dans la deuxième boite")
@@ -65,7 +65,7 @@ class PrésentateurChangementMotPasse(var _vue: VueChangementMotPasse) :
                 _vue?.afficherMessage("Vous utilisez le même mot de passe dans la prèmière boite")
             }
         } else {
-            _vue?.afficherMessage("S'il vous plait, rempliez les deux boites des mot des passes")
+            _vue?.afficherMessage("S'il vous plait, remplissez les deux boites des mot des passes")
         }
     }
 }

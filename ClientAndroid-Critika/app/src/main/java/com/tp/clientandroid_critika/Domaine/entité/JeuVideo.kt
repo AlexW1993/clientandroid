@@ -18,7 +18,7 @@ class JeuVideo(
 ) {
 
     /**
-     * Méthode qui permet e calculer la note moyenne des évaluations pour un jeu
+     * Méthode qui permet de calculer la note moyenne des évaluations pour un jeu
      *
      * @return (Double) la moyenne du jeu
      */
@@ -38,7 +38,7 @@ class JeuVideo(
     }
 
     /**
-     * La méthode permet de returner une chaîne de caractères avec tous les attribut de la classe
+     * La méthode permet de retourner une chaîne de caractères avec tous les attributs de la classe
      * JeuVideo
      *
      * @return (String) la chîne de caractères
