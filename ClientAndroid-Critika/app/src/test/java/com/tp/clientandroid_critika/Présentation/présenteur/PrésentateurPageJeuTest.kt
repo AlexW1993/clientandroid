@@ -21,6 +21,6 @@ class PrésentateurPageJeuTest {
         presentateur.ajouterCommenataire("")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, rempliez la boite de commentaire")
+        verify(mockView).afficherMessage("S'il vous plait, si vous voulez ajouter une commentaire, remplissez la boite de commentaire")
     }
 }

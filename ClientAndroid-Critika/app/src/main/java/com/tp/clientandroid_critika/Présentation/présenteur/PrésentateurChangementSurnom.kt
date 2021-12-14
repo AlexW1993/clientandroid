@@ -26,7 +26,7 @@ class PrésentateurChangementSurnom(var _vue: VueChangementSurnom) :
                     _vue?.afficherMenuCompte()
                 } else if (msg.what == _messageUtilisateruExistant) {
                     _vue?.afficherMessage(
-                        "Le surnom que vous avez choisi est dèja utiliser, S'il vous plait " +
+                        "Le surnom que vous avez choisi est dèja utilisé, S'il vous plait " +
                                 "ecrivez vous une autre surnom"
                     )
                 }

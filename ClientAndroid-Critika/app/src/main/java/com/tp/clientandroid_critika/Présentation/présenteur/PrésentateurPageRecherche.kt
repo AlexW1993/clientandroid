@@ -28,7 +28,7 @@ class PrésentateurPageRecherche(var _vue: VuePageRecherche) :
                     _vue.afficherPageResultatRecherche()
                 } else if (msg.what == _messageErreur) {
                     _vue?.afficherMessage(
-                        "Il y a un problème dans cette moment, essayez plus tard"
+                        "Il y a un problème en ce moment, essayez plus tard"
                     )
                 } else if (msg.what == _messageIntrouvable) {
                     _vue?.afficherMessage(

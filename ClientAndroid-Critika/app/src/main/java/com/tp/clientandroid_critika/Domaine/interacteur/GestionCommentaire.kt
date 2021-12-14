@@ -16,7 +16,7 @@ class GestionCommentaire(var _source: SourceDeDonnées?) {
     }
 
     /**
-     * La méthode permet modifié une commentaire de l'utilisateur
+     * La méthode permet modifier un commentaire de l'utilisateur
      *
      * @param (commentaire : Commentaire), le commentaire a ajouté
      *
@@ -27,7 +27,7 @@ class GestionCommentaire(var _source: SourceDeDonnées?) {
     }
 
     /**
-     * La méthode permet effacer une commentaire de l'utilisateur
+     * La méthode permet effacer un commentaire de l'utilisateur
      *
      * @param (id: String), l'id du commentaire'
      *

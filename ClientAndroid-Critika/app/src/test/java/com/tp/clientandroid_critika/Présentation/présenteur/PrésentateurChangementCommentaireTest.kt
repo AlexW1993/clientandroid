@@ -31,7 +31,7 @@ class PrésentateurChangementCommentaireTest {
         presentateur.modifierContenueCommentaire("blabla")
         Thread.sleep(100)
         shadowOf(getMainLooper()).idle()
-        verify(mockView).afficherMessage("Il y a eu un problème pour faire les modofication à votre commentaire, esseyez plus tard")
+        verify(mockView).afficherMessage("Il y a eu un problème pour faire les modification à votre commentaire, essayez plus tard")
     }
 
 }

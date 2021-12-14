@@ -26,8 +26,8 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
                     _vue?.afficherPageJeu()
                 } else if (msg.what == _messageErreur) {
                     _vue?.afficherMessage(
-                        "Il y a eu un problème pour faire les modofication à votre commentaire, " +
-                                "esseyez plus tard"
+                        "Il y a eu un problème pour faire les modifications à votre commentaire, " +
+                                "essayez plus tard"
                     )
                 }
             }
@@ -35,7 +35,7 @@ class PrésentateurChangementCommentaire(var _vue: VueChangementCommentaire) :
     }
 
     /**
-     * La méthode cherche le contenue du commentaire selectionné
+     * La méthode chercher le contenue du commentaire selectionné
      */
     override fun chercherContenue() {
         _modèle?.commentaireSelectionné?.let { _vue?.afficherContenue(it.contenue) }

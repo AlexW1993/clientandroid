@@ -5,12 +5,12 @@ import com.tp.clientandroid_critika.Domaine.entité.JeuVideo
 class ChercherTop10Jeux {
 
     /**
-     * La méthode permet de chercher les 10 meilleur jeux en utilisant la liste des evaluation de chaque
+     * La méthode permet de chercher les 10 meilleurs jeux en utilisant la liste des evaluations de chaque
      * jeu pour savoir sa moyenne
      *
-     * @param (liste : List<JeuVideo>?), le liste de jeux vides
+     * @param (liste : List<JeuVideo>?), la liste de jeux videos
      *
-     * @return (List<JeuVideo>) Les 10 meilleur jeux videos avec les meilleurs moyennes
+     * @return (List<JeuVideo>) Les 10 meilleurs jeux videos avec les meilleurs moyennes
      */
     fun chercherTop10(liste: List<JeuVideo>?): List<JeuVideo> {
         var listeMeilleursNotes: List<JeuVideo>?
@@ -52,7 +52,7 @@ class ChercherTop10Jeux {
     /**
      * Classe privée Moyenne
      *
-     * Représente un jue avec sa moyenne
+     * Représente un jeu avec sa moyenne
      */
     private class Moyenne(var idJeu: String, var moyenne: Double)
 }

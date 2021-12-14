@@ -9,7 +9,7 @@ class GestionEvaluation(var _source: SourceDeDonnées?) {
      *
      * @param (evaluation: Evaluation), L'évalaution a ajouté
      *
-     * @return (Boolean?) true por confirmer que l'évalaution a été ajouté correctement, false si il y a eu un erreur
+     * @return (Boolean?) true por confirmer que l'évaluation a été ajouté correctement, false si il y a eu un erreur
      */
     fun ajouterEvaluation(evaluation: Evaluation): Boolean? {
         return _source?.ajouterEvaluation(evaluation)
