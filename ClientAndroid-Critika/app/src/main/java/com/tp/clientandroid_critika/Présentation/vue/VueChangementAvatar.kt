@@ -20,12 +20,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.tp.clientandroid_critika.Présentation.contrat.IContratPrésentateurVueChangementAvatar
+import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementAvatar
 import com.tp.clientandroid_critika.Présentation.présenteur.PrésentateurChangementMotPasse
 import com.tp.clientandroid_critika.R
 
-class VueChangementAvatar : Fragment() {
+class VueChangementAvatar : Fragment(), IContratPrésentateurVueChangementAvatar.IContratVueChangementAvatar {
 
     private var _nav: NavController? = null
+    private var _présentateur : PrésentateurChangementAvatar? =null
     private var _btnSauvegarder: ImageButton? = null
     private var _btnAvatarImage: ImageButton? = null
     private var _btnAvatarCamera: ImageButton? = null
@@ -33,6 +36,18 @@ class VueChangementAvatar : Fragment() {
     private val PERMISSION_CODE = 1000
     private val IMAGE_CAPTURE_CODE = 1001
     var image_uri: Uri? = null
+    private val _galleryActivityResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val imageUri = data!!.data
+
+            _imageAvatar?.setImageURI(imageUri)
+        } else {
+            Toast.makeText(context, "Cancelled...", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +64,12 @@ class VueChangementAvatar : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _nav = Navigation.findNavController(view)
+        _présentateur = PrésentateurChangementAvatar(this)
         _btnSauvegarder = view.findViewById(R.id.bouton_sauvegarder)
         _imageAvatar = view.findViewById(R.id.avatar_changement)
         _btnAvatarImage = view.findViewById(R.id.bouton_image)
         _btnAvatarCamera = view.findViewById(R.id.bouton_photo)
+        _présentateur?.chercherImageAvatar()
         _btnSauvegarder?.setOnClickListener { view ->
             _nav!!.navigate(R.id.vueMenuCompte)
         }
@@ -88,7 +105,7 @@ class VueChangementAvatar : Fragment() {
         _btnAvatarImage?.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
-            galleryActivityResultLauncher.launch(intent)
+            _galleryActivityResultLauncher.launch(intent)
         }
 
     }
@@ -148,20 +165,14 @@ class VueChangementAvatar : Fragment() {
         }
     }
 
-    /**
-     * La méthode permet a l'image choisi dans la galerie d'être afficher
-     *
-     */
-    private val galleryActivityResultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data = result.data
-            val imageUri = data!!.data
-
-            _imageAvatar?.setImageURI(imageUri)
-        } else {
-            Toast.makeText(context, "Cancelled...", Toast.LENGTH_SHORT).show()
+    override fun récupérerImageAvatar(codeAvatar : String) {
+        if(codeAvatar != "default.png" && codeAvatar != "" && codeAvatar != null) {
+            var nomImage = codeAvatar?.lowercase()?.replace(' ', '_')
+                ?.replace('-', '_')?.replace(".png", "")?.replace(".jpg", "")
+            var drawableId: Int = view?.context?.getResources()!!
+                .getIdentifier(nomImage, "drawable", view!!.context.packageName)
+            _imageAvatar?.setImageResource(drawableId)
         }
     }
+
 }

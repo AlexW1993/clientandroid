@@ -95,6 +95,13 @@ class VueMenuCompte : Fragment(), IContratPrésentateurVueMenuCompte.IContratVue
      * @param (utilisateur: Utilisateur?), le utilisateur
      */
     override fun afficherInformationCompte(utilisateur: Utilisateur?) {
+        if(utilisateur?.codeAvatar != "default.png" && utilisateur?.codeAvatar != "" && utilisateur?.codeAvatar != null) {
+            var nomImage = utilisateur?.codeAvatar?.lowercase()?.replace(' ', '_')
+                ?.replace('-', '_')?.replace(".png", "")?.replace(".jpg", "")
+            var drawableId: Int = view?.context?.getResources()!!
+                .getIdentifier(nomImage, "drawable", view!!.context.packageName)
+            _avatar?.setImageResource(drawableId)
+        }
         _surnom?.text = utilisateur?.nom
         _motPasse?.text = utilisateur?.motPasse
     }
